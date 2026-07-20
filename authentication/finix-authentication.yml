@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/finix-openapi-original.yml
+docs: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/api-keys
+summary:
+  types:
+  - http
+  http_schemes:
+  - basic
+  standard: RFC 7617 HTTP Basic Authentication
+  key_model: API key ID (username) + API key secret (password), Base64-encoded in the Authorization header
+  environment_separation: Sandbox keys and Live keys are not interchangeable; each is issued from its own dashboard
+roles:
+- name: ROLE_PLATFORM
+  description: Highest access. Access all Applications and Merchant data, create Applications and Merchants, and assign roles.
+- name: ROLE_PARTNER
+  description: Access to one Application and its Merchant data.
+- name: ROLE_MERCHANT
+  description: Access to a single Merchant and its data.
+schemes:
+- name: BasicAuth
+  type: http
+  scheme: basic
+  header: 'Authorization: Basic <Base64(username:password)>'
+  sources:
+  - openapi/finix-openapi-original.yml
+notes:
+- Combine the API key username and password with a colon and Base64-encode, per RFC 7617.
+- The optional finix-apiuser-role header can scope a request to a specific role.
