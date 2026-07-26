@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+probe: true
+source: https://trust.finix.com/
+url: https://trust.finix.com/
+platform: SafeBase (Drata)
+certifications:
+- SOC 1
+- SOC 2
+- PCI DSS
+subprocessors:
+- Amazon Web Services (AWS)
+documents:
+- PCI DSS reports (gated)
+- SOC 1 reports (gated)
+- SOC 2 reports (gated)
+evidence:
+- source: https://trust.finix.com/
+  keywords:
+  - soc 1
+  - soc 2
+  - pci dss
+  - trust center
+  - compliance certification

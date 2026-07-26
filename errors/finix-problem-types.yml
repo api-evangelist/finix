@@ -1,0 +1,70 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.finix.com/additional-resources/developers/implementation-and-testing/error-codes
+derived_from: openapi/finix-openapi-original.yml
+format: custom-hal
+envelope:
+  media_type: application/hal+json
+  shape: '{ total, _embedded: { errors: [ { code, logref, message, _links } ] } }'
+  fields:
+  - name: total
+    description: Count of errors returned.
+  - name: _embedded.errors[].code
+    description: Programmatic error identifier.
+  - name: _embedded.errors[].logref
+    description: Unique request/response identifier for support correlation.
+  - name: _embedded.errors[].message
+    description: Human-readable error description.
+  - name: _embedded.errors[]._links
+    description: Navigation URLs to related resources.
+  transfer_authorization_extra:
+  - failure_code
+  - failure_message
+problems:
+- status: 400
+  code: BAD_REQUEST
+  title: Bad request
+  detail: You provided a request that cannot be successfully parsed.
+- status: 401
+  code: UNKNOWN
+  title: Unauthorized
+  detail: We could not authenticate your request. You used an incorrect API Key.
+- status: 402
+  code: UPSTREAM_PROCESSOR_ERROR
+  title: Upstream processor error
+  detail: Errors returned from third-party payment processors.
+- status: 403
+  code: FORBIDDEN
+  title: Forbidden
+  detail: Your credentials do not have the right permissions to submit the request.
+- status: 404
+  code: NOT_FOUND
+  title: Not found
+  detail: The specified resource could not be found.
+- status: 405
+  code: METHOD_NOT_ALLOWED
+  title: Method not allowed
+  detail: The HTTP request method used is not supported by the resource.
+- status: 406
+  code: NOT_ACCEPTABLE
+  title: Not acceptable
+  detail: The server cannot accept the submitted request.
+- status: 409
+  code: CONFLICT
+  title: Conflict
+  detail: The submitted request conflicts with the current state of the server.
+- status: 422
+  code: UNPROCESSABLE_ENTITY
+  title: Unprocessable entity
+  detail: Parameters were valid but the request failed due to workflow issues.
+- status: 429
+  code: TOO_MANY_REQUESTS
+  title: Too many requests
+  detail: Rate limit exceeded; retry after the reset.
+- status: 500
+  code: SERVER_ERROR
+  title: Server error
+  detail: We had a problem with our server. Try again later.
+notes:
+- Response codes observed in the OpenAPI (openapi/finix-openapi-original.yml) include 200, 201, 204, 400, 401, 402, 403, 404, 406, 422.
+- Finix does not use RFC 9457 application/problem+json; errors use the HAL envelope above.

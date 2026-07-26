@@ -1,0 +1,123 @@
+asyncapi: 2.6.0
+info:
+  title: Finix Webhook Events
+  version: '2022-02-01'
+  description: >-
+    Finix delivers real-time event notifications via webhooks (HTTP POST) when
+    resources change. Subscribe with POST /webhooks. Each delivery carries an
+    envelope { id, type, entity, occurred_at, system_generated_idempotency_id,
+    _embedded: { <resource_plural>: [ ... ] } }. Derived from the Finix webhook
+    events reference; captured by the API Evangelist enrichment pipeline.
+  contact:
+    name: Finix
+    url: https://docs.finix.com/additional-resources/developers/webhooks/webhook-events
+x-generated: '2026-07-19'
+x-method: searched
+x-source: https://docs.finix.com/additional-resources/developers/webhooks/webhook-events
+x-spec-type: AsyncAPI
+defaultContentType: application/json
+channels:
+  authorization:
+    subscribe:
+      message:
+        oneOf:
+        - { name: authorization.created, summary: Authorization established but not yet captured. }
+        - { name: authorization.updated, summary: Authorization state changed (captured or voided). }
+  transfer:
+    subscribe:
+      message:
+        oneOf:
+        - { name: transfer.created, summary: Transfer initiated (typically PENDING). }
+        - { name: transfer.updated, summary: Transfer state progressed (usually SUCCEEDED). }
+        - { name: transfer_attempt.created, summary: Transfer attempt initiated. }
+        - { name: transfer_attempt.updated, summary: Transfer attempt state changed. }
+        - { name: funding_transfer_attempt.created, summary: Funding attempt initiated. }
+        - { name: funding_transfer_attempt.updated, summary: Funding attempt completed. }
+        - { name: balance_transfer.created, summary: Balance transfer initiated. }
+        - { name: balance_transfer.updated, summary: Balance transfer status changed. }
+  settlement:
+    subscribe:
+      message:
+        oneOf:
+        - { name: settlement.created, summary: Settlement closed with payout totals. }
+        - { name: settlement.updated, summary: Settlement awaiting approval. }
+        - { name: settlement.accruing_started, summary: Settlement began accumulating transactions. }
+  dispute:
+    subscribe:
+      message:
+        oneOf:
+        - { name: dispute.created, summary: Chargeback dispute filed. }
+        - { name: dispute.updated, summary: Dispute state transitioned. }
+        - { name: evidence.created, summary: Evidence file prepared for dispute. }
+        - { name: evidence.updated, summary: Evidence upload completed or state modified. }
+  merchant:
+    subscribe:
+      message:
+        oneOf:
+        - { name: merchant.created, summary: New merchant provisioning initiated. }
+        - { name: merchant.updated, summary: Merchant information or status changed. }
+        - { name: merchant.underwritten, summary: Merchant approved and ready for payments. }
+        - { name: merchant_profile.created, summary: Merchant profile auto-generated. }
+        - { name: merchant_profile.updated, summary: Merchant profile modified. }
+        - { name: onboarding_form.created, summary: Seller began onboarding process. }
+        - { name: onboarding_form.updated, summary: Seller completed onboarding form. }
+  identity:
+    subscribe:
+      message:
+        oneOf:
+        - { name: identity.created, summary: New identity record established. }
+        - { name: identity.updated, summary: Identity information modified. }
+  instrument:
+    subscribe:
+      message:
+        oneOf:
+        - { name: instrument.created, summary: Payment method (card/bank account) added. }
+        - { name: instrument.updated, summary: Payment instrument details modified. }
+        - { name: instrument_history.created, summary: Stored card details refreshed or changed. }
+  verification:
+    subscribe:
+      message:
+        oneOf:
+        - { name: verification.created, summary: Underwriting request submitted. }
+        - { name: verification.updated, summary: Verification approved or rejected. }
+        - { name: compliance_form.created, summary: PCI compliance form generated. }
+        - { name: compliance_form.updated, summary: Compliance form submission completed. }
+  file:
+    subscribe:
+      message:
+        oneOf:
+        - { name: file.created, summary: Document placeholder created. }
+        - { name: file.updated, summary: Document uploaded or rejected. }
+        - { name: external_link.created, summary: Upload link generated. }
+        - { name: external_link.updated, summary: Upload link expired. }
+  fee:
+    subscribe:
+      message:
+        oneOf:
+        - { name: fee.created, summary: Fee assessed. }
+        - { name: fee.updated, summary: Fee details modified. }
+        - { name: fee_profile.created, summary: Fee structure established. }
+        - { name: fee_profile.updated, summary: Fee structure changed. }
+        - { name: risk_profile.created, summary: Risk assessment generated. }
+        - { name: risk_profile.updated, summary: Risk assessment modified. }
+  gateway_integration:
+    subscribe:
+      message:
+        oneOf:
+        - { name: gateway_integration.created, summary: Third-party gateway connection initiated (PENDING). }
+        - { name: gateway_integration.updated, summary: Gateway approval completed (SUCCEEDED or FAILED). }
+  low_code:
+    subscribe:
+      message:
+        oneOf:
+        - { name: checkout_form.created, summary: Checkout interface deployed. }
+        - { name: checkout_form.updated, summary: Checkout form configuration modified. }
+        - { name: payment_link.created, summary: Payment link generated. }
+        - { name: payment_link.updated, summary: Payment link settings changed. }
+        - { name: subscription.created, summary: Recurring billing plan activated. }
+        - { name: subscription.updated, summary: Subscription state or details changed. }
+        - { name: payout_profile.created, summary: Seller payout configuration established. }
+        - { name: application.created, summary: New application created (Core customers only). }
+        - { name: application.updated, summary: Application modified. }
+        - { name: application_profile.created, summary: Application profile established. }
+        - { name: application_profile.updated, summary: Application profile changed. }

@@ -1,0 +1,45 @@
+arazzo: 1.0.1
+info:
+  title: Finix Tokenize and Charge
+  version: 1.0.0
+  summary: Convert a finix.js token into a Payment Instrument and create a Transfer (sale).
+sourceDescriptions:
+- name: finix
+  url: ../openapi/finix-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: tokenizeAndCharge
+  summary: Charge a buyer using a tokenized payment instrument.
+  inputs:
+    type: object
+    properties:
+      identity_id: { type: string }
+      token: { type: string, description: Token from finix.js Finix.PaymentForm onSubmit. }
+      merchant_id: { type: string }
+      amount: { type: integer, default: 1000 }
+      currency: { type: string, default: USD }
+      idempotency_id: { type: string }
+  steps:
+  - stepId: createInstrumentFromToken
+    operationId: createPaymentInstrument
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      instrument_id: $response.body#/id
+  - stepId: charge
+    operationId: createTransfer
+    requestBody:
+      contentType: application/json
+      payload:
+        amount: $inputs.amount
+        currency: $inputs.currency
+        source: $steps.createInstrumentFromToken.outputs.instrument_id
+        merchant: $inputs.merchant_id
+        idempotency_id: $inputs.idempotency_id
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      transfer_id: $response.body#/id
+      state: $response.body#/state
+  outputs:
+    transfer_id: $steps.charge.outputs.transfer_id

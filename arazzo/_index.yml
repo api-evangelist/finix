@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/finix-openapi-original.yml
+workflows:
+- file: finix-onboard-merchant-workflow.yml
+  workflowId: onboardMerchant
+  title: Finix Onboard Merchant
+  summary: Create a merchant Identity, attach a bank account, provision the Merchant, and run verification.
+- file: finix-authorize-and-capture-workflow.yml
+  workflowId: authorizeAndCapture
+  title: Finix Authorize and Capture
+  summary: Create a buyer Identity and card, place an Authorization, then capture it.
+- file: finix-tokenize-and-charge-workflow.yml
+  workflowId: tokenizeAndCharge
+  title: Finix Tokenize and Charge
+  summary: Convert a finix.js token into a Payment Instrument and create a Transfer.
+- file: finix-refund-transfer-workflow.yml
+  workflowId: refundTransfer
+  title: Finix Refund Transfer
+  summary: Look up a Transfer and issue a reversal (refund).

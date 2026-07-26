@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics
+docs:
+  authentication: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/api-keys
+  idempotency: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/idempotent-request
+  pagination: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/pagination
+  versioning: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/versioning
+  rate_limits: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/rate-limits
+  errors: https://docs.finix.com/additional-resources/developers/implementation-and-testing/error-codes
+authentication:
+  style: HTTP Basic (RFC 7617)
+  detail: API key ID + secret, Base64-encoded. See authentication/finix-authentication.yml.
+idempotency:
+  supported: true
+  mechanism: request-body field
+  field: idempotency_id
+  scope: Supported on POST /transfers, POST /authorizations, and POST /transfers/{id}/reversals
+  behavior: Ensures a create request is performed only once; protects against duplicate charges on retry.
+  note: Webhook events also carry a system_generated_idempotency_id.
+pagination:
+  style: cursor
+  params:
+  - limit
+  - after_cursor
+  - before_cursor
+  response_fields:
+  - page.next_cursor
+  - page.limit
+  detail: Cursor-based pagination introduced in version 2022-02-01; use next_cursor with limit to page large lists.
+versioning:
+  style: date-header
+  header: Finix-Version
+  format: YYYY-MM-DD
+  current: '2022-02-01'
+  base_default: '2018-01-01'
+  detail: Breaking changes ship as new dated versions; omitting the header defaults to 2018-01-01.
+  see: lifecycle/finix-lifecycle.yml
+error_envelope:
+  style: HAL (application/hal+json)
+  shape: '{ total, _embedded: { errors: [ { code, logref, message, _links } ] } }'
+  transfer_fields:
+  - failure_code
+  - failure_message
+  see: errors/finix-problem-types.yml
+hypermedia:
+  standard: HAL / HATEOAS
+  detail: Responses embed related resources under _embedded and navigation under _links.
+rate_limiting:
+  detail: 100 requests/second reads and writes (Live); 429 TOO_MANY_REQUESTS on exceed.
+  see: rate-limits/finix-rate-limits.yml
+request_tracing:
+  header: x-request-id
+  detail: Requests may carry an x-request-id; the API returns a logref on errors for support correlation.

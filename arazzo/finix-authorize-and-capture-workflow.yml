@@ -1,0 +1,51 @@
+arazzo: 1.0.1
+info:
+  title: Finix Authorize and Capture
+  version: 1.0.0
+  summary: Create a buyer Identity and card, place an Authorization, then capture it.
+sourceDescriptions:
+- name: finix
+  url: ../openapi/finix-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: authorizeAndCapture
+  summary: Authorize a card payment and capture the funds.
+  inputs:
+    type: object
+    properties:
+      merchant_id: { type: string }
+      amount: { type: integer, default: 1000 }
+      currency: { type: string, default: USD }
+      card_number: { type: string, default: '4242424242424242' }
+  steps:
+  - stepId: createBuyerIdentity
+    operationId: createIdentity
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      identity_id: $response.body#/id
+  - stepId: createCard
+    operationId: createPaymentInstrument
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      instrument_id: $response.body#/id
+  - stepId: authorize
+    operationId: createAuthorization
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      authorization_id: $response.body#/id
+  - stepId: capture
+    operationId: captureAuthorization
+    parameters:
+    - name: authorization_id
+      in: path
+      value: $steps.authorize.outputs.authorization_id
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      transfer_id: $response.body#/transfer
+  outputs:
+    authorization_id: $steps.authorize.outputs.authorization_id
+    transfer_id: $steps.capture.outputs.transfer_id

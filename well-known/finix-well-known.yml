@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: probed
+source: live probes of Finix hosts
+note: >-
+  No public .well-known discovery documents were served. finix.com and docs.finix.com
+  return 404 for security.txt and related paths; the API hosts return 401 (auth
+  required) for well-known paths, so nothing is publicly published. Recorded for
+  auditability; no canonical WellKnown/SecurityTxt pointer is wired.
+hosts:
+- host: https://finix.com
+  documents:
+  - { path: /.well-known/security.txt, status: 404 }
+  - { path: /.well-known/ai-plugin.json, status: 404 }
+  - { path: /.well-known/api-catalog, status: 404 }
+- host: https://docs.finix.com
+  documents:
+  - { path: /.well-known/security.txt, status: 404 }
+- host: https://finix.live-payments-api.com
+  documents:
+  - { path: /.well-known/security.txt, status: 401 }
+  - { path: /.well-known/openid-configuration, status: 401 }
+  - { path: /.well-known/oauth-authorization-server, status: 401 }

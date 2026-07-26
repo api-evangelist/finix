@@ -1,0 +1,46 @@
+arazzo: 1.0.1
+info:
+  title: Finix Refund Transfer
+  version: 1.0.0
+  summary: Look up a Transfer and issue a reversal (refund).
+sourceDescriptions:
+- name: finix
+  url: ../openapi/finix-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: refundTransfer
+  summary: Reverse (refund) a settled or pending Transfer.
+  inputs:
+    type: object
+    properties:
+      transfer_id: { type: string }
+      refund_amount: { type: integer, description: Amount in cents; omit for full refund. }
+      idempotency_id: { type: string }
+  steps:
+  - stepId: getTransfer
+    operationId: getTransfer
+    parameters:
+    - name: transfer_id
+      in: path
+      value: $inputs.transfer_id
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      state: $response.body#/state
+  - stepId: reverse
+    operationId: createTransferReversal
+    parameters:
+    - name: transfer_id
+      in: path
+      value: $inputs.transfer_id
+    requestBody:
+      contentType: application/json
+      payload:
+        refund_amount: $inputs.refund_amount
+        idempotency_id: $inputs.idempotency_id
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reversal_id: $response.body#/id
+  outputs:
+    reversal_id: $steps.reverse.outputs.reversal_id

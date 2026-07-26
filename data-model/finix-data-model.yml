@@ -1,0 +1,112 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/finix-openapi-original.yml
+docs: https://docs.finix.com/api
+note: >-
+  Entity graph derived from OpenAPI path nesting and id-reference fields. Finix
+  resource IDs are prefixed (e.g. IDxxxx identity, MUxxxx merchant, PIxxxx payment
+  instrument, AUxxxx authorization, TRxxxx transfer, STxxxx settlement).
+entities:
+- name: Identity
+  id_prefix: ID
+  description: A person or business (buyer, merchant, or platform) that owns merchants and payment instruments.
+- name: Merchant
+  id_prefix: MU
+  description: An onboarded merchant account enabled to process payments, belonging to an Identity.
+- name: MerchantProfile
+  id_prefix: MP
+  description: Processing configuration for a merchant.
+- name: PaymentInstrument
+  id_prefix: PI
+  description: A tokenized card or bank account belonging to an Identity.
+- name: Authorization
+  id_prefix: AU
+  description: A hold on a payment instrument that can be captured or voided.
+- name: Transfer
+  id_prefix: TR
+  description: A debit, credit, refund, or reversal moving money.
+- name: Settlement
+  id_prefix: ST
+  description: A batch of transfers grouped for payout to a merchant.
+- name: Dispute
+  id_prefix: DI
+  description: A chargeback against a transfer, with evidence.
+- name: FeeProfile
+  id_prefix: FP
+  description: The fee structure applied to a merchant.
+- name: Verification
+  id_prefix: VI
+  description: An underwriting/verification check against a merchant or instrument.
+- name: OnboardingForm
+  description: A hosted seller onboarding form.
+- name: Device
+  id_prefix: DV
+  description: A physical payment terminal assigned to a merchant.
+- name: Webhook
+  id_prefix: WH
+  description: A subscription endpoint receiving event notifications.
+relationships:
+- from: Merchant
+  type: belongs_to
+  to: Identity
+  via: identity
+  evidence: POST /identities/{identity_id}/merchants
+- from: PaymentInstrument
+  type: belongs_to
+  to: Identity
+  via: identity
+- from: Settlement
+  type: belongs_to
+  to: Identity
+  via: identity
+  evidence: POST /identities/{identity_id}/settlements
+- from: Authorization
+  type: has_one
+  to: PaymentInstrument
+  via: source
+- from: Transfer
+  type: has_one
+  to: PaymentInstrument
+  via: source
+- from: Transfer
+  type: has_one
+  to: Merchant
+  via: merchant
+- from: Transfer
+  type: has_many
+  to: Transfer
+  via: reversals
+  evidence: POST /transfers/{transfer_id}/reversals
+- from: Settlement
+  type: has_many
+  to: Transfer
+  via: transfers
+  evidence: GET /settlements/{settlement_id}/transfers
+- from: Dispute
+  type: has_one
+  to: Transfer
+  via: transfer
+- from: Dispute
+  type: has_many
+  to: DisputeEvidence
+  via: evidence
+  evidence: POST /disputes/{dispute_id}/evidence
+- from: Merchant
+  type: has_many
+  to: Verification
+  via: verifications
+  evidence: POST /merchants/{merchant_id}/verifications
+- from: Merchant
+  type: has_many
+  to: Device
+  via: devices
+  evidence: POST /merchants/{merchant_id}/devices
+- from: Merchant
+  type: has_one
+  to: PayoutProfile
+  via: payout_profile
+  evidence: GET /merchants/{merchant_id}/payout_profile
+- from: Merchant
+  type: has_one
+  to: FeeProfile
+  via: fee_profile

@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/finix-openapi-original.yml
+skills:
+- file: finix-onboard-merchant.md
+  name: Onboard a merchant with Finix
+  api: openapi/finix-openapi-original.yml
+  operations: [createIdentity, createPaymentInstrument, createMerchant, createMerchantVerification]
+- file: finix-authorize-and-capture.md
+  name: Authorize and capture a card payment
+  api: openapi/finix-openapi-original.yml
+  operations: [createIdentity, createPaymentInstrument, createAuthorization, captureAuthorization]
+- file: finix-tokenize-and-charge.md
+  name: Tokenize and charge a buyer
+  api: openapi/finix-openapi-original.yml
+  operations: [createPaymentInstrument, createTransfer]
+- file: finix-refund-transfer.md
+  name: Refund a transfer
+  api: openapi/finix-openapi-original.yml
+  operations: [getTransfer, createTransferReversal]

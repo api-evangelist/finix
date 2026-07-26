@@ -1,0 +1,172 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.finix.com/additional-resources/developers/implementation-and-testing/failure-codes
+envelope_fields:
+  failure_code: Standardized machine-readable decline/failure code.
+  failure_message: Cardholder-facing explanation of the decline.
+  appears_on:
+  - transfer
+  - authorization
+scope: Card and ACH payment declines
+disables_instrument_marker: '*'
+decline_codes:
+- code: ADDRESS_VERIFICATION_FAILED_RISK_RULES
+  meaning: Merchant risk rules declined due to address mismatch.
+  action: Cardholder needs to create a card with the correct address.
+- code: ALLOWABLE_NUMBER_OF_PIN_ENTRY_TRIES_EXCEEDED
+  meaning: Maximum PIN attempts exhausted.
+  action: Use an alternative payment method.
+- code: AUTHORIZATION_EXPIRED_OR_ALREADY_CAPTURED
+  meaning: Authorization expired or was previously captured.
+  action: Create a new authorization.
+- code: BANK_ACCOUNT_CLOSED
+  meaning: Bank account no longer active.
+  action: Obtain a different active payment method.
+- code: BANK_ACCOUNT_FROZEN
+  meaning: Account access restricted.
+  action: Contact account owner; use a different method.
+- code: CALL_ISSUER
+  meaning: Card declined; reason unknown.
+  action: Cardholder contacts card issuer.
+- code: CANCELLATION_VIA_API
+  meaning: Transaction canceled through the API.
+  action: Retry the transaction.
+- code: CANCELLATION_VIA_DEVICE
+  meaning: Cancel button pressed on the device.
+  action: Retry the transaction.
+- code: CARD_ACCOUNT_CLOSED
+  disables_instrument: true
+  meaning: Card account closed.
+  action: Use an active card.
+- code: CARD_NETWORK_ERROR
+  meaning: Card network technical issue.
+  action: Contact the card network.
+- code: CARD_NOT_ACTIVATED_OR_BLOCKED
+  meaning: Card blocked or inactive.
+  action: Activate card or contact issuer.
+- code: CARD_NOT_SUPPORTED
+  meaning: Purchase type unsupported.
+  action: Cardholder verifies card eligibility with issuer.
+- code: CARDHOLDER_PREVENTED_RECURRING_TRANSACTION
+  meaning: Cardholder blocked recurring charges.
+  action: Obtain new authorization if needed.
+- code: COMMUNICATION_ERROR
+  meaning: Network connectivity issue.
+  action: Check connection; retry.
+- code: CVV_FAILED_RISK_RULES
+  meaning: Merchant risk rules declined CVV.
+  action: Retry with the correct CVV.
+- code: DEVICE_IN_USE
+  meaning: Terminal processing another request.
+  action: Retry after 6 minutes.
+- code: DEVICE_NOT_CONNECTED
+  meaning: Terminal lacks network connection.
+  action: Connect terminal to network.
+- code: DEVICE_UNREACHABLE
+  meaning: API cannot reach device.
+  action: Retry the request.
+- code: DO_NOT_HONOR
+  meaning: Card declined; reason unknown.
+  action: Cardholder contacts issuer.
+- code: DUPLICATE_TRANSACTION
+  meaning: Same amount/card approved recently.
+  action: Set check_for_duplicate_transactions to false.
+- code: EXCEEDED_CARDHOLDER_INPUT_TIME_LIMIT
+  meaning: Card input window expired.
+  action: Retry the transaction.
+- code: EXCEEDS_APPROVAL_LIMIT
+  meaning: Daily card limit exceeded.
+  action: Use a different card.
+- code: EXCEEDS_WITHDRAWAL_FREQUENCY_LIMIT
+  meaning: Withdrawal frequency limit reached.
+  action: Use a different card.
+- code: EXPIRED_CARD
+  meaning: Card expiration date passed.
+  action: Use a non-expired card.
+- code: FRAUD_DETECTED
+  meaning: Processor flagged fraud.
+  action: Cardholder contacts issuer.
+- code: FRAUD_DETECTED_BY_FINIX
+  meaning: Finix fraud detection triggered.
+  action: Contact Finix support.
+- code: FRAUD_DETECTED_BY_ISSUER
+  meaning: Issuer flagged fraud.
+  action: Cardholder contacts their issuing bank.
+- code: GENERIC_DECLINE
+  meaning: Unknown decline reason.
+  action: Account owner contacts issuer.
+- code: INACTIVE_CARD
+  meaning: Card not active.
+  action: Activate or use a different card.
+- code: INCOMPLETE_TRANSACTION
+  meaning: Transaction abandoned by cardholder.
+  action: Retry the transaction.
+- code: INSUFFICIENT_FUNDS
+  meaning: Account lacks adequate balance.
+  action: Use a different payment method.
+- code: INVALID_ACCOUNT_NUMBER
+  disables_instrument: true
+  meaning: Invalid card number.
+  action: Contact issuer or use a different card.
+- code: INVALID_AMOUNT
+  meaning: Amount exceeds card limits.
+  action: Check issuer limits.
+- code: INVALID_BANK_ACCOUNT_NUMBER
+  meaning: Bank account number invalid.
+  action: Use a valid account number.
+- code: INVALID_BANK_ACCOUNT_VALIDATION_CHECK
+  meaning: Routing number no longer valid.
+  action: Verify routing/account numbers.
+- code: INVALID_CARD
+  meaning: Card invalid.
+  action: Use a different card.
+- code: INVALID_CARD_NUMBER_OR_EXPIRED_CARD
+  meaning: Number invalid, closed, or expired.
+  action: Verify card details.
+- code: INVALID_CVV
+  meaning: CVV incorrect.
+  action: Retry with the correct CVV.
+- code: INVALID_ISSUER
+  meaning: Card number not mapped to issuer.
+  action: Cardholder contacts issuer.
+- code: INVALID_ROUTING_NUMBER
+  meaning: Bank routing number invalid.
+  action: Provide a valid routing number.
+- code: INVALID_TRANSACTION
+  meaning: Issuer prohibits transaction type.
+  action: Cardholder contacts issuer.
+- code: ISSUER_POLICY_VIOLATION
+  meaning: Issuer internal rule blocks transaction.
+  action: Cardholder contacts their issuing bank for additional information.
+- code: LOST_OR_STOLEN_CARD
+  disables_instrument: true
+  meaning: Card reported lost/stolen.
+  action: Return a generic decline to the cardholder (security).
+- code: MAX_TRANSACTION_AMOUNT_EXCEEDED
+  meaning: Exceeds merchant max limit.
+  action: Increase merchant limit or reduce amount.
+- code: NO_BANK_ACCOUNT_FOUND
+  meaning: Valid number; wrong holder/closed.
+  action: Re-enter correct account details.
+- code: NON_TRANSACTION_ACCOUNT
+  meaning: Account type restricts transactions.
+  action: Request permission for a different account.
+- code: PAYMENT_STOPPED
+  meaning: Cardholder stopped payment.
+  action: Contact customer to arrange payment.
+- code: PICK_UP_CARD
+  disables_instrument: true
+  meaning: Card lost/stolen by cardholder.
+  action: Cardholder contacts issuer.
+- code: RESTRICTED_CARD
+  meaning: Card restrictions prevent approval.
+  action: Contact issuing bank.
+- code: RESUBMIT_TRANSACTION
+  meaning: Issuer cannot process; reason unknown.
+  action: Retry; escalate if declined again.
+- code: TRANSACTION_NOT_PERMITTED
+  meaning: Card/transaction type not permitted.
+  action: Use a different card or method.
+notes:
+- Codes marked disables_instrument disable the Payment Instrument on decline.
+- Push-to-Card operations return a separate messages field rather than failure_code.

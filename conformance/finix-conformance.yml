@@ -1,0 +1,49 @@
+generated: '2026-07-19'
+method: searched
+source: openapi/finix-openapi-original.yml
+docs:
+- https://trust.finix.com/
+- https://docs.finix.com/additional-resources/developers/authentication-and-api-basics
+standards:
+- id: rfc7617-http-basic-auth
+  conforms: true
+  evidence: OpenAPI securityScheme BasicAuth (http/basic); docs specify RFC 7617.
+- id: hal-hateoas
+  conforms: true
+  evidence: Responses use application/hal+json with _embedded and _links.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 security schemes; authentication is HTTP Basic only.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom HAL envelope, not application/problem+json.
+- id: cursor-pagination
+  conforms: true
+  evidence: Cursor-based pagination (next_cursor + limit) as of version 2022-02-01.
+- id: idempotency
+  conforms: true
+  evidence: idempotency_id supported on transfers, authorizations, and reversals.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: Breaking changes are date-versioned; no Sunset/Deprecation headers documented.
+- id: pci-dss
+  conforms: true
+  evidence: Level 1 PCI DSS certified; PCI DSS reports available on trust.finix.com.
+- id: soc2
+  conforms: true
+  evidence: SOC 2 report available on trust.finix.com.
+- id: soc1
+  conforms: true
+  evidence: SOC 1 report available on trust.finix.com.
+- id: 3d-secure
+  conforms: true
+  evidence: 3D Secure authentication supported for card-not-present payments.
+compliance_program:
+  published: true
+  url: https://trust.finix.com/
+  certifications:
+  - PCI DSS (Level 1)
+  - SOC 1
+  - SOC 2

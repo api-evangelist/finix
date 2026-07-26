@@ -1,0 +1,124 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.finix.com/additional-resources/developers/implementation-and-testing/testing-your-integration
+environments:
+  sandbox_host: https://finix.sandbox-payments-api.com
+  live_host: https://finix.live-payments-api.com
+  key_separation: Sandbox and Live API keys are environment-specific and not interchangeable.
+test_cards_by_type:
+- number: '6011000000004675'
+  brand: Discover
+  result: CREDIT
+- number: '5200820000007201'
+  brand: Mastercard
+  result: DEBIT
+- number: '4393420000002680'
+  brand: Visa
+  result: HSA_FSA
+- number: '5223100000008423'
+  brand: Mastercard
+  result: NON_RELOADABLE_PREPAID
+- number: '379032000006086'
+  brand: American Express
+  result: RELOADABLE_PREPAID
+test_cards_failure:
+- number: '4000000000009979'
+  brand: Visa
+  failure_code: GENERIC_DECLINE
+- number: '4012888888881881'
+  brand: Visa
+  failure_code: CALL_ISSUER
+- number: '4539148803436467'
+  brand: Visa
+  failure_code: CARD_NOT_ACTIVATED_OR_BLOCKED
+- number: '4000000000000002'
+  brand: Visa
+  failure_code: DO_NOT_HONOR
+- number: '4000000000009995'
+  brand: Visa
+  failure_code: EXCEEDS_APPROVAL_LIMIT
+- number: '4000000000009987'
+  brand: Visa
+  failure_code: EXPIRED_CARD
+- number: '4129054449449482'
+  brand: Visa
+  failure_code: FRAUD_DETECTED_BY_FINIX
+- number: '4783512839773883'
+  brand: Visa
+  failure_code: FRAUD_DETECTED_BY_ISSUER
+- number: '4000000000000069'
+  brand: Visa
+  failure_code: INSUFFICIENT_FUNDS
+- number: '4544206329536898'
+  brand: Visa
+  failure_code: INVALID_CARD_NUMBER_OR_EXPIRED_CARD
+- number: '4000056655665556'
+  brand: Visa
+  failure_code: INVALID_CVV
+- number: '4709247730212712'
+  brand: Visa
+  failure_code: ISSUER_POLICY_VIOLATION
+- number: '4000000000000127'
+  brand: Visa
+  failure_code: LOST_OR_STOLEN_CARD
+- number: '4000000000000119'
+  brand: Visa
+  failure_code: PICK_UP_CARD
+- number: '4242424242424242'
+  brand: Visa
+  failure_code: RESTRICTED_CARD
+test_amounts_cents:
+- amount: 102
+  result: Declined
+- amount: 103
+  result: Canceled
+- amount: 193
+  result: Insufficient funds
+- amount: 194
+  result: Invalid card number
+- amount: 888888
+  result: Disputed
+- amount: 889986
+  result: AVS failure
+- amount: 889987
+  result: CVC failure
+ach_test:
+  bank_account_validation:
+  - bank_code: '122105278'
+    account: '0000000016'
+    result: VALID
+  - bank_code: '122105278'
+    account: '0000000005'
+    result: INVALID
+  - bank_code: '121000358'
+    account: '123123128'
+    result: INCONCLUSIVE
+  return_codes:
+  - code: R01
+    bank_code: '122105278'
+    account: '123120006'
+    result: INSUFFICIENT_FUNDS
+  - code: R02
+    bank_code: '122105278'
+    account: '123120007'
+    result: BANK_ACCOUNT_CLOSED
+  - code: R03
+    bank_code: '122105278'
+    account: '123120008'
+    result: NO_BANK_ACCOUNT_FOUND
+  - code: R04
+    bank_code: '122105278'
+    account: '123120009'
+    result: INVALID_BANK_ACCOUNT_NUMBER
+name_verification_values:
+- name: Billy
+  result: MATCH
+- name: Joey
+  result: NO_MATCH
+- name: Sarah
+  result: PARTIAL_MATCH
+- name: Amanda
+  result: NOT_SUPPORTED
+notes:
+- Refund FAILED-state test card 4000000000000135 (Visa).
+- Additional Push-to-Card, Network Token, and Account Updater test cards are documented on the testing page.

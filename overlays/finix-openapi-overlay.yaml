@@ -1,0 +1,35 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Finix API
+  version: 1.0.0
+extends: openapi/finix-openapi-original.yml
+x-generated: '2026-07-19'
+x-method: generated
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: true
+    x-apievangelist-provider: finix
+    x-apievangelist-live-server: https://finix.live-payments-api.com
+    x-apievangelist-conventions:
+      authentication: HTTP Basic (RFC 7617)
+      idempotency_field: idempotency_id
+      pagination: cursor (next_cursor + limit)
+      version_header: Finix-Version (YYYY-MM-DD, current 2022-02-01)
+      error_envelope: HAL (_embedded.errors[])
+      hypermedia: HAL / HATEOAS
+- target: $.servers
+  update:
+  - description: Live server for production
+    url: https://finix.live-payments-api.com
+- target: $.info
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/finix-authentication.yml
+      conventions: conventions/finix-conventions.yml
+      errors: errors/finix-problem-types.yml
+      decline_codes: errors/finix-decline-codes.yml
+      data_model: data-model/finix-data-model.yml
+      sandbox: sandbox/finix-sandbox.yml
+      webhooks: asyncapi/finix-events-asyncapi.yml
+      mcp: https://docs.finix.com/mcp

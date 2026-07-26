@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.finix.com/additional-resources/release-notes
+scheme: dated-monthly
+current_api_version: '2022-02-01'
+entries:
+- date: '2026-05'
+  title: Cybersource Gateway Integration Now Available
+  type: addition
+  highlight: Route transactions through Cybersource while Finix handles onboarding and settlements.
+- date: '2026-04'
+  title: PAX IM30 Now Available
+  type: addition
+  highlight: New payment terminal for unattended environments like kiosks and vending machines.
+- date: '2026-04'
+  title: Cardholder Name Verification Now Included with Push-to-Card Checks
+  type: addition
+  highlight: Identity verification results returned automatically during card eligibility checks.
+- date: '2026-04'
+  title: Update to ACH Settlement Statement Descriptors
+  type: change
+  highlight: Originator names now formatted as "Finix-Your Statement Descriptor" for compliance.
+- date: '2026-03'
+  title: Payment Links on Finix Checkout iOS App
+  type: addition
+  highlight: Mobile app now supports creating and sharing payment links.
+- date: '2026-02'
+  title: Invoices is in Early Access
+  type: addition
+  highlight: Formal invoice documents with a 0.10% promotional fee through June 30, 2026.
+- date: '2026-02'
+  title: MCP Server now available
+  type: addition
+  highlight: AI assistants can access live Finix documentation via Claude and ChatGPT integration.
+- date: '2026-02'
+  title: Surcharging now available on Variable Payment Links
+  type: addition
+  highlight: Add surcharge fees to variable-amount payment links.

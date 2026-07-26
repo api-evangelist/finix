@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.finix.com/guides/online-payments/payment-tokenization/tokenization-forms
+loaders:
+- name: finix.js (v2)
+  script: https://js.finix.com/v/2/finix.js
+  note: Must be loaded from the CDN; never self-hosted or bundled (PCI scope reduction).
+components:
+- family: Tokenization
+  name: Finix.PaymentForm
+  type: hosted-iframe
+  description: Embeddable, PCI-compliant tokenization form (card + bank) rendered as an isolated iframe with customizable styling, labels, placeholders, and validation.
+  callbacks:
+  - onLoad
+  - onUpdate
+  - onSubmit
+  deprecated_v1:
+  - Finix.TokenForm
+  - Finix.CardTokenForm
+  - Finix.BankTokenForm
+- family: Fraud
+  name: Fraud Detection JavaScript library
+  type: js-library
+  description: Client-side session-tracking library that feeds Finix's Fraud Detection API to block bad actors.
+- family: Low-code checkout
+  name: Checkout Pages / Payment Links / Subscription Links
+  type: hosted-surface
+  description: Finix-hosted checkout pages and shareable payment/subscription links requiring no custom UI code.
+- family: Mobile
+  name: FinixPaymentSheet (iOS) / Android Payment Sheet (Jetpack Compose)
+  type: mobile-sheet
+  description: Native prebuilt tokenization sheets for iOS and Android that keep card/bank capture out of app PCI scope.
+notes:
+- Distinct from the server-side SDKs catalogued in packages/finix-packages.yml.

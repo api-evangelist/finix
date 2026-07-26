@@ -1,0 +1,56 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/finix-payments
+packages:
+- language: python
+  registry: github
+  name: finix-python
+  url: https://github.com/finix-payments/finix-python
+  install: pip install finix
+  official: true
+  note: Official Finix Python library (OpenAPI-generated).
+- language: javascript
+  registry: github
+  name: finix-nodejs
+  url: https://github.com/finix-payments/finix-nodejs
+  install: npm install finix
+  official: true
+  note: Official Finix Node.js/TypeScript library.
+- language: java
+  registry: github
+  name: finix-java
+  url: https://github.com/finix-payments/finix-java
+  install: See repository README (Maven/Gradle)
+  official: true
+  note: Official Finix Java API library.
+- language: php
+  registry: github
+  name: processing-php-client
+  url: https://github.com/finix-payments/processing-php-client
+  install: composer require finix/processing
+  official: true
+  note: Official Finix PHP processing client.
+- language: swift
+  registry: github
+  name: FinixPaymentSheet
+  url: https://github.com/finix-payments/FinixPaymentSheet
+  install: Swift Package Manager / CocoaPods
+  official: true
+  category: mobile-sdk
+  note: iOS payment sheet / tokenization SDK.
+- language: swift
+  registry: github
+  name: finix-pax-mpos-ios-sdk
+  url: https://github.com/finix-payments/finix-pax-mpos-ios-sdk
+  install: Swift Package Manager
+  official: true
+  category: mobile-sdk
+  note: iOS mPOS SDK for PAX card readers.
+- language: kotlin
+  registry: github
+  name: finix-android-payment-sheet-app
+  url: https://github.com/finix-payments/finix-android-payment-sheet-app
+  install: Gradle
+  official: true
+  category: mobile-sdk
+  note: Android payment sheet / tokenization SDK (Jetpack Compose).

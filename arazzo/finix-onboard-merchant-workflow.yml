@@ -1,0 +1,54 @@
+arazzo: 1.0.1
+info:
+  title: Finix Onboard Merchant
+  version: 1.0.0
+  summary: Create a merchant Identity, attach a bank account, provision the Merchant, and run verification.
+sourceDescriptions:
+- name: finix
+  url: ../openapi/finix-openapi-original.yml
+  type: openapi
+workflows:
+- workflowId: onboardMerchant
+  summary: Onboard a seller as a payment-enabled Merchant.
+  inputs:
+    type: object
+    properties:
+      business_name: { type: string }
+      bank_code: { type: string, default: '122105278' }
+      account_number: { type: string, default: '0000000016' }
+  steps:
+  - stepId: createMerchantIdentity
+    operationId: createIdentity
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      identity_id: $response.body#/id
+  - stepId: attachBankAccount
+    operationId: createPaymentInstrument
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      instrument_id: $response.body#/id
+  - stepId: provisionMerchant
+    operationId: createMerchant
+    parameters:
+    - name: identity_id
+      in: path
+      value: $steps.createMerchantIdentity.outputs.identity_id
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      merchant_id: $response.body#/id
+  - stepId: verifyMerchant
+    operationId: createMerchantVerification
+    parameters:
+    - name: merchant_id
+      in: path
+      value: $steps.provisionMerchant.outputs.merchant_id
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      verification_id: $response.body#/id
+  outputs:
+    merchant_id: $steps.provisionMerchant.outputs.merchant_id
+    verification_id: $steps.verifyMerchant.outputs.verification_id

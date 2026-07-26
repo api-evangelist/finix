@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/versioning
+versioning:
+  scheme: date-header
+  header: Finix-Version
+  format: YYYY-MM-DD
+  current: '2022-02-01'
+  base_default: '2018-01-01'
+  docs: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/versioning
+  breaking_change_policy: Breaking changes are released as a new dated version; existing versions continue to work.
+  non_breaking_changes:
+  - Adding new resources
+  - Adding new enum values
+  - Adding optional request fields
+  - Adding new response fields
+  - Changing ID field length/format (up to 255 chars)
+deprecation:
+  formal_sunset_headers: false
+  note: Finix versions breaking changes by date rather than publishing RFC 8594 Sunset/Deprecation headers or a dated end-of-life schedule.
+sla:
+  url: https://status.finix.com/
+status_page: https://status.finix.com/
+changelog: https://docs.finix.com/additional-resources/release-notes
+deprecated_operations: []
