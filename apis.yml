@@ -421,7 +421,8 @@ common:
 - type: PrivacyPolicy
   url: https://finix.com/terms-and-policies/privacy-policy
 - type: PostmanWorkspace
-  url: https://www.postman.com/finix
+  url: https://www.postman.com/kinlaneapi/finix/overview
+
 - type: Versioning
   url: https://docs.finix.com/additional-resources/developers/authentication-and-api-basics/versioning
 - type: StatusPage
