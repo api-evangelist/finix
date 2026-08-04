@@ -1,0 +1,1535 @@
+{
+  "info": {
+    "_postman_id": "b736cf83-4f56-454f-9a2d-4cf8abce259c",
+    "name": "Finix Authorizations Webhooks API",
+    "description": "[object Object]\n\nContact Support:\n Name: Finix\n Email: support@finixpayments.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:40:04.000Z",
+    "updatedAt": "2026-07-28T01:40:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b736cf83-4f56-454f-9a2d-4cf8abce259c"
+  },
+  "item": [
+    {
+      "name": "webhooks",
+      "item": [
+        {
+          "name": "{webhook_id}",
+          "item": [
+            {
+              "name": "Fetch a Webhook",
+              "id": "fa770de8-08f3-4b3b-b880-8763f873e2ab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    ":webhook_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0ffa65fd-e902-440b-8a2e-ae60a6c1cb17",
+                      "key": "webhook_id",
+                      "value": "<string>",
+                      "description": "(Required) ID of `Webhook` object."
+                    }
+                  ]
+                },
+                "description": "Retrieve the details of a `Webhook`."
+              },
+              "response": [
+                {
+                  "id": "d55c0f3a-8fc5-4485-a629-77aa1d90562e",
+                  "name": "Single Webhook object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "finix-apiuser-role",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "x-request-id",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application\": \"<string>\",\n  \"authentication\": {\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"previous_secret_expires_at\": \"<string>\",\n  \"secret_signing_key\": \"<string>\",\n  \"url\": \"<string>\",\n  \"_links\": {\n    \"application\": {\n      \"href\": \"<string>\"\n    },\n    \"self\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-d55c0f3a-8fc5-4485-a629-77aa1d90562e"
+                },
+                {
+                  "id": "fa9290d9-f8fe-48bc-8eb8-b1610bc822a3",
+                  "name": "Authentication information is missing or invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"non11\": -95070487.14288345,\n        \"laboris_08b\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"eu_68\": false,\n        \"officia_99\": -70573890\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-fa9290d9-f8fe-48bc-8eb8-b1610bc822a3"
+                },
+                {
+                  "id": "2ec20021-bec1-448c-8f35-b3fb39dcbeba",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"laboris_4\": \"consequat \",\n        \"tempor539\": -92986401.09259662,\n        \"proident_3\": 74075873.44155875\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-2ec20021-bec1-448c-8f35-b3fb39dcbeba"
+                },
+                {
+                  "id": "06d6cb99-4459-4929-aac7-d2534f2b83e0",
+                  "name": "Object does not exist",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-06d6cb99-4459-4929-aac7-d2534f2b83e0"
+                },
+                {
+                  "id": "5d1d39cb-e482-4446-9153-75acd75292be",
+                  "name": "Not Acceptable",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Acceptable",
+                  "code": 406,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"consectetur_9\": 75409672\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-5d1d39cb-e482-4446-9153-75acd75292be"
+                }
+              ],
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-fa770de8-08f3-4b3b-b880-8763f873e2ab"
+            },
+            {
+              "name": "Update a Webhook",
+              "id": "0ab55d62-a462-489b-9428-335e6b38df74",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks",
+                    ":webhook_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5e9eda0e-8b0b-4bed-9d5d-db21e069745d",
+                      "key": "webhook_id",
+                      "value": "<string>",
+                      "description": "(Required) ID of `Webhook` object."
+                    }
+                  ]
+                },
+                "description": "Update an existing `Webhook`to:\n- Disable or enable an endpoint URL to recieve webhook events.\n- Add [authentication to a `Webhook`](/guides/developers/webhooks/#authenticating-webhooks).\n- Filter the [webhook events sent to an endpoint URL](/guides/developers/webhooks/#webhook-event-filtering)."
+              },
+              "response": [
+                {
+                  "id": "036eade6-7f74-4164-9312-f474b1ab5a1e",
+                  "name": "Single Webhook object",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "finix-apiuser-role",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "x-request-id",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application\": \"<string>\",\n  \"authentication\": {\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"previous_secret_expires_at\": \"<string>\",\n  \"secret_signing_key\": \"<string>\",\n  \"url\": \"<string>\",\n  \"_links\": {\n    \"application\": {\n      \"href\": \"<string>\"\n    },\n    \"self\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-036eade6-7f74-4164-9312-f474b1ab5a1e"
+                },
+                {
+                  "id": "b1895be3-0ce0-401a-bc01-1a9314e07f54",
+                  "name": "Authentication information is missing or invalid",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"non11\": -95070487.14288345,\n        \"laboris_08b\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"eu_68\": false,\n        \"officia_99\": -70573890\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-b1895be3-0ce0-401a-bc01-1a9314e07f54"
+                },
+                {
+                  "id": "b3a44d7f-8713-4427-87ca-a63d72bd60ed",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"laboris_4\": \"consequat \",\n        \"tempor539\": -92986401.09259662,\n        \"proident_3\": 74075873.44155875\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-b3a44d7f-8713-4427-87ca-a63d72bd60ed"
+                },
+                {
+                  "id": "2325ec23-b2ba-49df-b80d-ad317a1470e2",
+                  "name": "Object does not exist",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-2325ec23-b2ba-49df-b80d-ad317a1470e2"
+                },
+                {
+                  "id": "3b2cc40b-5406-458e-9840-ff8f58a3264a",
+                  "name": "Not Acceptable",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/webhooks/:webhook_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "webhooks",
+                        ":webhook_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "webhook_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Acceptable",
+                  "code": 406,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"consectetur_9\": 75409672\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:40:05.000Z",
+                  "updatedAt": "2026-07-28T01:40:05.000Z",
+                  "uid": "35240-3b2cc40b-5406-458e-9840-ff8f58a3264a"
+                }
+              ],
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-0ab55d62-a462-489b-9428-335e6b38df74"
+            }
+          ],
+          "id": "3d540be6-c792-4e28-8a59-d9f2749cb98b",
+          "createdAt": "2026-07-28T01:40:05.000Z",
+          "updatedAt": "2026-07-28T01:40:05.000Z",
+          "uid": "35240-3d540be6-c792-4e28-8a59-d9f2749cb98b"
+        },
+        {
+          "name": "Create a Webhook",
+          "id": "13a6a2ee-726f-42ff-a810-6531619a3f6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                "key": "Finix-Version",
+                "value": "2018-01-01"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<string>\",\n  \"authentication\": {\n    \"basic\": {\n      \"username\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    \"bearer\": {\n      \"token\": \"<string>\"\n    },\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhooks"
+              ]
+            },
+            "description": "Create a `Webhook` to specify an endpoint where Finix can send events."
+          },
+          "response": [
+            {
+              "id": "35a39935-7654-439a-a2bd-5063f169895b",
+              "name": "Single Webhook object",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\",\n  \"authentication\": {\n    \"basic\": {\n      \"username\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    \"bearer\": {\n      \"token\": \"<string>\"\n    },\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "finix-apiuser-role",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "date",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "x-request-id",
+                  "value": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application\": \"<string>\",\n  \"authentication\": {\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"previous_secret_expires_at\": \"<string>\",\n  \"secret_signing_key\": \"<string>\",\n  \"url\": \"<string>\",\n  \"_links\": {\n    \"application\": {\n      \"href\": \"<string>\"\n    },\n    \"self\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-35a39935-7654-439a-a2bd-5063f169895b"
+            },
+            {
+              "id": "2616131a-da78-4442-89b3-7d40ea4ab533",
+              "name": "Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\",\n  \"authentication\": {\n    \"basic\": {\n      \"username\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    \"bearer\": {\n      \"token\": \"<string>\"\n    },\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"consectetura51\": \"in minim exercitatio\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-2616131a-da78-4442-89b3-7d40ea4ab533"
+            },
+            {
+              "id": "c4ca1915-d206-424c-ac53-e165f07afa41",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\",\n  \"authentication\": {\n    \"basic\": {\n      \"username\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    \"bearer\": {\n      \"token\": \"<string>\"\n    },\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"non11\": -95070487.14288345,\n        \"laboris_08b\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"eu_68\": false,\n        \"officia_99\": -70573890\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-c4ca1915-d206-424c-ac53-e165f07afa41"
+            },
+            {
+              "id": "a9ec3cdd-a762-4af1-ad02-715e8f7b0a09",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\",\n  \"authentication\": {\n    \"basic\": {\n      \"username\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    \"bearer\": {\n      \"token\": \"<string>\"\n    },\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"laboris_4\": \"consequat \",\n        \"tempor539\": -92986401.09259662,\n        \"proident_3\": 74075873.44155875\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-a9ec3cdd-a762-4af1-ad02-715e8f7b0a09"
+            },
+            {
+              "id": "29906ed4-f3b5-4d85-becc-f6687b8d1b36",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\",\n  \"authentication\": {\n    \"basic\": {\n      \"username\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    \"bearer\": {\n      \"token\": \"<string>\"\n    },\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"consectetur_9\": 75409672\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-29906ed4-f3b5-4d85-becc-f6687b8d1b36"
+            },
+            {
+              "id": "c4788634-f72b-4d25-bd98-92fe7cb37254",
+              "name": "Invalid field",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<string>\",\n  \"authentication\": {\n    \"basic\": {\n      \"username\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    \"bearer\": {\n      \"token\": \"<string>\"\n    },\n    \"type\": \"NONE\"\n  },\n  \"enabled\": \"<boolean>\",\n  \"enabled_events\": [\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"entity\": \"<string>\",\n      \"types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-c4788634-f72b-4d25-bd98-92fe7cb37254"
+            }
+          ],
+          "createdAt": "2026-07-28T01:40:05.000Z",
+          "updatedAt": "2026-07-28T01:40:05.000Z",
+          "uid": "35240-13a6a2ee-726f-42ff-a810-6531619a3f6a"
+        },
+        {
+          "name": "List Webhooks",
+          "id": "6734bae3-8a27-4566-81fe-c6be29491db3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/webhooks?limit=<integer>&after_cursor=<string>&before_cursor=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhooks"
+              ],
+              "query": [
+                {
+                  "description": "The numbers of items to return.",
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Return every resource created after the cursor value.",
+                  "key": "after_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return every resource created before the cursor value.",
+                  "key": "before_cursor",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of `Webhooks`."
+          },
+          "response": [
+            {
+              "id": "fdc6dce8-0203-4191-a044-494e31ec44ad",
+              "name": "List of Webhook objects",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks?limit=<integer>&after_cursor=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "finix-apiuser-role",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "date",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "x-request-id",
+                  "value": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"next_cursor\": \"<string>\"\n  },\n  \"_embedded\": {\n    \"webhooks\": [\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"application\": \"<string>\",\n        \"authentication\": {\n          \"type\": \"NONE\"\n        },\n        \"enabled\": \"<boolean>\",\n        \"enabled_events\": [\n          {\n            \"entity\": \"<string>\",\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"entity\": \"<string>\",\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"previous_secret_expires_at\": \"<string>\",\n        \"secret_signing_key\": \"<string>\",\n        \"url\": \"<string>\",\n        \"_links\": {\n          \"application\": {\n            \"href\": \"<string>\"\n          },\n          \"self\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"application\": \"<string>\",\n        \"authentication\": {\n          \"type\": \"BASIC\"\n        },\n        \"enabled\": \"<boolean>\",\n        \"enabled_events\": [\n          {\n            \"entity\": \"<string>\",\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"entity\": \"<string>\",\n            \"types\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"previous_secret_expires_at\": \"<string>\",\n        \"secret_signing_key\": \"<string>\",\n        \"url\": \"<string>\",\n        \"_links\": {\n          \"application\": {\n            \"href\": \"<string>\"\n          },\n          \"self\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"next\": {\n      \"href\": \"<string>\"\n    },\n    \"self\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-fdc6dce8-0203-4191-a044-494e31ec44ad"
+            },
+            {
+              "id": "4ea92d6d-a771-4afa-b9eb-0b56a75d27da",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks?limit=<integer>&after_cursor=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"non11\": -95070487.14288345,\n        \"laboris_08b\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"eu_68\": false,\n        \"officia_99\": -70573890\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-4ea92d6d-a771-4afa-b9eb-0b56a75d27da"
+            },
+            {
+              "id": "3098e6ec-b236-4056-a59b-56e012023fee",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks?limit=<integer>&after_cursor=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"laboris_4\": \"consequat \",\n        \"tempor539\": -92986401.09259662,\n        \"proident_3\": 74075873.44155875\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-3098e6ec-b236-4056-a59b-56e012023fee"
+            },
+            {
+              "id": "ca6ef320-4129-4115-99c4-d11815fc6f39",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/webhooks?limit=<integer>&after_cursor=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"consectetur_9\": 75409672\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:40:05.000Z",
+              "updatedAt": "2026-07-28T01:40:05.000Z",
+              "uid": "35240-ca6ef320-4129-4115-99c4-d11815fc6f39"
+            }
+          ],
+          "createdAt": "2026-07-28T01:40:05.000Z",
+          "updatedAt": "2026-07-28T01:40:05.000Z",
+          "uid": "35240-6734bae3-8a27-4566-81fe-c6be29491db3"
+        }
+      ],
+      "id": "28ed6dd2-8f9c-4eeb-9782-f6c6dd465628",
+      "createdAt": "2026-07-28T01:40:05.000Z",
+      "updatedAt": "2026-07-28T01:40:05.000Z",
+      "uid": "35240-28ed6dd2-8f9c-4eeb-9782-f6c6dd465628"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://finix.sandbox-payments-api.com"
+    }
+  ]
+}

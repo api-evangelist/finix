@@ -1,0 +1,3314 @@
+{
+  "info": {
+    "_postman_id": "a9abe758-983f-469b-b820-80ae0ecc1b4d",
+    "name": "Finix Authorizations Files API",
+    "description": "[object Object]\n\nContact Support:\n Name: Finix\n Email: support@finixpayments.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:37.000Z",
+    "updatedAt": "2026-07-28T01:39:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a9abe758-983f-469b-b820-80ae0ecc1b4d"
+  },
+  "item": [
+    {
+      "name": "files",
+      "item": [
+        {
+          "name": "{file_id}",
+          "item": [
+            {
+              "name": "external_links",
+              "item": [
+                {
+                  "name": "{external_link_id}",
+                  "item": [
+                    {
+                      "name": "Fetch an External LInk",
+                      "id": "a26b4c40-df01-4d5a-8f77-e88eae99c67f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links/:external_link_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links",
+                            ":external_link_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "563f2a64-6cf0-40cc-ad6f-c2b8df1b1876",
+                              "key": "file_id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the `File` that has the links you want to retrieve."
+                            },
+                            {
+                              "id": "f6d4c8a9-4bd3-44de-87bd-ea5d986c4a2e",
+                              "key": "external_link_id",
+                              "value": "<string>",
+                              "description": "(Required) The ID of the `external_link` that you want to retireve."
+                            }
+                          ]
+                        },
+                        "description": "Fetch a previously created `external_link` resource."
+                      },
+                      "response": [
+                        {
+                          "id": "9d1d26ed-b6c6-4faf-a405-d27c4b081bb6",
+                          "name": "Single external_link object",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/files/:file_id/external_links/:external_link_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "files",
+                                ":file_id",
+                                "external_links",
+                                ":external_link_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_id"
+                                },
+                                {
+                                  "key": "external_link_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "",
+                                "type": "text/plain"
+                              },
+                              "key": "finix-apiuser-role",
+                              "value": ""
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "",
+                                "type": "text/plain"
+                              },
+                              "key": "date",
+                              "value": ""
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "",
+                                "type": "text/plain"
+                              },
+                              "key": "x-request-id",
+                              "value": ""
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"duration\": \"<string>\",\n  \"expired\": \"<boolean>\",\n  \"expires_at\": \"<string>\",\n  \"file_id\": \"<string>\",\n  \"tags\": {\n    \"velit_afd\": \"<string>\",\n    \"sit_d4\": \"<string>\",\n    \"ut_f8f\": \"<string>\",\n    \"amet_b\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:39:38.000Z",
+                          "updatedAt": "2026-07-28T01:39:38.000Z",
+                          "uid": "35240-9d1d26ed-b6c6-4faf-a405-d27c4b081bb6"
+                        },
+                        {
+                          "id": "1d1c9d51-adca-4313-b58a-39415ead9e43",
+                          "name": "Authentication information is missing or invalid",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/files/:file_id/external_links/:external_link_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "files",
+                                ":file_id",
+                                "external_links",
+                                ":external_link_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_id"
+                                },
+                                {
+                                  "key": "external_link_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:39:38.000Z",
+                          "updatedAt": "2026-07-28T01:39:38.000Z",
+                          "uid": "35240-1d1c9d51-adca-4313-b58a-39415ead9e43"
+                        },
+                        {
+                          "id": "d8be94e5-1acc-4549-b024-7fa77e0cf991",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/files/:file_id/external_links/:external_link_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "files",
+                                ":file_id",
+                                "external_links",
+                                ":external_link_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_id"
+                                },
+                                {
+                                  "key": "external_link_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:39:38.000Z",
+                          "updatedAt": "2026-07-28T01:39:38.000Z",
+                          "uid": "35240-d8be94e5-1acc-4549-b024-7fa77e0cf991"
+                        },
+                        {
+                          "id": "9dca9da3-20aa-4a01-9d92-66472cb43bdc",
+                          "name": "Object does not exist",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/files/:file_id/external_links/:external_link_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "files",
+                                ":file_id",
+                                "external_links",
+                                ":external_link_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_id"
+                                },
+                                {
+                                  "key": "external_link_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:39:38.000Z",
+                          "updatedAt": "2026-07-28T01:39:38.000Z",
+                          "uid": "35240-9dca9da3-20aa-4a01-9d92-66472cb43bdc"
+                        },
+                        {
+                          "id": "fdfe8d83-b0ae-403a-8ae7-af6a5f2567a5",
+                          "name": "Not Acceptable",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: basic",
+                                "key": "Authorization",
+                                "value": "Basic <credentials>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/files/:file_id/external_links/:external_link_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "files",
+                                ":file_id",
+                                "external_links",
+                                ":external_link_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "file_id"
+                                },
+                                {
+                                  "key": "external_link_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Acceptable",
+                          "code": 406,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                          "createdAt": "2026-07-28T01:39:38.000Z",
+                          "updatedAt": "2026-07-28T01:39:38.000Z",
+                          "uid": "35240-fdfe8d83-b0ae-403a-8ae7-af6a5f2567a5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-a26b4c40-df01-4d5a-8f77-e88eae99c67f"
+                    }
+                  ],
+                  "id": "a796e863-fa89-4abd-90cb-eb1627f9f6cf",
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-a796e863-fa89-4abd-90cb-eb1627f9f6cf"
+                },
+                {
+                  "name": "List All External Links",
+                  "id": "c2d715c4-bae2-4de7-bd7e-7650dccf495e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id/external_links?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id",
+                        "external_links"
+                      ],
+                      "query": [
+                        {
+                          "description": "Return every resource created after the cursor value.",
+                          "key": "after_cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The numbers of items to return.",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Filter by `id`.",
+                          "key": "id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter where `created_at` is after the given date.",
+                          "key": "created_at.gte",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter where `created_at` is before the given date.",
+                          "key": "created_at.lte",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter where `updated_at` is after the given date.",
+                          "key": "updated_at.gte",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter where `updated_at` is before the given date.",
+                          "key": "updated_at.lte",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return every resource created before the cursor value.",
+                          "key": "before_cursor",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2ed2bbca-a0b4-452a-b9cb-49f0d5459dcb",
+                          "key": "file_id",
+                          "value": "<string>",
+                          "description": "(Required) Your `File` ID."
+                        }
+                      ]
+                    },
+                    "description": "List the previously created `external_links` for a `File`."
+                  },
+                  "response": [
+                    {
+                      "id": "af4ea87a-9c9b-4a06-89b6-47de91717675",
+                      "name": "List of external_link objects",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "query": [
+                            {
+                              "description": "Return every resource created after the cursor value.",
+                              "key": "after_cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The numbers of items to return.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter by `id`.",
+                              "key": "id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is after the given date.",
+                              "key": "created_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is before the given date.",
+                              "key": "created_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is after the given date.",
+                              "key": "updated_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is before the given date.",
+                              "key": "updated_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return every resource created before the cursor value.",
+                              "key": "before_cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "finix-apiuser-role",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "date",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "x-request-id",
+                          "value": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"next_cursor\": \"<string>\"\n  },\n  \"_embedded\": {\n    \"external_links\": [\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"expired\": \"<boolean>\",\n        \"expires_at\": \"<string>\",\n        \"file_id\": \"<string>\",\n        \"tags\": {\n          \"id6fa\": \"<string>\",\n          \"eue\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"url\": \"<string>\",\n        \"user_id\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"expired\": \"<boolean>\",\n        \"expires_at\": \"<string>\",\n        \"file_id\": \"<string>\",\n        \"tags\": {\n          \"tempor144\": \"<string>\",\n          \"minim__65\": \"<string>\",\n          \"consequat7da\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"url\": \"<string>\",\n        \"user_id\": \"<string>\"\n      }\n    ]\n  },\n  \"_links\": {\n    \"next\": {\n      \"href\": \"<string>\"\n    },\n    \"self\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-af4ea87a-9c9b-4a06-89b6-47de91717675"
+                    },
+                    {
+                      "id": "436d895d-fd82-4da5-a1e0-2cea3bd28985",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "query": [
+                            {
+                              "description": "Return every resource created after the cursor value.",
+                              "key": "after_cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The numbers of items to return.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter by `id`.",
+                              "key": "id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is after the given date.",
+                              "key": "created_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is before the given date.",
+                              "key": "created_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is after the given date.",
+                              "key": "updated_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is before the given date.",
+                              "key": "updated_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return every resource created before the cursor value.",
+                              "key": "before_cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-436d895d-fd82-4da5-a1e0-2cea3bd28985"
+                    },
+                    {
+                      "id": "f70a3b17-ab4b-4ca3-a280-d363527d537a",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "query": [
+                            {
+                              "description": "Return every resource created after the cursor value.",
+                              "key": "after_cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The numbers of items to return.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter by `id`.",
+                              "key": "id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is after the given date.",
+                              "key": "created_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is before the given date.",
+                              "key": "created_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is after the given date.",
+                              "key": "updated_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is before the given date.",
+                              "key": "updated_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return every resource created before the cursor value.",
+                              "key": "before_cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-f70a3b17-ab4b-4ca3-a280-d363527d537a"
+                    },
+                    {
+                      "id": "e931fa3e-a8a0-453b-bbb7-07f22e8481a1",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "query": [
+                            {
+                              "description": "Return every resource created after the cursor value.",
+                              "key": "after_cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The numbers of items to return.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter by `id`.",
+                              "key": "id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is after the given date.",
+                              "key": "created_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is before the given date.",
+                              "key": "created_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is after the given date.",
+                              "key": "updated_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is before the given date.",
+                              "key": "updated_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return every resource created before the cursor value.",
+                              "key": "before_cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-e931fa3e-a8a0-453b-bbb7-07f22e8481a1"
+                    },
+                    {
+                      "id": "33ffd86f-f2b0-45d2-af5d-d33fe31dffb8",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "query": [
+                            {
+                              "description": "Return every resource created after the cursor value.",
+                              "key": "after_cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The numbers of items to return.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Filter by `id`.",
+                              "key": "id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is after the given date.",
+                              "key": "created_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `created_at` is before the given date.",
+                              "key": "created_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is after the given date.",
+                              "key": "updated_at.gte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter where `updated_at` is before the given date.",
+                              "key": "updated_at.lte",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Return every resource created before the cursor value.",
+                              "key": "before_cursor",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-33ffd86f-f2b0-45d2-af5d-d33fe31dffb8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-c2d715c4-bae2-4de7-bd7e-7650dccf495e"
+                },
+                {
+                  "name": "Create an External Link",
+                  "id": "6ea555bd-990e-465e-98ab-4069d0058139",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"duration\": \"<integer>\",\n  \"tags\": {\n    \"Excepteur_8f3\": \"<string>\"\n  },\n  \"type\": \"UPLOAD\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id/external_links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id",
+                        "external_links"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5c021676-a399-42da-8910-aeb897d6f3df",
+                          "key": "file_id",
+                          "value": "<string>",
+                          "description": "(Required) Your `File` ID."
+                        }
+                      ]
+                    },
+                    "description": "Create an `external_link` resource to share with users so they can upload files directly from their browser. For more info, see [Uploading files to Finix](/guides/onboarding/uploading-files-to-finix/)."
+                  },
+                  "response": [
+                    {
+                      "id": "d8cfbdce-974f-484e-8fa2-8ea842d69652",
+                      "name": "Single external_link object",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"duration\": \"<integer>\",\n  \"tags\": {\n    \"Excepteur_8f3\": \"<string>\"\n  },\n  \"type\": \"UPLOAD\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "finix-apiuser-role",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "date",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "x-request-id",
+                          "value": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"duration\": \"<string>\",\n  \"expired\": \"<boolean>\",\n  \"expires_at\": \"<string>\",\n  \"file_id\": \"<string>\",\n  \"tags\": {\n    \"velit_afd\": \"<string>\",\n    \"sit_d4\": \"<string>\",\n    \"ut_f8f\": \"<string>\",\n    \"amet_b\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"url\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-d8cfbdce-974f-484e-8fa2-8ea842d69652"
+                    },
+                    {
+                      "id": "0f105fd6-7ab3-4f60-9e84-d123c7cd9599",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"duration\": \"<integer>\",\n  \"tags\": {\n    \"Excepteur_8f3\": \"<string>\"\n  },\n  \"type\": \"UPLOAD\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-0f105fd6-7ab3-4f60-9e84-d123c7cd9599"
+                    },
+                    {
+                      "id": "3623bd2e-4faf-433c-b114-b415a41d2231",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"duration\": \"<integer>\",\n  \"tags\": {\n    \"Excepteur_8f3\": \"<string>\"\n  },\n  \"type\": \"UPLOAD\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-3623bd2e-4faf-433c-b114-b415a41d2231"
+                    },
+                    {
+                      "id": "2c05577e-549d-4d6a-9883-3b76e4decd98",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"duration\": \"<integer>\",\n  \"tags\": {\n    \"Excepteur_8f3\": \"<string>\"\n  },\n  \"type\": \"UPLOAD\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-2c05577e-549d-4d6a-9883-3b76e4decd98"
+                    },
+                    {
+                      "id": "62958047-f77d-498d-a418-3e55b828710f",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"duration\": \"<integer>\",\n  \"tags\": {\n    \"Excepteur_8f3\": \"<string>\"\n  },\n  \"type\": \"UPLOAD\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/external_links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "external_links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-62958047-f77d-498d-a418-3e55b828710f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-6ea555bd-990e-465e-98ab-4069d0058139"
+                }
+              ],
+              "id": "c40a44b1-9c84-4af6-88e2-d9933287db66",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-c40a44b1-9c84-4af6-88e2-d9933287db66"
+            },
+            {
+              "name": "upload",
+              "item": [
+                {
+                  "name": "Upload files Directly",
+                  "id": "33aca8af-4533-4880-9579-e3d001338226",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "Path to the file you want to upload<br>(e.g. **/Users/Desktop/finix_file.png**).",
+                          "key": "file",
+                          "type": "file",
+                          "value": null
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id/upload",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id",
+                        "upload"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fe1c715e-6989-47dc-a170-1ee721ff7fde",
+                          "key": "file_id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the `File` that was created to upload the file."
+                        }
+                      ]
+                    },
+                    "description": "Upload files directly with a `multipart/form-data` request."
+                  },
+                  "response": [
+                    {
+                      "id": "53d673cf-76d0-4762-9c15-b282c68004e1",
+                      "name": "Single File object",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Path to the file you want to upload<br>(e.g. **/Users/Desktop/finix_file.png**).",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "upload"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "finix-apiuser-role",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "date",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "x-request-id",
+                          "value": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"extension\": \"<string>\",\n  \"identity_id\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"linked_type\": \"<string>\",\n  \"platform_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"tags\": {\n    \"pariatur_bf\": \"<string>\",\n    \"utd\": \"<string>\",\n    \"ad438\": \"<string>\",\n    \"aute_e5\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-53d673cf-76d0-4762-9c15-b282c68004e1"
+                    },
+                    {
+                      "id": "f55f3320-0226-4941-8ebc-053c3dde4b28",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Path to the file you want to upload<br>(e.g. **/Users/Desktop/finix_file.png**).",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "upload"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-f55f3320-0226-4941-8ebc-053c3dde4b28"
+                    },
+                    {
+                      "id": "85f6955b-1e97-4e61-b54c-e6b4d079d23b",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Path to the file you want to upload<br>(e.g. **/Users/Desktop/finix_file.png**).",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "upload"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-85f6955b-1e97-4e61-b54c-e6b4d079d23b"
+                    },
+                    {
+                      "id": "d4c5fc19-3683-410e-8f5c-5fa1ee62b958",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Path to the file you want to upload<br>(e.g. **/Users/Desktop/finix_file.png**).",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "upload"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-d4c5fc19-3683-410e-8f5c-5fa1ee62b958"
+                    },
+                    {
+                      "id": "1334dbb3-4da3-42c8-9377-f52bc12b34d7",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "Path to the file you want to upload<br>(e.g. **/Users/Desktop/finix_file.png**).",
+                              "key": "file",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "upload"
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-1334dbb3-4da3-42c8-9377-f52bc12b34d7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-33aca8af-4533-4880-9579-e3d001338226"
+                }
+              ],
+              "id": "2f9913b4-6354-4f27-84f6-7214e8d8c039",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-2f9913b4-6354-4f27-84f6-7214e8d8c039"
+            },
+            {
+              "name": "download",
+              "item": [
+                {
+                  "name": "Download a File",
+                  "id": "981eb581-c661-4b71-ba75-104fb73a5903",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/octet-stream"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id/download?stream=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id",
+                        "download"
+                      ],
+                      "query": [
+                        {
+                          "description": "Stream the contents of the `File` so it's displayed inline in the user's web browser.",
+                          "key": "stream",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "def1b362-dc27-4030-a976-c81f8b4d21a9",
+                          "key": "file_id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the `File` that was created to upload the file."
+                        }
+                      ]
+                    },
+                    "description": "Download a file that was uploaded to a `File` resource."
+                  },
+                  "response": [
+                    {
+                      "id": "b7c38f87-70f4-4126-9190-26b8769b3bd8",
+                      "name": "Example response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/octet-stream"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/download?stream=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Stream the contents of the `File` so it's displayed inline in the user's web browser.",
+                              "key": "stream",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/octet-stream"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "finix-apiuser-role",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "date",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "x-request-id",
+                          "value": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<binary>",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-b7c38f87-70f4-4126-9190-26b8769b3bd8"
+                    },
+                    {
+                      "id": "ae82b586-08c9-4b63-935a-074a8ab3aee6",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/download?stream=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Stream the contents of the `File` so it's displayed inline in the user's web browser.",
+                              "key": "stream",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-ae82b586-08c9-4b63-935a-074a8ab3aee6"
+                    },
+                    {
+                      "id": "d5089294-b2e8-47a0-b103-db0bf3109a2e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/download?stream=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Stream the contents of the `File` so it's displayed inline in the user's web browser.",
+                              "key": "stream",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-d5089294-b2e8-47a0-b103-db0bf3109a2e"
+                    },
+                    {
+                      "id": "92bd9d06-040a-42d2-bb07-a58dbc7910c1",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/download?stream=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Stream the contents of the `File` so it's displayed inline in the user's web browser.",
+                              "key": "stream",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-92bd9d06-040a-42d2-bb07-a58dbc7910c1"
+                    },
+                    {
+                      "id": "de831273-f2f2-4d7e-84b1-1074131ba3e7",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/files/:file_id/download?stream=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "files",
+                            ":file_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Stream the contents of the `File` so it's displayed inline in the user's web browser.",
+                              "key": "stream",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "file_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:38.000Z",
+                      "updatedAt": "2026-07-28T01:39:38.000Z",
+                      "uid": "35240-de831273-f2f2-4d7e-84b1-1074131ba3e7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-981eb581-c661-4b71-ba75-104fb73a5903"
+                }
+              ],
+              "id": "de9c1b12-512b-4af9-9d81-91b2d18f7ccd",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-de9c1b12-512b-4af9-9d81-91b2d18f7ccd"
+            },
+            {
+              "name": "Fetch a File",
+              "id": "f88cb1bf-0cc6-444f-9b1e-93a7c1f43db4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files/:file_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files",
+                    ":file_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "08b45fb0-91bd-4e09-a84f-370f7cf949b4",
+                      "key": "file_id",
+                      "value": "<string>",
+                      "description": "(Required) Your `File` ID."
+                    }
+                  ]
+                },
+                "description": "Retrieve the details of a `File` resource."
+              },
+              "response": [
+                {
+                  "id": "0250480c-0413-4922-b6d0-696bb0039ca5",
+                  "name": "Single File object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "file_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "finix-apiuser-role",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "x-request-id",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"extension\": \"<string>\",\n  \"identity_id\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"linked_type\": \"<string>\",\n  \"platform_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"tags\": {\n    \"pariatur_bf\": \"<string>\",\n    \"utd\": \"<string>\",\n    \"ad438\": \"<string>\",\n    \"aute_e5\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-0250480c-0413-4922-b6d0-696bb0039ca5"
+                },
+                {
+                  "id": "573d4cf2-3b1a-4980-884e-5b3cc5acb68f",
+                  "name": "Authentication information is missing or invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "file_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-573d4cf2-3b1a-4980-884e-5b3cc5acb68f"
+                },
+                {
+                  "id": "653a0c39-e125-4e56-a3b0-195ac840a473",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "file_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-653a0c39-e125-4e56-a3b0-195ac840a473"
+                },
+                {
+                  "id": "07c58ac6-725c-4bdb-abca-0355d0c9c147",
+                  "name": "Object does not exist",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "file_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-07c58ac6-725c-4bdb-abca-0355d0c9c147"
+                },
+                {
+                  "id": "5bd5e541-2a6f-45ce-8883-d117312b4f51",
+                  "name": "Not Acceptable",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/files/:file_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "files",
+                        ":file_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "file_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Acceptable",
+                  "code": 406,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:38.000Z",
+                  "updatedAt": "2026-07-28T01:39:38.000Z",
+                  "uid": "35240-5bd5e541-2a6f-45ce-8883-d117312b4f51"
+                }
+              ],
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-f88cb1bf-0cc6-444f-9b1e-93a7c1f43db4"
+            }
+          ],
+          "id": "9e472c0b-2087-4559-9a30-78a6c862e94e",
+          "createdAt": "2026-07-28T01:39:38.000Z",
+          "updatedAt": "2026-07-28T01:39:38.000Z",
+          "uid": "35240-9e472c0b-2087-4559-9a30-78a6c862e94e"
+        },
+        {
+          "name": "Create a File",
+          "id": "496f7744-8b7e-4ac2-ad3e-0fe174cbc04b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"display_name\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"tags\": {\n    \"tempor_9ee\": \"<string>\"\n  },\n  \"type\": \"PCI_DOCUMENT\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/files",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ]
+            },
+            "description": "Before uploading a file, you need to create a `File` resource. \n\nOnce created, you can [upload](/guides/onboarding/uploading-files-to-finix/#how-to-upload-a-file-to-finix) your file to the new `File` resource."
+          },
+          "response": [
+            {
+              "id": "bf98eb81-ad05-4c37-98ee-acae854e40dd",
+              "name": "Single File object",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"display_name\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"tags\": {\n    \"tempor_9ee\": \"<string>\"\n  },\n  \"type\": \"PCI_DOCUMENT\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "finix-apiuser-role",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "date",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "x-request-id",
+                  "value": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"extension\": \"<string>\",\n  \"identity_id\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"linked_type\": \"<string>\",\n  \"platform_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"tags\": {\n    \"pariatur_bf\": \"<string>\",\n    \"utd\": \"<string>\",\n    \"ad438\": \"<string>\",\n    \"aute_e5\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-bf98eb81-ad05-4c37-98ee-acae854e40dd"
+            },
+            {
+              "id": "9a400acf-0068-467a-8c44-b97b52833750",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"display_name\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"tags\": {\n    \"tempor_9ee\": \"<string>\"\n  },\n  \"type\": \"PCI_DOCUMENT\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-9a400acf-0068-467a-8c44-b97b52833750"
+            },
+            {
+              "id": "696e8e0f-e788-4c71-b9c7-a00c8d408b68",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"display_name\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"tags\": {\n    \"tempor_9ee\": \"<string>\"\n  },\n  \"type\": \"PCI_DOCUMENT\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-696e8e0f-e788-4c71-b9c7-a00c8d408b68"
+            },
+            {
+              "id": "be3be670-283d-4a5c-9ad1-dd08b855a257",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"display_name\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"tags\": {\n    \"tempor_9ee\": \"<string>\"\n  },\n  \"type\": \"PCI_DOCUMENT\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-be3be670-283d-4a5c-9ad1-dd08b855a257"
+            },
+            {
+              "id": "c687ea4d-a9e7-4383-b88d-4a2c971c2a99",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"display_name\": \"<string>\",\n  \"linked_to\": \"<string>\",\n  \"tags\": {\n    \"tempor_9ee\": \"<string>\"\n  },\n  \"type\": \"PCI_DOCUMENT\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/files",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-c687ea4d-a9e7-4383-b88d-4a2c971c2a99"
+            }
+          ],
+          "createdAt": "2026-07-28T01:39:38.000Z",
+          "updatedAt": "2026-07-28T01:39:38.000Z",
+          "uid": "35240-496f7744-8b7e-4ac2-ad3e-0fe174cbc04b"
+        },
+        {
+          "name": "List All Files",
+          "id": "69431a62-8256-4364-9b79-19e0a0f0cb57",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/files?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "files"
+              ],
+              "query": [
+                {
+                  "description": "Return every resource created after the cursor value.",
+                  "key": "after_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The numbers of items to return.",
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter by `id`.",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter where `created_at` is after the given date.",
+                  "key": "created_at.gte",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter where `created_at` is before the given date.",
+                  "key": "created_at.lte",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter where `updated_at` is after the given date.",
+                  "key": "updated_at.gte",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter where `updated_at` is before the given date.",
+                  "key": "updated_at.lte",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return every resource created before the cursor value.",
+                  "key": "before_cursor",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List all the `File` resources you've created."
+          },
+          "response": [
+            {
+              "id": "6465ed26-0509-4d2d-9a9b-66dcf87ed208",
+              "name": "List of File objects",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ],
+                  "query": [
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "finix-apiuser-role",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "date",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "x-request-id",
+                  "value": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"next_cursor\": \"<string>\"\n  },\n  \"_embedded\": {\n    \"files\": [\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"application_id\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"extension\": \"<string>\",\n        \"identity_id\": \"<string>\",\n        \"linked_to\": \"<string>\",\n        \"linked_type\": \"<string>\",\n        \"platform_id\": \"<string>\",\n        \"status\": \"<string>\",\n        \"tags\": {\n          \"adipisicing6a\": \"<string>\",\n          \"voluptate_7a2\": \"<string>\",\n          \"sunt6af\": \"<string>\"\n        },\n        \"type\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"application_id\": \"<string>\",\n        \"display_name\": \"<string>\",\n        \"extension\": \"<string>\",\n        \"identity_id\": \"<string>\",\n        \"linked_to\": \"<string>\",\n        \"linked_type\": \"<string>\",\n        \"platform_id\": \"<string>\",\n        \"status\": \"<string>\",\n        \"tags\": {\n          \"culpa8\": \"<string>\",\n          \"laboreb21\": \"<string>\",\n          \"exercitation__a\": \"<string>\"\n        },\n        \"type\": \"<string>\"\n      }\n    ]\n  },\n  \"_links\": {\n    \"next\": {\n      \"href\": \"<string>\"\n    },\n    \"self\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-6465ed26-0509-4d2d-9a9b-66dcf87ed208"
+            },
+            {
+              "id": "15bd9cf6-bef4-4ee2-a712-2464bc6c63e9",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ],
+                  "query": [
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"dolor_b\": true\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-15bd9cf6-bef4-4ee2-a712-2464bc6c63e9"
+            },
+            {
+              "id": "3647003f-2d80-4bde-b8b9-4843d21e22c4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ],
+                  "query": [
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"elit3a3\": \"dolore\",\n        \"deserunt_8\": \"magna deserunt\"\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-3647003f-2d80-4bde-b8b9-4843d21e22c4"
+            },
+            {
+              "id": "616a7922-cf8b-4e94-a515-2c9e9558859d",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ],
+                  "query": [
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"iddc\": true,\n        \"quic32\": true\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-616a7922-cf8b-4e94-a515-2c9e9558859d"
+            },
+            {
+              "id": "18e8f481-56ad-4d0c-9ccf-0c2f1b2e9d22",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/files?after_cursor=<string>&limit=<integer>&id=<string>&created_at.gte=<string>&created_at.lte=<string>&updated_at.gte=<string>&updated_at.lte=<string>&before_cursor=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "files"
+                  ],
+                  "query": [
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:38.000Z",
+              "updatedAt": "2026-07-28T01:39:38.000Z",
+              "uid": "35240-18e8f481-56ad-4d0c-9ccf-0c2f1b2e9d22"
+            }
+          ],
+          "createdAt": "2026-07-28T01:39:38.000Z",
+          "updatedAt": "2026-07-28T01:39:38.000Z",
+          "uid": "35240-69431a62-8256-4364-9b79-19e0a0f0cb57"
+        }
+      ],
+      "id": "6b518ddd-5569-487f-a3d2-a89e4e04c1c2",
+      "createdAt": "2026-07-28T01:39:38.000Z",
+      "updatedAt": "2026-07-28T01:39:38.000Z",
+      "uid": "35240-6b518ddd-5569-487f-a3d2-a89e4e04c1c2"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://finix.sandbox-payments-api.com"
+    }
+  ]
+}

@@ -1,0 +1,1204 @@
+{
+  "info": {
+    "_postman_id": "908322ea-4c46-4af6-82a2-ba602a4c3193",
+    "name": "Finix Authorizations Onboarding Forms API",
+    "description": "[object Object]\n\nContact Support:\n Name: Finix\n Email: support@finixpayments.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:44.000Z",
+    "updatedAt": "2026-07-28T01:39:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-908322ea-4c46-4af6-82a2-ba602a4c3193"
+  },
+  "item": [
+    {
+      "name": "onboarding_forms",
+      "item": [
+        {
+          "name": "{onboarding_form_id}",
+          "item": [
+            {
+              "name": "links",
+              "item": [
+                {
+                  "name": "Create an Onboarding Form Link",
+                  "id": "a072c8ee-c4b2-4e00-abc1-144631d59b9c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id/links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding_forms",
+                        ":onboarding_form_id",
+                        "links"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c83c31f0-67d7-426d-b22a-b256128efd6a",
+                          "key": "onboarding_form_id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the `onboarding_form` resource."
+                        }
+                      ]
+                    },
+                    "description": "Use the `onboarding_forms` API to create a link that can return users to where they left off completing their Finix Onboarding Form."
+                  },
+                  "response": [
+                    {
+                      "id": "690b3241-1ade-4a8c-9d86-8b478bdb5a37",
+                      "name": "A link for users to return to their `onboarding_form` at any time.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id/links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding_forms",
+                            ":onboarding_form_id",
+                            "links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "onboarding_form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"expires_at\": \"<string>\",\n  \"link_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:39:44.000Z",
+                      "updatedAt": "2026-07-28T01:39:44.000Z",
+                      "uid": "35240-690b3241-1ade-4a8c-9d86-8b478bdb5a37"
+                    },
+                    {
+                      "id": "08b749ea-f638-40dd-9d78-db3b2fda634e",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id/links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding_forms",
+                            ":onboarding_form_id",
+                            "links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "onboarding_form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"in_10c\": \"ad sint ea sunt\",\n          \"sintf6b\": 99162867.88720357,\n          \"sint_f\": 59235188\n        },\n        \"dolor_3\": 10635725.995864525,\n        \"magna_4\": -39079019.20548858,\n        \"exercitation2f8\": 46000187.02513692\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:44.000Z",
+                      "updatedAt": "2026-07-28T01:39:44.000Z",
+                      "uid": "35240-08b749ea-f638-40dd-9d78-db3b2fda634e"
+                    },
+                    {
+                      "id": "7062f0b5-78dc-469f-b501-c4f7caf7b713",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id/links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding_forms",
+                            ":onboarding_form_id",
+                            "links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "onboarding_form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"sit_97\": \"do cillum magna\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:44.000Z",
+                      "updatedAt": "2026-07-28T01:39:44.000Z",
+                      "uid": "35240-7062f0b5-78dc-469f-b501-c4f7caf7b713"
+                    },
+                    {
+                      "id": "53eac26c-444d-4cf2-ab19-5761ed32e09c",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id/links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding_forms",
+                            ":onboarding_form_id",
+                            "links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "onboarding_form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"Uta87\": 36010547.169979125\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"dolore7a\": 71108930.46710643\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:44.000Z",
+                      "updatedAt": "2026-07-28T01:39:44.000Z",
+                      "uid": "35240-53eac26c-444d-4cf2-ab19-5761ed32e09c"
+                    },
+                    {
+                      "id": "ffe38cde-4e14-4d94-a38e-d4fd10865aab",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id/links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding_forms",
+                            ":onboarding_form_id",
+                            "links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "onboarding_form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"magnaba\": true,\n        \"qui_4\": \"consequat fugiat Excepteur sit\",\n        \"deserunt_4\": \"consectetur occaecat et dolor\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:44.000Z",
+                      "updatedAt": "2026-07-28T01:39:44.000Z",
+                      "uid": "35240-ffe38cde-4e14-4d94-a38e-d4fd10865aab"
+                    },
+                    {
+                      "id": "67449d5b-f99b-45c4-9f69-b6d559cb37d0",
+                      "name": "Invalid field",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id/links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "onboarding_forms",
+                            ":onboarding_form_id",
+                            "links"
+                          ],
+                          "variable": [
+                            {
+                              "key": "onboarding_form_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:44.000Z",
+                      "updatedAt": "2026-07-28T01:39:44.000Z",
+                      "uid": "35240-67449d5b-f99b-45c4-9f69-b6d559cb37d0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:44.000Z",
+                  "updatedAt": "2026-07-28T01:39:44.000Z",
+                  "uid": "35240-a072c8ee-c4b2-4e00-abc1-144631d59b9c"
+                }
+              ],
+              "id": "ffe2b71d-f31e-4117-8286-b4747a01e431",
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-ffe2b71d-f31e-4117-8286-b4747a01e431"
+            },
+            {
+              "name": "Fetch an Onboarding Form",
+              "id": "a0a8990f-a231-4aa0-b8e5-497ee8b66cf6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "001d29d4-c20f-4aa9-992d-3275aafc1606",
+                      "key": "onboarding_form_id",
+                      "value": "<string>",
+                      "description": "(Required) The id of the `onboarding_form`."
+                    }
+                  ]
+                },
+                "description": "Retrieve the details of an `onboarding_form`."
+              },
+              "response": [
+                {
+                  "id": "6c9ee58c-ca8f-4bb5-a3ee-0f156c97035d",
+                  "name": "A single `onboarding_from` objext.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding_forms",
+                        ":onboarding_form_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "onboarding_form_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"MERCHANDISE_EXCHANGE_ONLY\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"ASSOCIATION_ESTATE_TRUST\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"onboarding_link\": {\n    \"expires_at\": \"<string>\",\n    \"link_url\": \"<string>\"\n  },\n  \"status\": \"COMPLETED\",\n  \"tags\": {\n    \"temporc0a\": \"<string>\",\n    \"ut_9\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:44.000Z",
+                  "updatedAt": "2026-07-28T01:39:44.000Z",
+                  "uid": "35240-6c9ee58c-ca8f-4bb5-a3ee-0f156c97035d"
+                },
+                {
+                  "id": "f3673763-f1ac-4baa-869c-059dc1e54542",
+                  "name": "Authentication information is missing or invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding_forms",
+                        ":onboarding_form_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "onboarding_form_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"in_10c\": \"ad sint ea sunt\",\n          \"sintf6b\": 99162867.88720357,\n          \"sint_f\": 59235188\n        },\n        \"dolor_3\": 10635725.995864525,\n        \"magna_4\": -39079019.20548858,\n        \"exercitation2f8\": 46000187.02513692\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:44.000Z",
+                  "updatedAt": "2026-07-28T01:39:44.000Z",
+                  "uid": "35240-f3673763-f1ac-4baa-869c-059dc1e54542"
+                },
+                {
+                  "id": "13490165-fa55-4e38-99a6-bee2f311f7fc",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding_forms",
+                        ":onboarding_form_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "onboarding_form_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"sit_97\": \"do cillum magna\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:44.000Z",
+                  "updatedAt": "2026-07-28T01:39:44.000Z",
+                  "uid": "35240-13490165-fa55-4e38-99a6-bee2f311f7fc"
+                },
+                {
+                  "id": "ce57ee61-cbb6-4e88-9a1f-99462188f20d",
+                  "name": "Object does not exist",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding_forms",
+                        ":onboarding_form_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "onboarding_form_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"Uta87\": 36010547.169979125\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"dolore7a\": 71108930.46710643\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:44.000Z",
+                  "updatedAt": "2026-07-28T01:39:44.000Z",
+                  "uid": "35240-ce57ee61-cbb6-4e88-9a1f-99462188f20d"
+                },
+                {
+                  "id": "c9863a93-7436-47af-8158-fa53516955cc",
+                  "name": "Not Acceptable",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding_forms",
+                        ":onboarding_form_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "onboarding_form_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Acceptable",
+                  "code": 406,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"magnaba\": true,\n        \"qui_4\": \"consequat fugiat Excepteur sit\",\n        \"deserunt_4\": \"consectetur occaecat et dolor\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:44.000Z",
+                  "updatedAt": "2026-07-28T01:39:44.000Z",
+                  "uid": "35240-c9863a93-7436-47af-8158-fa53516955cc"
+                },
+                {
+                  "id": "12a4219c-80f7-4301-bca8-98e64922d7e0",
+                  "name": "Invalid field",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/onboarding_forms/:onboarding_form_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "onboarding_forms",
+                        ":onboarding_form_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "onboarding_form_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:44.000Z",
+                  "updatedAt": "2026-07-28T01:39:44.000Z",
+                  "uid": "35240-12a4219c-80f7-4301-bca8-98e64922d7e0"
+                }
+              ],
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-a0a8990f-a231-4aa0-b8e5-497ee8b66cf6"
+            }
+          ],
+          "id": "a8ca9ce2-4ead-42fb-85ad-f076d60160c8",
+          "createdAt": "2026-07-28T01:39:44.000Z",
+          "updatedAt": "2026-07-28T01:39:44.000Z",
+          "uid": "35240-a8ca9ce2-4ead-42fb-85ad-f076d60160c8"
+        },
+        {
+          "name": "Create an Onboarding Form",
+          "id": "dfbfc4d6-13f9-499b-97b6-5bfcca9d3f6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"INDIVIDUAL_SOLE_PROPRIETORSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"BUSINESS_SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"est67e\": \"<string>\",\n    \"animf\": \"<string>\",\n    \"ea__c9\": \"<string>\",\n    \"enim_3\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/onboarding_forms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "onboarding_forms"
+              ]
+            },
+            "description": "Create an `onboarding_form` with the name of the processor you plan to onboard users to and the links they` get redirected to when completing or moving away from the Finix Onboarding Form.\n\nOnly **ROLE_PARTNER** credentials can be used to create an `onboarding_form`."
+          },
+          "response": [
+            {
+              "id": "385330c4-3c95-47e3-ae65-47c53dceb38d",
+              "name": "A single `onboarding_from` objext.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"INDIVIDUAL_SOLE_PROPRIETORSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"BUSINESS_SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"est67e\": \"<string>\",\n    \"animf\": \"<string>\",\n    \"ea__c9\": \"<string>\",\n    \"enim_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding_forms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding_forms"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"MERCHANDISE_EXCHANGE_ONLY\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"ASSOCIATION_ESTATE_TRUST\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"onboarding_link\": {\n    \"expires_at\": \"<string>\",\n    \"link_url\": \"<string>\"\n  },\n  \"status\": \"COMPLETED\",\n  \"tags\": {\n    \"temporc0a\": \"<string>\",\n    \"ut_9\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-385330c4-3c95-47e3-ae65-47c53dceb38d"
+            },
+            {
+              "id": "efaa7585-869b-431b-85a7-a1495a1c88d1",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"INDIVIDUAL_SOLE_PROPRIETORSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"BUSINESS_SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"est67e\": \"<string>\",\n    \"animf\": \"<string>\",\n    \"ea__c9\": \"<string>\",\n    \"enim_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding_forms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding_forms"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"in_10c\": \"ad sint ea sunt\",\n          \"sintf6b\": 99162867.88720357,\n          \"sint_f\": 59235188\n        },\n        \"dolor_3\": 10635725.995864525,\n        \"magna_4\": -39079019.20548858,\n        \"exercitation2f8\": 46000187.02513692\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-efaa7585-869b-431b-85a7-a1495a1c88d1"
+            },
+            {
+              "id": "2c56607c-b232-4351-964b-fe73fe644bca",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"INDIVIDUAL_SOLE_PROPRIETORSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"BUSINESS_SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"est67e\": \"<string>\",\n    \"animf\": \"<string>\",\n    \"ea__c9\": \"<string>\",\n    \"enim_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding_forms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding_forms"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"sit_97\": \"do cillum magna\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-2c56607c-b232-4351-964b-fe73fe644bca"
+            },
+            {
+              "id": "a58e828a-0217-437c-8e54-8d4ff2fc8f4d",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"INDIVIDUAL_SOLE_PROPRIETORSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"BUSINESS_SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"est67e\": \"<string>\",\n    \"animf\": \"<string>\",\n    \"ea__c9\": \"<string>\",\n    \"enim_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding_forms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding_forms"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"Uta87\": 36010547.169979125\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"dolore7a\": 71108930.46710643\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-a58e828a-0217-437c-8e54-8d4ff2fc8f4d"
+            },
+            {
+              "id": "359040ff-291d-4852-b585-19e31a4501e0",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"INDIVIDUAL_SOLE_PROPRIETORSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"BUSINESS_SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"est67e\": \"<string>\",\n    \"animf\": \"<string>\",\n    \"ea__c9\": \"<string>\",\n    \"enim_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding_forms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding_forms"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"magnaba\": true,\n        \"qui_4\": \"consequat fugiat Excepteur sit\",\n        \"deserunt_4\": \"consectetur occaecat et dolor\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-359040ff-291d-4852-b585-19e31a4501e0"
+            },
+            {
+              "id": "bf965970-b6e0-43f8-bc4a-da1a412dd41d",
+              "name": "Invalid field",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"PARTNERSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"INDIVIDUAL_SOLE_PROPRIETORSHIP\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"PRIVATE\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"BUSINESS_SAVINGS\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"est67e\": \"<string>\",\n    \"animf\": \"<string>\",\n    \"ea__c9\": \"<string>\",\n    \"enim_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/onboarding_forms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "onboarding_forms"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"<string>\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:44.000Z",
+              "updatedAt": "2026-07-28T01:39:44.000Z",
+              "uid": "35240-bf965970-b6e0-43f8-bc4a-da1a412dd41d"
+            }
+          ],
+          "createdAt": "2026-07-28T01:39:44.000Z",
+          "updatedAt": "2026-07-28T01:39:44.000Z",
+          "uid": "35240-dfbfc4d6-13f9-499b-97b6-5bfcca9d3f6a"
+        }
+      ],
+      "id": "dae08b40-3701-4889-b481-92aded0a0eca",
+      "createdAt": "2026-07-28T01:39:44.000Z",
+      "updatedAt": "2026-07-28T01:39:44.000Z",
+      "uid": "35240-dae08b40-3701-4889-b481-92aded0a0eca"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://finix.sandbox-payments-api.com"
+    }
+  ]
+}

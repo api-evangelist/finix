@@ -1,0 +1,2479 @@
+{
+  "info": {
+    "_postman_id": "f1cc8096-4a1e-40be-ad24-bd8d6b08af04",
+    "name": "Finix Authorizations Merchants API",
+    "description": "[object Object]\n\nContact Support:\n Name: Finix\n Email: support@finixpayments.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:42.000Z",
+    "updatedAt": "2026-07-28T01:39:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f1cc8096-4a1e-40be-ad24-bd8d6b08af04"
+  },
+  "item": [
+    {
+      "name": "identities",
+      "item": [
+        {
+          "name": "{identity_id}",
+          "item": [
+            {
+              "name": "merchants",
+              "item": [
+                {
+                  "name": "Create a Merchant",
+                  "id": "5490b5e9-4710-4774-a646-ff57e4e1303f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "identities",
+                        ":identity_id",
+                        "merchants"
+                      ],
+                      "variable": [
+                        {
+                          "id": "84322176-6df0-436a-95be-593603579ec4",
+                          "key": "identity_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of `Identity` to fetch."
+                        }
+                      ]
+                    },
+                    "description": "Create a `Merchant` to start the underwriting (also called provisioning) process for your seller. `Merchants` must be created under an [`Identity`](/api/tag/Identities).\n\nA bank account must be associated with the previously created `Identity` before a `Merchant` can be successfully onboarded and verified."
+                  },
+                  "response": [
+                    {
+                      "id": "50610d77-1a51-4990-929c-670b438f2ac4",
+                      "name": "Single Merchant object",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":identity_id",
+                            "merchants"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "finix-apiuser-role",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "date",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "x-request-id",
+                          "value": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application\": \"<string>\",\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"identity\": \"<string>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"mcc\": \"<string>\",\n  \"merchant_name\": \"<string>\",\n  \"merchant_profile\": \"<string>\",\n  \"mid\": \"<string>\",\n  \"onboarding_state\": \"REJECTED\",\n  \"processor\": \"<string>\",\n  \"processor_details\": {\n    \"api_key\": \"<string>\",\n    \"mid\": \"<string>\"\n  },\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"RECONCILIATION\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"surcharges_enabled\": false,\n  \"tags\": {\n    \"Ut_c_f\": \"<string>\",\n    \"magna40\": \"<string>\",\n    \"Ut2_6\": \"<string>\"\n  },\n  \"verification\": \"<string>\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"<string>\"\n    },\n    \"identity\": {\n      \"href\": \"<string>\"\n    },\n    \"verifications\": {\n      \"href\": \"<string>\"\n    },\n    \"merchant_profile\": {\n      \"href\": \"<string>\"\n    },\n    \"application\": {\n      \"href\": \"<string>\"\n    },\n    \"verification\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-50610d77-1a51-4990-929c-670b438f2ac4"
+                    },
+                    {
+                      "id": "5ade0275-867d-4258-b21a-fed893bb5b87",
+                      "name": "Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":identity_id",
+                            "merchants"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"reprehenderit6ff\": -25559420,\n        \"fugiat_0\": -49066623\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-5ade0275-867d-4258-b21a-fed893bb5b87"
+                    },
+                    {
+                      "id": "8863d7e1-6f20-47e5-8a75-187b3fd6fef8",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":identity_id",
+                            "merchants"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"adipisicingd\": -60895760,\n          \"velite\": \"ut ea nulla pariatur\"\n        },\n        \"aliquip5\": false,\n        \"labore__75\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-8863d7e1-6f20-47e5-8a75-187b3fd6fef8"
+                    },
+                    {
+                      "id": "41c36706-d4f3-4705-9f39-5f74f87aa6f7",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":identity_id",
+                            "merchants"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"officia6\": 24040292,\n        \"labore_8b\": 64129121,\n        \"aliqua_8f2\": 2025773.1532701552,\n        \"ad_5c\": -8925436\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-41c36706-d4f3-4705-9f39-5f74f87aa6f7"
+                    },
+                    {
+                      "id": "061189fc-a6d3-419d-9ab6-9a8960631193",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":identity_id",
+                            "merchants"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"ullamco680\": \"ullamco cillum\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-061189fc-a6d3-419d-9ab6-9a8960631193"
+                    },
+                    {
+                      "id": "5e9eccb9-a510-45b8-9621-0a5ed65c2fc2",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":identity_id",
+                            "merchants"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-5e9eccb9-a510-45b8-9621-0a5ed65c2fc2"
+                    },
+                    {
+                      "id": "9fd11d0d-17d7-4995-bb90-88e87f356cb7",
+                      "name": "Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"processor\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"tags\": {\n    \"esse_c78\": \"<string>\",\n    \"ex_30c\": \"<string>\",\n    \"eiusmod2\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/identities/:identity_id/merchants",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "identities",
+                            ":identity_id",
+                            "merchants"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identity_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"reprehenderit6ff\": -25559420,\n        \"fugiat_0\": -49066623\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-9fd11d0d-17d7-4995-bb90-88e87f356cb7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:42.000Z",
+                  "updatedAt": "2026-07-28T01:39:42.000Z",
+                  "uid": "35240-5490b5e9-4710-4774-a646-ff57e4e1303f"
+                }
+              ],
+              "id": "59d2119e-0a35-4c62-ac51-804aeaf47ceb",
+              "createdAt": "2026-07-28T01:39:42.000Z",
+              "updatedAt": "2026-07-28T01:39:42.000Z",
+              "uid": "35240-59d2119e-0a35-4c62-ac51-804aeaf47ceb"
+            }
+          ],
+          "id": "ea6625f6-b69d-4e7c-8cf5-3a9b9629b86d",
+          "createdAt": "2026-07-28T01:39:42.000Z",
+          "updatedAt": "2026-07-28T01:39:42.000Z",
+          "uid": "35240-ea6625f6-b69d-4e7c-8cf5-3a9b9629b86d"
+        }
+      ],
+      "id": "5366f0f4-b6a2-4986-b265-4f1a11baa4f1",
+      "createdAt": "2026-07-28T01:39:42.000Z",
+      "updatedAt": "2026-07-28T01:39:42.000Z",
+      "uid": "35240-5366f0f4-b6a2-4986-b265-4f1a11baa4f1"
+    },
+    {
+      "name": "merchants",
+      "item": [
+        {
+          "name": "{merchant_id}",
+          "item": [
+            {
+              "name": "verifications",
+              "item": [
+                {
+                  "name": "Verify a Merchant",
+                  "id": "8b0f7cf4-8e47-406c-818a-fd731a2f5f53",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"merchant\": \"<string>\",\n  \"processor\": \"DUMMY_V1\",\n  \"security_code\": \"<string>\",\n  \"verify_payment_card\": \"<boolean>\",\n  \"tags\": {\n    \"Utc\": \"<string>\",\n    \"dolore_d8f\": \"<string>\",\n    \"dolor_9b9\": \"<string>\",\n    \"laborum_0\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"POL\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\"\n  },\n  \"identity\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id/verifications",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id",
+                        "verifications"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c1b85cb6-2957-49b2-b102-1dadd5d58bb5",
+                          "key": "merchant_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of `Merchant` object."
+                        }
+                      ]
+                    },
+                    "description": "Verify a `Merchant` if the `onboarding_state` for a `Merchant` returns **FAILED**, or if the correct the seller needs to update the saved in their information `Identity`.\n\nRelated Guides: [Onboarding Process](/guides/onboarding/onboarding-process/#reverify-a-merchant)"
+                  },
+                  "response": [
+                    {
+                      "id": "633b650f-c3a1-4c4e-88f5-2c70bbbf4d50",
+                      "name": "Single Verification object",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"merchant\": \"<string>\",\n  \"processor\": \"DUMMY_V1\",\n  \"security_code\": \"<string>\",\n  \"verify_payment_card\": \"<boolean>\",\n  \"tags\": {\n    \"Utc\": \"<string>\",\n    \"dolore_d8f\": \"<string>\",\n    \"dolor_9b9\": \"<string>\",\n    \"laborum_0\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"POL\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\"\n  },\n  \"identity\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/merchants/:merchant_id/verifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "merchants",
+                            ":merchant_id",
+                            "verifications"
+                          ],
+                          "variable": [
+                            {
+                              "key": "merchant_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "finix-apiuser-role",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "date",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "x-request-id",
+                          "value": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application\": \"<string>\",\n  \"identity\": \"<string>\",\n  \"merchant\": \"<string>\",\n  \"merchant_identity\": \"<string>\",\n  \"payment_instrument\": \"<string>\",\n  \"payment_instrument_verification_details\": {\n    \"push_to_card_domestic\": \"NON_FAST_FUNDS\",\n    \"push_to_card_cross_border\": \"UNKNOWN\",\n    \"card_type\": \"HSA_FSA\",\n    \"billing_currency\": \"CZK\",\n    \"issuer_country\": \"ATG\"\n  },\n  \"processor\": \"<string>\",\n  \"raw\": {},\n  \"state\": \"FAILED\",\n  \"tags\": {\n    \"ea0e\": \"<string>\",\n    \"reprehenderit3d\": \"<string>\",\n    \"ipsum_21b\": \"<string>\"\n  },\n  \"trace_id\": \"<string>\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"<string>\"\n    },\n    \"merchant\": {\n      \"href\": \"<string>\"\n    },\n    \"application\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-633b650f-c3a1-4c4e-88f5-2c70bbbf4d50"
+                    },
+                    {
+                      "id": "9d29bead-757f-406c-9aa6-3d33977934bf",
+                      "name": "Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"merchant\": \"<string>\",\n  \"processor\": \"DUMMY_V1\",\n  \"security_code\": \"<string>\",\n  \"verify_payment_card\": \"<boolean>\",\n  \"tags\": {\n    \"Utc\": \"<string>\",\n    \"dolore_d8f\": \"<string>\",\n    \"dolor_9b9\": \"<string>\",\n    \"laborum_0\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"POL\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\"\n  },\n  \"identity\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/merchants/:merchant_id/verifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "merchants",
+                            ":merchant_id",
+                            "verifications"
+                          ],
+                          "variable": [
+                            {
+                              "key": "merchant_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"reprehenderit6ff\": -25559420,\n        \"fugiat_0\": -49066623\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-9d29bead-757f-406c-9aa6-3d33977934bf"
+                    },
+                    {
+                      "id": "1e642282-90ec-44aa-8f42-6f000ac3f5cc",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"merchant\": \"<string>\",\n  \"processor\": \"DUMMY_V1\",\n  \"security_code\": \"<string>\",\n  \"verify_payment_card\": \"<boolean>\",\n  \"tags\": {\n    \"Utc\": \"<string>\",\n    \"dolore_d8f\": \"<string>\",\n    \"dolor_9b9\": \"<string>\",\n    \"laborum_0\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"POL\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\"\n  },\n  \"identity\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/merchants/:merchant_id/verifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "merchants",
+                            ":merchant_id",
+                            "verifications"
+                          ],
+                          "variable": [
+                            {
+                              "key": "merchant_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"adipisicingd\": -60895760,\n          \"velite\": \"ut ea nulla pariatur\"\n        },\n        \"aliquip5\": false,\n        \"labore__75\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-1e642282-90ec-44aa-8f42-6f000ac3f5cc"
+                    },
+                    {
+                      "id": "ca5c01b7-5353-4ddf-ab0a-fe56e502a765",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"merchant\": \"<string>\",\n  \"processor\": \"DUMMY_V1\",\n  \"security_code\": \"<string>\",\n  \"verify_payment_card\": \"<boolean>\",\n  \"tags\": {\n    \"Utc\": \"<string>\",\n    \"dolore_d8f\": \"<string>\",\n    \"dolor_9b9\": \"<string>\",\n    \"laborum_0\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"POL\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\"\n  },\n  \"identity\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/merchants/:merchant_id/verifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "merchants",
+                            ":merchant_id",
+                            "verifications"
+                          ],
+                          "variable": [
+                            {
+                              "key": "merchant_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"officia6\": 24040292,\n        \"labore_8b\": 64129121,\n        \"aliqua_8f2\": 2025773.1532701552,\n        \"ad_5c\": -8925436\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-ca5c01b7-5353-4ddf-ab0a-fe56e502a765"
+                    },
+                    {
+                      "id": "c8c7267f-c614-4332-ada3-be5c675be6a9",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"merchant\": \"<string>\",\n  \"processor\": \"DUMMY_V1\",\n  \"security_code\": \"<string>\",\n  \"verify_payment_card\": \"<boolean>\",\n  \"tags\": {\n    \"Utc\": \"<string>\",\n    \"dolore_d8f\": \"<string>\",\n    \"dolor_9b9\": \"<string>\",\n    \"laborum_0\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"POL\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\"\n  },\n  \"identity\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/merchants/:merchant_id/verifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "merchants",
+                            ":merchant_id",
+                            "verifications"
+                          ],
+                          "variable": [
+                            {
+                              "key": "merchant_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"ullamco680\": \"ullamco cillum\"\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-c8c7267f-c614-4332-ada3-be5c675be6a9"
+                    },
+                    {
+                      "id": "814e1a74-3882-48c1-85b9-e1e22fff3b5e",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                            "key": "Finix-Version",
+                            "value": "2018-01-01"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"merchant\": \"<string>\",\n  \"processor\": \"DUMMY_V1\",\n  \"security_code\": \"<string>\",\n  \"verify_payment_card\": \"<boolean>\",\n  \"tags\": {\n    \"Utc\": \"<string>\",\n    \"dolore_d8f\": \"<string>\",\n    \"dolor_9b9\": \"<string>\",\n    \"laborum_0\": \"<string>\"\n  },\n  \"address\": {\n    \"city\": \"<string>\",\n    \"country\": \"POL\",\n    \"line1\": \"<string>\",\n    \"line2\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"region\": \"<string>\"\n  },\n  \"identity\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/merchants/:merchant_id/verifications",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "merchants",
+                            ":merchant_id",
+                            "verifications"
+                          ],
+                          "variable": [
+                            {
+                              "key": "merchant_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:43.000Z",
+                      "updatedAt": "2026-07-28T01:39:43.000Z",
+                      "uid": "35240-814e1a74-3882-48c1-85b9-e1e22fff3b5e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:42.000Z",
+                  "updatedAt": "2026-07-28T01:39:42.000Z",
+                  "uid": "35240-8b0f7cf4-8e47-406c-818a-fd731a2f5f53"
+                }
+              ],
+              "id": "4c3d72bf-4dd8-4a64-8c28-de9194b08da2",
+              "createdAt": "2026-07-28T01:39:42.000Z",
+              "updatedAt": "2026-07-28T01:39:42.000Z",
+              "uid": "35240-4c3d72bf-4dd8-4a64-8c28-de9194b08da2"
+            },
+            {
+              "name": "Fetch a Merchant",
+              "id": "f9820f35-6ccd-4c5a-90cf-7c9023c114f3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants/:merchant_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants",
+                    ":merchant_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "9aeaec86-e49b-443d-9399-d9b368e3a262",
+                      "key": "merchant_id",
+                      "value": "<string>",
+                      "description": "(Required) ID of `Merchant`."
+                    }
+                  ]
+                },
+                "description": "Retrieve the details of a `Merchant`."
+              },
+              "response": [
+                {
+                  "id": "e3486ade-842b-4ae6-8bf8-df29167b849e",
+                  "name": "Single Merchant object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "finix-apiuser-role",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "x-request-id",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application\": \"<string>\",\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"identity\": \"<string>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"mcc\": \"<string>\",\n  \"merchant_name\": \"<string>\",\n  \"merchant_profile\": \"<string>\",\n  \"mid\": \"<string>\",\n  \"onboarding_state\": \"REJECTED\",\n  \"processor\": \"<string>\",\n  \"processor_details\": {\n    \"api_key\": \"<string>\",\n    \"mid\": \"<string>\"\n  },\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"RECONCILIATION\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"surcharges_enabled\": false,\n  \"tags\": {\n    \"Ut_c_f\": \"<string>\",\n    \"magna40\": \"<string>\",\n    \"Ut2_6\": \"<string>\"\n  },\n  \"verification\": \"<string>\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"<string>\"\n    },\n    \"identity\": {\n      \"href\": \"<string>\"\n    },\n    \"verifications\": {\n      \"href\": \"<string>\"\n    },\n    \"merchant_profile\": {\n      \"href\": \"<string>\"\n    },\n    \"application\": {\n      \"href\": \"<string>\"\n    },\n    \"verification\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-e3486ade-842b-4ae6-8bf8-df29167b849e"
+                },
+                {
+                  "id": "c464ac5e-1adc-4567-ba64-35432762eb47",
+                  "name": "Authentication information is missing or invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"adipisicingd\": -60895760,\n          \"velite\": \"ut ea nulla pariatur\"\n        },\n        \"aliquip5\": false,\n        \"labore__75\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-c464ac5e-1adc-4567-ba64-35432762eb47"
+                },
+                {
+                  "id": "b5c8b0e3-b498-4348-a70b-c07154c42fa1",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"officia6\": 24040292,\n        \"labore_8b\": 64129121,\n        \"aliqua_8f2\": 2025773.1532701552,\n        \"ad_5c\": -8925436\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-b5c8b0e3-b498-4348-a70b-c07154c42fa1"
+                },
+                {
+                  "id": "cb250596-aecf-4167-9729-296792fe0c16",
+                  "name": "Object does not exist",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"ullamco680\": \"ullamco cillum\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-cb250596-aecf-4167-9729-296792fe0c16"
+                },
+                {
+                  "id": "b768738c-e98f-4b05-95ae-2cb420979a93",
+                  "name": "Not Acceptable",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Acceptable",
+                  "code": 406,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-b768738c-e98f-4b05-95ae-2cb420979a93"
+                }
+              ],
+              "createdAt": "2026-07-28T01:39:42.000Z",
+              "updatedAt": "2026-07-28T01:39:42.000Z",
+              "uid": "35240-f9820f35-6ccd-4c5a-90cf-7c9023c114f3"
+            },
+            {
+              "name": "Update a Merchant",
+              "id": "f671f1a6-d812-4e24-9c33-7d8f386e7a75",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                    "key": "Finix-Version",
+                    "value": "2018-01-01"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"merchant_name\": \"<string>\",\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"<string>\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"tags\": {\n    \"ullamcof_\": \"<string>\",\n    \"ad_160\": \"<string>\",\n    \"ipsum_b3e\": \"<string>\"\n  },\n  \"surcharge_fees_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/merchants/:merchant_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants",
+                    ":merchant_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bec3d120-b9ee-4403-bb8c-7b9bf2ecb0b1",
+                      "key": "merchant_id",
+                      "value": "<string>",
+                      "description": "(Required) ID of `Merchant`."
+                    }
+                  ]
+                },
+                "description": "Update a `Merchant` to: \n- Change the `Identity` information saved with the underlying processor\n- [Enable Level 2/3 processing](/guides/payments/making-a-payment/level-2-and-level-3-processing/)\n- Enable [buyer charges](/guides/payments/making-a-payment/buyer-charges/)\n- Disable a `Merchant` so the seller can't create new `Transfers` and `Authorizations`."
+              },
+              "response": [
+                {
+                  "id": "58320caf-7458-44c2-bad3-ea4c7810bb32",
+                  "name": "Single Merchant object",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"merchant_name\": \"<string>\",\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"<string>\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"tags\": {\n    \"ullamcof_\": \"<string>\",\n    \"ad_160\": \"<string>\",\n    \"ipsum_b3e\": \"<string>\"\n  },\n  \"surcharge_fees_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "finix-apiuser-role",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "x-request-id",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"application\": \"<string>\",\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gateway\": \"TRIPOS_MOBILE_V1\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"identity\": \"<string>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"mcc\": \"<string>\",\n  \"merchant_name\": \"<string>\",\n  \"merchant_profile\": \"<string>\",\n  \"mid\": \"<string>\",\n  \"onboarding_state\": \"REJECTED\",\n  \"processor\": \"<string>\",\n  \"processor_details\": {\n    \"api_key\": \"<string>\",\n    \"mid\": \"<string>\"\n  },\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"RECONCILIATION\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"surcharges_enabled\": false,\n  \"tags\": {\n    \"Ut_c_f\": \"<string>\",\n    \"magna40\": \"<string>\",\n    \"Ut2_6\": \"<string>\"\n  },\n  \"verification\": \"<string>\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"<string>\"\n    },\n    \"identity\": {\n      \"href\": \"<string>\"\n    },\n    \"verifications\": {\n      \"href\": \"<string>\"\n    },\n    \"merchant_profile\": {\n      \"href\": \"<string>\"\n    },\n    \"application\": {\n      \"href\": \"<string>\"\n    },\n    \"verification\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-58320caf-7458-44c2-bad3-ea4c7810bb32"
+                },
+                {
+                  "id": "48252ed2-d203-4277-a033-458d2fcf2cb2",
+                  "name": "Authentication information is missing or invalid",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"merchant_name\": \"<string>\",\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"<string>\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"tags\": {\n    \"ullamcof_\": \"<string>\",\n    \"ad_160\": \"<string>\",\n    \"ipsum_b3e\": \"<string>\"\n  },\n  \"surcharge_fees_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"adipisicingd\": -60895760,\n          \"velite\": \"ut ea nulla pariatur\"\n        },\n        \"aliquip5\": false,\n        \"labore__75\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-48252ed2-d203-4277-a033-458d2fcf2cb2"
+                },
+                {
+                  "id": "6dd1efaa-67c6-46b2-8c4f-767828ff9a9f",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"merchant_name\": \"<string>\",\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"<string>\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"tags\": {\n    \"ullamcof_\": \"<string>\",\n    \"ad_160\": \"<string>\",\n    \"ipsum_b3e\": \"<string>\"\n  },\n  \"surcharge_fees_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"officia6\": 24040292,\n        \"labore_8b\": 64129121,\n        \"aliqua_8f2\": 2025773.1532701552,\n        \"ad_5c\": -8925436\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-6dd1efaa-67c6-46b2-8c4f-767828ff9a9f"
+                },
+                {
+                  "id": "c38ea42a-b532-45ab-bc6a-034e4d79d6e8",
+                  "name": "Object does not exist",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"merchant_name\": \"<string>\",\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"<string>\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"tags\": {\n    \"ullamcof_\": \"<string>\",\n    \"ad_160\": \"<string>\",\n    \"ipsum_b3e\": \"<string>\"\n  },\n  \"surcharge_fees_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"ullamco680\": \"ullamco cillum\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-c38ea42a-b532-45ab-bc6a-034e4d79d6e8"
+                },
+                {
+                  "id": "93a0c5f1-c8af-4310-aaf6-6ea3dff4aa87",
+                  "name": "Not Acceptable",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "Specify the API version of your request. For more details, see [Versioning.](/guides/developers/versioning/)",
+                        "key": "Finix-Version",
+                        "value": "2018-01-01"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"card_cvv_required\": \"<boolean>\",\n  \"card_expiration_date_required\": \"<boolean>\",\n  \"convenience_charges_enabled\": \"<boolean>\",\n  \"creating_transfer_from_report_enabled\": \"<boolean>\",\n  \"fee_ready_to_settle_upon\": \"<string>\",\n  \"gross_settlement_enabled\": \"<boolean>\",\n  \"level_two_level_three_data_enabled\": \"<boolean>\",\n  \"merchant_name\": \"<string>\",\n  \"processing_enabled\": \"<boolean>\",\n  \"ready_to_settle_upon\": \"<string>\",\n  \"rent_surcharges_enabled\": \"<boolean>\",\n  \"settlement_enabled\": \"<boolean>\",\n  \"settlement_funding_identifier\": \"UNSET\",\n  \"tags\": {\n    \"ullamcof_\": \"<string>\",\n    \"ad_160\": \"<string>\",\n    \"ipsum_b3e\": \"<string>\"\n  },\n  \"surcharge_fees_enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/merchants/:merchant_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "merchants",
+                        ":merchant_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "merchant_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Acceptable",
+                  "code": 406,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:43.000Z",
+                  "updatedAt": "2026-07-28T01:39:43.000Z",
+                  "uid": "35240-93a0c5f1-c8af-4310-aaf6-6ea3dff4aa87"
+                }
+              ],
+              "createdAt": "2026-07-28T01:39:42.000Z",
+              "updatedAt": "2026-07-28T01:39:42.000Z",
+              "uid": "35240-f671f1a6-d812-4e24-9c33-7d8f386e7a75"
+            }
+          ],
+          "id": "b0e2eb02-0567-4b53-9f0f-75ed9619ec4f",
+          "createdAt": "2026-07-28T01:39:42.000Z",
+          "updatedAt": "2026-07-28T01:39:42.000Z",
+          "uid": "35240-b0e2eb02-0567-4b53-9f0f-75ed9619ec4f"
+        },
+        {
+          "name": "List Merchants",
+          "id": "2c62148e-7056-46fa-b34e-eb3092e12f07",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/merchants?id=<string>&after_cursor=<string>&before_cursor=<string>&created_at.gte=<string>&created_at.lte=<string>&limit=<integer>&updated_at.gte=<string>&updated_at.lte=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "merchants"
+              ],
+              "query": [
+                {
+                  "description": "Filter by `id`.",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return every resource created after the cursor value.",
+                  "key": "after_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Return every resource created before the cursor value.",
+                  "key": "before_cursor",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter where `created_at` is after the given date.",
+                  "key": "created_at.gte",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter where `created_at` is before the given date.",
+                  "key": "created_at.lte",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The numbers of items to return.",
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filter where `updated_at` is after the given date.",
+                  "key": "updated_at.gte",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter where `updated_at` is before the given date.",
+                  "key": "updated_at.lte",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieve a list of `Merchants`. "
+          },
+          "response": [
+            {
+              "id": "bdc938c9-af6d-4e91-b8f1-151586797fe9",
+              "name": "List of Merchants objects",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants?id=<string>&after_cursor=<string>&before_cursor=<string>&created_at.gte=<string>&created_at.lte=<string>&limit=<integer>&updated_at.gte=<string>&updated_at.lte=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "finix-apiuser-role",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "date",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "x-request-id",
+                  "value": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"page\": {\n    \"limit\": \"<integer>\",\n    \"next_cursor\": \"<string>\"\n  },\n  \"_embedded\": {\n    \"merchants\": [\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"application\": \"<string>\",\n        \"card_cvv_required\": \"<boolean>\",\n        \"card_expiration_date_required\": \"<boolean>\",\n        \"creating_transfer_from_report_enabled\": \"<boolean>\",\n        \"convenience_charges_enabled\": \"<boolean>\",\n        \"fee_ready_to_settle_upon\": \"<string>\",\n        \"gateway\": \"TRIPOS_CLOUD_V1\",\n        \"gross_settlement_enabled\": \"<boolean>\",\n        \"identity\": \"<string>\",\n        \"level_two_level_three_data_enabled\": \"<boolean>\",\n        \"mcc\": \"<string>\",\n        \"merchant_name\": \"<string>\",\n        \"merchant_profile\": \"<string>\",\n        \"mid\": \"<string>\",\n        \"onboarding_state\": \"APPROVED\",\n        \"processor\": \"<string>\",\n        \"processor_details\": {\n          \"api_key\": \"<string>\",\n          \"mid\": \"<string>\"\n        },\n        \"processing_enabled\": \"<boolean>\",\n        \"ready_to_settle_upon\": \"RECONCILIATION\",\n        \"rent_surcharges_enabled\": \"<boolean>\",\n        \"settlement_enabled\": \"<boolean>\",\n        \"settlement_funding_identifier\": \"UNSET\",\n        \"surcharges_enabled\": false,\n        \"tags\": {\n          \"adipisicinga52\": \"<string>\"\n        },\n        \"verification\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"identity\": {\n            \"href\": \"<string>\"\n          },\n          \"verifications\": {\n            \"href\": \"<string>\"\n          },\n          \"merchant_profile\": {\n            \"href\": \"<string>\"\n          },\n          \"application\": {\n            \"href\": \"<string>\"\n          },\n          \"verification\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"id\": \"<string>\",\n        \"created_at\": \"<dateTime>\",\n        \"updated_at\": \"<dateTime>\",\n        \"application\": \"<string>\",\n        \"card_cvv_required\": \"<boolean>\",\n        \"card_expiration_date_required\": \"<boolean>\",\n        \"creating_transfer_from_report_enabled\": \"<boolean>\",\n        \"convenience_charges_enabled\": \"<boolean>\",\n        \"fee_ready_to_settle_upon\": \"<string>\",\n        \"gateway\": \"DATACAP_V1\",\n        \"gross_settlement_enabled\": \"<boolean>\",\n        \"identity\": \"<string>\",\n        \"level_two_level_three_data_enabled\": \"<boolean>\",\n        \"mcc\": \"<string>\",\n        \"merchant_name\": \"<string>\",\n        \"merchant_profile\": \"<string>\",\n        \"mid\": \"<string>\",\n        \"onboarding_state\": \"REJECTED\",\n        \"processor\": \"<string>\",\n        \"processor_details\": {\n          \"api_key\": \"<string>\",\n          \"mid\": \"<string>\"\n        },\n        \"processing_enabled\": \"<boolean>\",\n        \"ready_to_settle_upon\": \"RECONCILIATION\",\n        \"rent_surcharges_enabled\": \"<boolean>\",\n        \"settlement_enabled\": \"<boolean>\",\n        \"settlement_funding_identifier\": \"UNSET\",\n        \"surcharges_enabled\": false,\n        \"tags\": {\n          \"occaecat__1\": \"<string>\",\n          \"sede70\": \"<string>\"\n        },\n        \"verification\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"identity\": {\n            \"href\": \"<string>\"\n          },\n          \"verifications\": {\n            \"href\": \"<string>\"\n          },\n          \"merchant_profile\": {\n            \"href\": \"<string>\"\n          },\n          \"application\": {\n            \"href\": \"<string>\"\n          },\n          \"verification\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"next\": {\n      \"href\": \"<string>\"\n    },\n    \"self\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:39:43.000Z",
+              "updatedAt": "2026-07-28T01:39:43.000Z",
+              "uid": "35240-bdc938c9-af6d-4e91-b8f1-151586797fe9"
+            },
+            {
+              "id": "348c3436-6878-423d-b2f4-ffffd9624549",
+              "name": "Error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants?id=<string>&after_cursor=<string>&before_cursor=<string>&created_at.gte=<string>&created_at.lte=<string>&limit=<integer>&updated_at.gte=<string>&updated_at.lte=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"reprehenderit6ff\": -25559420,\n        \"fugiat_0\": -49066623\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:43.000Z",
+              "updatedAt": "2026-07-28T01:39:43.000Z",
+              "uid": "35240-348c3436-6878-423d-b2f4-ffffd9624549"
+            },
+            {
+              "id": "928d0b18-4bb2-4bab-ba98-710ca8602965",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants?id=<string>&after_cursor=<string>&before_cursor=<string>&created_at.gte=<string>&created_at.lte=<string>&limit=<integer>&updated_at.gte=<string>&updated_at.lte=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"adipisicingd\": -60895760,\n          \"velite\": \"ut ea nulla pariatur\"\n        },\n        \"aliquip5\": false,\n        \"labore__75\": false\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:43.000Z",
+              "updatedAt": "2026-07-28T01:39:43.000Z",
+              "uid": "35240-928d0b18-4bb2-4bab-ba98-710ca8602965"
+            },
+            {
+              "id": "f20561a6-83a7-4856-ad8c-f932202ba70c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants?id=<string>&after_cursor=<string>&before_cursor=<string>&created_at.gte=<string>&created_at.lte=<string>&limit=<integer>&updated_at.gte=<string>&updated_at.lte=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"officia6\": 24040292,\n        \"labore_8b\": 64129121,\n        \"aliqua_8f2\": 2025773.1532701552,\n        \"ad_5c\": -8925436\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:43.000Z",
+              "updatedAt": "2026-07-28T01:39:43.000Z",
+              "uid": "35240-f20561a6-83a7-4856-ad8c-f932202ba70c"
+            },
+            {
+              "id": "b27aaea7-2174-419b-b526-3740ec056de2",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants?id=<string>&after_cursor=<string>&before_cursor=<string>&created_at.gte=<string>&created_at.lte=<string>&limit=<integer>&updated_at.gte=<string>&updated_at.lte=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"ullamco680\": \"ullamco cillum\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:43.000Z",
+              "updatedAt": "2026-07-28T01:39:43.000Z",
+              "uid": "35240-b27aaea7-2174-419b-b526-3740ec056de2"
+            },
+            {
+              "id": "afc5b007-11b3-42cc-9d3b-2ef5be613761",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/merchants?id=<string>&after_cursor=<string>&before_cursor=<string>&created_at.gte=<string>&created_at.lte=<string>&limit=<integer>&updated_at.gte=<string>&updated_at.lte=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by `id`.",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created after the cursor value.",
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return every resource created before the cursor value.",
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is after the given date.",
+                      "key": "created_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `created_at` is before the given date.",
+                      "key": "created_at.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The numbers of items to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is after the given date.",
+                      "key": "updated_at.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter where `updated_at` is before the given date.",
+                      "key": "updated_at.lte",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:43.000Z",
+              "updatedAt": "2026-07-28T01:39:43.000Z",
+              "uid": "35240-afc5b007-11b3-42cc-9d3b-2ef5be613761"
+            }
+          ],
+          "createdAt": "2026-07-28T01:39:42.000Z",
+          "updatedAt": "2026-07-28T01:39:42.000Z",
+          "uid": "35240-2c62148e-7056-46fa-b34e-eb3092e12f07"
+        }
+      ],
+      "id": "dd14974b-0acc-4f15-8a47-95f036401367",
+      "createdAt": "2026-07-28T01:39:42.000Z",
+      "updatedAt": "2026-07-28T01:39:42.000Z",
+      "uid": "35240-dd14974b-0acc-4f15-8a47-95f036401367"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://finix.sandbox-payments-api.com"
+    }
+  ]
+}

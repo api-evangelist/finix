@@ -1,0 +1,1086 @@
+{
+  "info": {
+    "_postman_id": "ea18c52d-a995-49ca-8e3e-97fe1f03db64",
+    "name": "Finix Authorizations Instrument Updates API",
+    "description": "[object Object]\n\nContact Support:\n Name: Finix\n Email: support@finixpayments.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:40.000Z",
+    "updatedAt": "2026-07-28T01:39:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ea18c52d-a995-49ca-8e3e-97fe1f03db64"
+  },
+  "item": [
+    {
+      "name": "instrument_updates",
+      "item": [
+        {
+          "name": "{instrument_updates_id}",
+          "item": [
+            {
+              "name": "download",
+              "item": [
+                {
+                  "name": "Download Instrument Updates",
+                  "id": "2f746e76-d594-4d5d-b68f-a8b8ad17876c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id/download?format=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "instrument_updates",
+                        ":instrument_updates_id",
+                        "download"
+                      ],
+                      "query": [
+                        {
+                          "description": "Specify the format you'd like to download the response in (JSON is the only other format available for download).",
+                          "key": "format",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a9c5255b-0b60-480a-bd03-b1c8fdd660cc",
+                          "key": "instrument_updates_id",
+                          "value": "<string>",
+                          "description": "(Required) The ID of the `instrument_updates` resource. This ID was returned when initially creating the `instrument_updates` object."
+                        }
+                      ]
+                    },
+                    "description": "Fetch a previously created `instrument_updates` resource as a CSV. \n\nTo fetch the `instrument_updates` resource in JSON, add `?format=json` to the request endpoint."
+                  },
+                  "response": [
+                    {
+                      "id": "b548ffc5-a605-48a2-9e7b-337855b1209e",
+                      "name": "The updated `Payment Instruments` will be returned in the following comma seperated format:\n\npayment\\_instrument\\_original,\t| payment\\_instrument_new, |result\n--------------------------- | ---------------------- | -----\nPIlkNdfZibF8a7Prd2teGB1 | PI3aQGaCM",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id/download?format=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "instrument_updates",
+                            ":instrument_updates_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specify the format you'd like to download the response in (JSON is the only other format available for download).",
+                              "key": "format",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "instrument_updates_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<binary>",
+                      "createdAt": "2026-07-28T01:39:40.000Z",
+                      "updatedAt": "2026-07-28T01:39:40.000Z",
+                      "uid": "35240-b548ffc5-a605-48a2-9e7b-337855b1209e"
+                    },
+                    {
+                      "id": "ec8c5b41-544c-40fa-9213-cbe497336e79",
+                      "name": "Authentication information is missing or invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id/download?format=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "instrument_updates",
+                            ":instrument_updates_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specify the format you'd like to download the response in (JSON is the only other format available for download).",
+                              "key": "format",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "instrument_updates_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"ut3\": \"veniam Ut\",\n          \"et_9\": \"ut est\",\n          \"et_7\": 34672546.362856686\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"doloreb8\": -29776548.495158255,\n          \"sunt_9eb\": -71825766.36567006\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:40.000Z",
+                      "updatedAt": "2026-07-28T01:39:40.000Z",
+                      "uid": "35240-ec8c5b41-544c-40fa-9213-cbe497336e79"
+                    },
+                    {
+                      "id": "4a05627a-0a7a-4215-9aab-0b6b13015aed",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id/download?format=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "instrument_updates",
+                            ":instrument_updates_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specify the format you'd like to download the response in (JSON is the only other format available for download).",
+                              "key": "format",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "instrument_updates_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:40.000Z",
+                      "updatedAt": "2026-07-28T01:39:40.000Z",
+                      "uid": "35240-4a05627a-0a7a-4215-9aab-0b6b13015aed"
+                    },
+                    {
+                      "id": "525239cf-64ac-4444-96e1-2b85266441e1",
+                      "name": "Object does not exist",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id/download?format=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "instrument_updates",
+                            ":instrument_updates_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specify the format you'd like to download the response in (JSON is the only other format available for download).",
+                              "key": "format",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "instrument_updates_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"minim99\": \"laborum co\",\n        \"sint9\": 99007737.90075675\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"laborum_579\": true\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:40.000Z",
+                      "updatedAt": "2026-07-28T01:39:40.000Z",
+                      "uid": "35240-525239cf-64ac-4444-96e1-2b85266441e1"
+                    },
+                    {
+                      "id": "ee70e537-ebd4-4f38-b182-f273337a23d3",
+                      "name": "Not Acceptable",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: basic",
+                            "key": "Authorization",
+                            "value": "Basic <credentials>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id/download?format=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "instrument_updates",
+                            ":instrument_updates_id",
+                            "download"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specify the format you'd like to download the response in (JSON is the only other format available for download).",
+                              "key": "format",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "instrument_updates_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Acceptable",
+                      "code": 406,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"sed972\": -9187009,\n        \"consequat_ebc\": true\n      }\n    ]\n  }\n}",
+                      "createdAt": "2026-07-28T01:39:40.000Z",
+                      "updatedAt": "2026-07-28T01:39:40.000Z",
+                      "uid": "35240-ee70e537-ebd4-4f38-b182-f273337a23d3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:40.000Z",
+                  "updatedAt": "2026-07-28T01:39:40.000Z",
+                  "uid": "35240-2f746e76-d594-4d5d-b68f-a8b8ad17876c"
+                }
+              ],
+              "id": "5f1dce2f-544c-4e35-adcf-38b21e988b6c",
+              "createdAt": "2026-07-28T01:39:40.000Z",
+              "updatedAt": "2026-07-28T01:39:40.000Z",
+              "uid": "35240-5f1dce2f-544c-4e35-adcf-38b21e988b6c"
+            },
+            {
+              "name": "Fetch an Instrument Update",
+              "id": "a0303995-51ee-405c-89c6-a6db890251a5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "instrument_updates",
+                    ":instrument_updates_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f12d540f-c8cb-4643-b92d-c81029221abc",
+                      "key": "instrument_updates_id",
+                      "value": "<string>",
+                      "description": "(Required) The ID of the `instrument_update`."
+                    }
+                  ]
+                },
+                "description": "Fetch a specific `instrument_update` from an `instrument_updates` resource."
+              },
+              "response": [
+                {
+                  "id": "b2d7216a-6b3a-4767-975a-c436e0d5d356",
+                  "name": "Single instrument_update object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "instrument_updates",
+                        ":instrument_updates_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "instrument_updates_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "finix-apiuser-role",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "date",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "x-request-id",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"idempotency_id\": \"<string>\",\n  \"merchant\": \"<string>\",\n  \"state\": \"<string>\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"<string>\"\n    },\n    \"payment_instrument\": {\n      \"href\": \"<string>\"\n    },\n    \"application\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:40.000Z",
+                  "updatedAt": "2026-07-28T01:39:40.000Z",
+                  "uid": "35240-b2d7216a-6b3a-4767-975a-c436e0d5d356"
+                },
+                {
+                  "id": "e1418cb4-e9e8-4fe5-9ccc-6845c4a57d88",
+                  "name": "Authentication information is missing or invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "instrument_updates",
+                        ":instrument_updates_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "instrument_updates_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"ut3\": \"veniam Ut\",\n          \"et_9\": \"ut est\",\n          \"et_7\": 34672546.362856686\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"doloreb8\": -29776548.495158255,\n          \"sunt_9eb\": -71825766.36567006\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:40.000Z",
+                  "updatedAt": "2026-07-28T01:39:40.000Z",
+                  "uid": "35240-e1418cb4-e9e8-4fe5-9ccc-6845c4a57d88"
+                },
+                {
+                  "id": "71acf9ec-caa1-4827-93bf-4a966e3de830",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "instrument_updates",
+                        ":instrument_updates_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "instrument_updates_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:40.000Z",
+                  "updatedAt": "2026-07-28T01:39:40.000Z",
+                  "uid": "35240-71acf9ec-caa1-4827-93bf-4a966e3de830"
+                },
+                {
+                  "id": "c19957e5-8f50-4871-a9f9-143dde71538e",
+                  "name": "Object does not exist",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "instrument_updates",
+                        ":instrument_updates_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "instrument_updates_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"minim99\": \"laborum co\",\n        \"sint9\": 99007737.90075675\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"laborum_579\": true\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:40.000Z",
+                  "updatedAt": "2026-07-28T01:39:40.000Z",
+                  "uid": "35240-c19957e5-8f50-4871-a9f9-143dde71538e"
+                },
+                {
+                  "id": "cbc441db-3025-4085-905e-09a67562a452",
+                  "name": "Not Acceptable",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/instrument_updates/:instrument_updates_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "instrument_updates",
+                        ":instrument_updates_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "instrument_updates_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Acceptable",
+                  "code": 406,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"sed972\": -9187009,\n        \"consequat_ebc\": true\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T01:39:40.000Z",
+                  "updatedAt": "2026-07-28T01:39:40.000Z",
+                  "uid": "35240-cbc441db-3025-4085-905e-09a67562a452"
+                }
+              ],
+              "createdAt": "2026-07-28T01:39:40.000Z",
+              "updatedAt": "2026-07-28T01:39:40.000Z",
+              "uid": "35240-a0303995-51ee-405c-89c6-a6db890251a5"
+            }
+          ],
+          "id": "d71c53b3-7148-46d0-8d8b-91e2053f60d6",
+          "createdAt": "2026-07-28T01:39:40.000Z",
+          "updatedAt": "2026-07-28T01:39:40.000Z",
+          "uid": "35240-d71c53b3-7148-46d0-8d8b-91e2053f60d6"
+        },
+        {
+          "name": "Create Instrument Updates",
+          "id": "db0eb251-f259-4867-a362-94099dff3d31",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": "The binary contents of the file.",
+                  "key": "file",
+                  "type": "file",
+                  "value": null
+                },
+                {
+                  "description": "A JSON string of your request. The JSON object needs to contain the following two fields:\n- `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.\n- `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.",
+                  "key": "request",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/instrument_updates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "instrument_updates"
+              ]
+            },
+            "description": "To update the card details of your customers, create an `instrument_updates` resource. Include the `Payment Instrument` IDs you want to update in a CSV."
+          },
+          "response": [
+            {
+              "id": "2dcc3c68-4973-4d3c-a227-c9d1e18fa583",
+              "name": "Single instrument_update object",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "The binary contents of the file.",
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": "A JSON string of your request. The JSON object needs to contain the following two fields:\n- `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.\n- `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.",
+                      "key": "request",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/instrument_updates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "instrument_updates"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "finix-apiuser-role",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "date",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "x-request-id",
+                  "value": ""
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"idempotency_id\": \"<string>\",\n  \"merchant\": \"<string>\",\n  \"state\": \"<string>\",\n  \"_links\": {\n    \"self\": {\n      \"href\": \"<string>\"\n    },\n    \"payment_instrument\": {\n      \"href\": \"<string>\"\n    },\n    \"application\": {\n      \"href\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:39:40.000Z",
+              "updatedAt": "2026-07-28T01:39:40.000Z",
+              "uid": "35240-2dcc3c68-4973-4d3c-a227-c9d1e18fa583"
+            },
+            {
+              "id": "d4561377-ed23-44f8-a421-9b0bb492472f",
+              "name": "Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "The binary contents of the file.",
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": "A JSON string of your request. The JSON object needs to contain the following two fields:\n- `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.\n- `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.",
+                      "key": "request",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/instrument_updates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "instrument_updates"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:40.000Z",
+              "updatedAt": "2026-07-28T01:39:40.000Z",
+              "uid": "35240-d4561377-ed23-44f8-a421-9b0bb492472f"
+            },
+            {
+              "id": "f8646b38-5ec8-49d8-9764-907920d6e6f0",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "The binary contents of the file.",
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": "A JSON string of your request. The JSON object needs to contain the following two fields:\n- `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.\n- `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.",
+                      "key": "request",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/instrument_updates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "instrument_updates"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"ut3\": \"veniam Ut\",\n          \"et_9\": \"ut est\",\n          \"et_7\": 34672546.362856686\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"<string>\"\n          },\n          \"source\": {\n            \"href\": \"<string>\"\n          },\n          \"doloreb8\": -29776548.495158255,\n          \"sunt_9eb\": -71825766.36567006\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:40.000Z",
+              "updatedAt": "2026-07-28T01:39:40.000Z",
+              "uid": "35240-f8646b38-5ec8-49d8-9764-907920d6e6f0"
+            },
+            {
+              "id": "aec2e8e2-6040-42e1-a66e-f95d7c421768",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "The binary contents of the file.",
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": "A JSON string of your request. The JSON object needs to contain the following two fields:\n- `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.\n- `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.",
+                      "key": "request",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/instrument_updates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "instrument_updates"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:40.000Z",
+              "updatedAt": "2026-07-28T01:39:40.000Z",
+              "uid": "35240-aec2e8e2-6040-42e1-a66e-f95d7c421768"
+            },
+            {
+              "id": "e1331c4e-316b-4d27-8b5a-9214739b2c81",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: basic",
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "The binary contents of the file.",
+                      "key": "file",
+                      "type": "file"
+                    },
+                    {
+                      "description": "A JSON string of your request. The JSON object needs to contain the following two fields:\n- `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.\n- `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.",
+                      "key": "request",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/instrument_updates",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "instrument_updates"
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"<string>\"\n        },\n        \"message\": \"<string>\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"<string>\"\n          }\n        },\n        \"sed972\": -9187009,\n        \"consequat_ebc\": true\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:39:40.000Z",
+              "updatedAt": "2026-07-28T01:39:40.000Z",
+              "uid": "35240-e1331c4e-316b-4d27-8b5a-9214739b2c81"
+            }
+          ],
+          "createdAt": "2026-07-28T01:39:40.000Z",
+          "updatedAt": "2026-07-28T01:39:40.000Z",
+          "uid": "35240-db0eb251-f259-4867-a362-94099dff3d31"
+        }
+      ],
+      "id": "5bf79827-f0e7-4ff4-a14a-2133e4ce417c",
+      "createdAt": "2026-07-28T01:39:40.000Z",
+      "updatedAt": "2026-07-28T01:39:40.000Z",
+      "uid": "35240-5bf79827-f0e7-4ff4-a14a-2133e4ce417c"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://finix.sandbox-payments-api.com"
+    }
+  ]
+}
