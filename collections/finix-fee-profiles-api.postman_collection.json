@@ -1,0 +1,943 @@
+{
+  "item": [
+    {
+      "id": "cf9bd01a-3f97-4d7a-8f26-1dfcc03d037f",
+      "name": "Fee Profiles",
+      "description": {
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4e5bb04e-4898-4322-aea0-8eb903adaf87",
+          "name": "List Fee Profiles",
+          "request": {
+            "name": "List Fee Profiles",
+            "description": {
+              "content": "List all `Fee Profiles`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fee_profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "after_cursor",
+                  "value": "<string>",
+                  "description": "Return every resource created after the cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "before_cursor",
+                  "value": "<string>",
+                  "description": "Return every resource created before the cursor value."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The numbers of items to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef0f9c84-86be-478a-b2ed-f098a39659f8",
+              "name": "List of fee profiles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "finix-apiuser-role",
+                  "value": "ROLE_PARTNER",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "A unique ID for this specific API request attempt.",
+                  "key": "x-request-id",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_embedded\": {\n    \"fee_profiles\": [\n      {\n        \"id\": \"FPq6PQ9pHsab66fKMmjQ7jb5\",\n        \"created_at\": \"2022-01-27T07:37:38.66Z\",\n        \"updated_at\": \"2022-01-27T07:37:38.66Z\",\n        \"ach_basis_points\": 300,\n        \"ach_credit_return_fixed_fee\": null,\n        \"ach_debit_return_fixed_fee\": null,\n        \"ach_fixed_fee\": 30,\n        \"american_express_assessment_basis_points\": null,\n        \"american_express_basis_points\": null,\n        \"american_express_charge_interchange\": null,\n        \"american_express_externally_funded_basis_points\": null,\n        \"american_express_externally_funded_fixed_fee\": null,\n        \"american_express_fixed_fee\": null,\n        \"ancillary_fixed_fee_primary\": null,\n        \"ancillary_fixed_fee_secondary\": null,\n        \"application\": \"APgPDQrLD52TYvqazjHJJchM\",\n        \"basis_points\": 200,\n        \"charge_interchange\": false,\n        \"diners_club_basis_points\": null,\n        \"diners_club_charge_interchange\": null,\n        \"diners_club_fixed_fee\": null,\n        \"discover_assessments_basis_points\": null,\n        \"discover_basis_points\": null,\n        \"discover_charge_interchange\": null,\n        \"discover_data_usage_fixed_fee\": null,\n        \"discover_externally_funded_basis_points\": null,\n        \"discover_externally_funded_fixed_fee\": null,\n        \"discover_fixed_fee\": null,\n        \"discover_network_authorization_fixed_fee\": null,\n        \"dispute_fixed_fee\": null,\n        \"dispute_inquiry_fixed_fee\": null,\n        \"externally_funded_basis_points\": null,\n        \"externally_funded_fixed_fee\": null,\n        \"fixed_fee\": 100,\n        \"jcb_basis_points\": null,\n        \"jcb_charge_interchange\": null,\n        \"jcb_fixed_fee\": null,\n        \"mastercard_acquirer_fees_basis_points\": null,\n        \"mastercard_assessments_over1k_basis_points\": null,\n        \"mastercard_assessments_under1k_basis_points\": null,\n        \"mastercard_basis_points\": null,\n        \"mastercard_charge_interchange\": null,\n        \"mastercard_fixed_fee\": null,\n        \"qualified_tiers\": null,\n        \"rounding_mode\": \"TRANSACTION\",\n        \"tags\": {},\n        \"visa_acquirer_processing_fixed_fee\": null,\n        \"visa_assessments_basis_points\": null,\n        \"visa_base_II_credit_voucher_fixed_fee\": null,\n        \"visa_base_II_system_file_transmission_fixed_fee\": null,\n        \"visa_basis_points\": null,\n        \"visa_charge_interchange\": null,\n        \"visa_credit_voucher_fixed_fee\": null,\n        \"visa_fixed_fee\": null,\n        \"visa_kilobyte_access_fixed_fee\": null,\n        \"_links\": {\n          \"self\": {\n            \"href\": \"https://finix.sandbox-payments-api.com/fee_profiles/FPq6PQ9pHsab66fKMmjQ7jb5\"\n          },\n          \"application\": {\n            \"href\": \"https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM\"\n          }\n        }\n      },\n      {\n        \"id\": \"FPvCQUcnsueN3Bc3zR1qCBG8\",\n        \"created_at\": \"2022-01-27T07:37:36.69Z\",\n        \"updated_at\": \"2022-01-27T07:37:36.69Z\",\n        \"ach_basis_points\": 300,\n        \"ach_credit_return_fixed_fee\": null,\n        \"ach_debit_return_fixed_fee\": null,\n        \"ach_fixed_fee\": 30,\n        \"american_express_assessment_basis_points\": null,\n        \"american_express_basis_points\": null,\n        \"american_express_charge_interchange\": null,\n        \"american_express_externally_funded_basis_points\": null,\n        \"american_express_externally_funded_fixed_fee\": null,\n        \"american_express_fixed_fee\": null,\n        \"ancillary_fixed_fee_primary\": null,\n        \"ancillary_fixed_fee_secondary\": null,\n        \"application\": \"APgPDQrLD52TYvqazjHJJchM\",\n        \"basis_points\": 200,\n        \"charge_interchange\": false,\n        \"diners_club_basis_points\": null,\n        \"diners_club_charge_interchange\": null,\n        \"diners_club_fixed_fee\": null,\n        \"discover_assessments_basis_points\": null,\n        \"discover_basis_points\": null,\n        \"discover_charge_interchange\": null,\n        \"discover_data_usage_fixed_fee\": null,\n        \"discover_externally_funded_basis_points\": null,\n        \"discover_externally_funded_fixed_fee\": null,\n        \"discover_fixed_fee\": null,\n        \"discover_network_authorization_fixed_fee\": null,\n        \"dispute_fixed_fee\": null,\n        \"dispute_inquiry_fixed_fee\": null,\n        \"externally_funded_basis_points\": null,\n        \"externally_funded_fixed_fee\": null,\n        \"fixed_fee\": 100,\n        \"jcb_basis_points\": null,\n        \"jcb_charge_interchange\": null,\n        \"jcb_fixed_fee\": null,\n        \"mastercard_acquirer_fees_basis_points\": null,\n        \"mastercard_assessments_over1k_basis_points\": null,\n        \"mastercard_assessments_under1k_basis_points\": null,\n        \"mastercard_basis_points\": null,\n        \"mastercard_charge_interchange\": null,\n        \"mastercard_fixed_fee\": null,\n        \"qualified_tiers\": null,\n        \"rounding_mode\": \"TRANSACTION\",\n        \"tags\": {},\n        \"visa_acquirer_processing_fixed_fee\": null,\n        \"visa_assessments_basis_points\": null,\n        \"visa_base_II_credit_voucher_fixed_fee\": null,\n        \"visa_base_II_system_file_transmission_fixed_fee\": null,\n        \"visa_basis_points\": null,\n        \"visa_charge_interchange\": null,\n        \"visa_credit_voucher_fixed_fee\": null,\n        \"visa_fixed_fee\": null,\n        \"visa_kilobyte_access_fixed_fee\": null,\n        \"_links\": {\n          \"self\": {\n            \"href\": \"https://finix.sandbox-payments-api.com/fee_profiles/FPvCQUcnsueN3Bc3zR1qCBG8\"\n          },\n          \"application\": {\n            \"href\": \"https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM\"\n          }\n        }\n      }\n    ]\n  },\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://finix.sandbox-payments-api.com/fee_profiles?offset=0&limit=20&sort=created_at,desc&sort=id,desc\"\n    }\n  },\n  \"page\": {\n    \"offset\": 0,\n    \"limit\": 20,\n    \"count\": 2\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e6e8ee0-e1fb-4752-9c9a-59f25deb188c",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 3418,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": 2401.289797621876\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 7076.142519160387,\n          \"key_1\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a828ed9-96b8-46d9-beaf-c29f8645c514",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 2155,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fd77e91-b927-4807-88ac-6e835c5697a9",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "after_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "before_cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 2899,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71a2a9b4-d325-4fa1-a667-a99b81d19c90",
+          "name": "Create a Fee Profile",
+          "request": {
+            "name": "Create a Fee Profile",
+            "description": {
+              "content": "Create a `fee_profile`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fee_profiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"application\": \"<string>\",\n  \"ach_basis_points\": \"<integer>\",\n  \"ach_credit_return_fixed_fee\": \"<integer>\",\n  \"ach_debit_return_fixed_fee\": \"<integer>\",\n  \"ach_fixed_fee\": \"<integer>\",\n  \"american_express_assessment_basis_points\": \"<integer>\",\n  \"american_express_basis_points\": \"<integer>\",\n  \"american_express_charge_interchange\": \"<boolean>\",\n  \"american_express_fixed_fee\": \"<integer>\",\n  \"american_express_externally_funded_basis_points\": \"<integer>\",\n  \"american_express_externally_funded_fixed_fee\": \"<integer>\",\n  \"ancillary_fixed_fee_primary\": \"<integer>\",\n  \"ancillary_fixed_fee_secondary\": \"<integer>\",\n  \"basis_points\": \"<integer>\",\n  \"card_cross_border_basis_points\": \"<integer>\",\n  \"card_cross_border_fixed_fee\": \"<integer>\",\n  \"charge_interchange\": \"<boolean>\",\n  \"diners_club_basis_points\": \"<integer>\",\n  \"diners_club_charge_interchange\": \"<boolean>\",\n  \"diners_club_fixed_fee\": \"<integer>\",\n  \"discover_assessments_basis_points\": \"<integer>\",\n  \"discover_basis_points\": \"<integer>\",\n  \"discover_charge_interchange\": \"<boolean>\",\n  \"discover_data_usage_fixed_fee\": \"<integer>\",\n  \"discover_fixed_fee\": \"<integer>\",\n  \"discover_externally_funded_basis_points\": \"<integer>\",\n  \"discover_externally_funded_fixed_fee\": \"<integer>\",\n  \"discover_network_authorization_fixed_fee\": \"<integer>\",\n  \"dispute_fixed_fee\": \"<integer>\",\n  \"dispute_inquiry_fixed_fee\": \"<integer>\",\n  \"externally_funded_basis_points\": \"<integer>\",\n  \"externally_funded_fixed_fee\": \"<integer>\",\n  \"fixed_fee\": \"<integer>\",\n  \"jcb_basis_points\": \"<integer>\",\n  \"jcb_charge_interchange\": \"<boolean>\",\n  \"jcb_fixed_fee\": \"<integer>\",\n  \"mastercard_acquirer_fees_basis_points\": \"<integer>\",\n  \"mastercard_assessments_over1k_basis_points\": \"<integer>\",\n  \"mastercard_assessments_under1k_basis_points\": \"<integer>\",\n  \"mastercard_basis_points\": \"<integer>\",\n  \"mastercard_charge_interchange\": \"<boolean>\",\n  \"mastercard_fixed_fee\": \"<integer>\",\n  \"qualified_tiers\": \"<object>\",\n  \"rounding_mode\": \"<string>\",\n  \"visa_acquirer_processing_fixed_fee\": \"<integer>\",\n  \"visa_assessments_basis_points\": \"<integer>\",\n  \"visa_base_II_credit_voucher_fixed_fee\": \"<integer>\",\n  \"visa_base_II_system_file_transmission_fixed_fee\": \"<integer>\",\n  \"visa_basis_points\": \"<integer>\",\n  \"visa_charge_interchange\": \"<boolean>\",\n  \"visa_credit_voucher_fixed_fee\": \"<integer>\",\n  \"visa_fixed_fee\": \"<integer>\",\n  \"visa_kilobyte_access_fixed_fee\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "add011a1-f0ad-41b1-98b0-9a6aacf72b83",
+              "name": "Fee profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "finix-apiuser-role",
+                  "value": "ROLE_PARTNER",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "A unique ID for this specific API request attempt.",
+                  "key": "x-request-id",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"FPq6PQ9pHsab66fKMmjQ7jb5\",\n  \"created_at\": \"2022-01-27T07:37:38.66Z\",\n  \"updated_at\": \"2022-01-27T07:37:38.66Z\",\n  \"ach_basis_points\": 300,\n  \"ach_credit_return_fixed_fee\": null,\n  \"ach_debit_return_fixed_fee\": null,\n  \"ach_fixed_fee\": 30,\n  \"american_express_assessment_basis_points\": null,\n  \"american_express_basis_points\": null,\n  \"american_express_charge_interchange\": null,\n  \"american_express_externally_funded_basis_points\": null,\n  \"american_express_externally_funded_fixed_fee\": null,\n  \"american_express_fixed_fee\": null,\n  \"ancillary_fixed_fee_primary\": null,\n  \"ancillary_fixed_fee_secondary\": null,\n  \"application\": \"APgPDQrLD52TYvqazjHJJchM\",\n  \"basis_points\": 200,\n  \"charge_interchange\": false,\n  \"diners_club_basis_points\": null,\n  \"diners_club_charge_interchange\": null,\n  \"diners_club_fixed_fee\": null,\n  \"discover_assessments_basis_points\": null,\n  \"discover_basis_points\": null,\n  \"discover_charge_interchange\": null,\n  \"discover_data_usage_fixed_fee\": null,\n  \"discover_externally_funded_basis_points\": null,\n  \"discover_externally_funded_fixed_fee\": null,\n  \"discover_fixed_fee\": null,\n  \"discover_network_authorization_fixed_fee\": null,\n  \"dispute_fixed_fee\": null,\n  \"dispute_inquiry_fixed_fee\": null,\n  \"externally_funded_basis_points\": null,\n  \"externally_funded_fixed_fee\": null,\n  \"fixed_fee\": 100,\n  \"jcb_basis_points\": null,\n  \"jcb_charge_interchange\": null,\n  \"jcb_fixed_fee\": null,\n  \"mastercard_acquirer_fees_basis_points\": null,\n  \"mastercard_assessments_over1k_basis_points\": null,\n  \"mastercard_assessments_under1k_basis_points\": null,\n  \"mastercard_basis_points\": null,\n  \"mastercard_charge_interchange\": null,\n  \"mastercard_fixed_fee\": null,\n  \"qualified_tiers\": null,\n  \"rounding_mode\": \"TRANSACTION\",\n  \"tags\": {},\n  \"visa_acquirer_processing_fixed_fee\": null,\n  \"visa_assessments_basis_points\": null,\n  \"visa_base_II_credit_voucher_fixed_fee\": null,\n  \"visa_base_II_system_file_transmission_fixed_fee\": null,\n  \"visa_basis_points\": null,\n  \"visa_charge_interchange\": null,\n  \"visa_credit_voucher_fixed_fee\": null,\n  \"visa_fixed_fee\": null,\n  \"visa_kilobyte_access_fixed_fee\": null,\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://finix.sandbox-payments-api.com/fee_profiles/FPq6PQ9pHsab66fKMmjQ7jb5\"\n    },\n    \"application\": {\n      \"href\": \"https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6624c20c-6bbc-4e19-83ab-0794218d0849",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1963,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": \"string\",\n        \"key_1\": 151.89990501074723,\n        \"key_2\": 9112.422275035095\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 3475.794646015282\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efa5300e-a31b-4e13-b709-d5d5933abd91",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8924,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": true\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75dc0a56-e59a-4123-93e6-f50d11474840",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8510,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eb911acb-1d6b-444c-acf0-fb867f69c37b",
+              "name": "Invalid field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 7159,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc38c156-681e-42c9-8077-eb20233eac47",
+          "name": "Fetch a Fee Profile",
+          "request": {
+            "name": "Fetch a Fee Profile",
+            "description": {
+              "content": "Get a `fee_profile`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fee_profiles",
+                ":fee_profile_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fee_profile_id",
+                  "description": "(Required) The ID of the `fee_profile`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a7cb297-7f33-4187-9e98-501686b0fada",
+              "name": "Fee profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles",
+                    ":fee_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fee_profile_id",
+                      "description": "(Required) The ID of the `fee_profile`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "finix-apiuser-role",
+                  "value": "ROLE_PARTNER",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "A unique ID for this specific API request attempt.",
+                  "key": "x-request-id",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"FPq6PQ9pHsab66fKMmjQ7jb5\",\n  \"created_at\": \"2022-01-27T07:37:38.66Z\",\n  \"updated_at\": \"2022-01-27T07:37:38.66Z\",\n  \"ach_basis_points\": 300,\n  \"ach_credit_return_fixed_fee\": null,\n  \"ach_debit_return_fixed_fee\": null,\n  \"ach_fixed_fee\": 30,\n  \"american_express_assessment_basis_points\": null,\n  \"american_express_basis_points\": null,\n  \"american_express_charge_interchange\": null,\n  \"american_express_externally_funded_basis_points\": null,\n  \"american_express_externally_funded_fixed_fee\": null,\n  \"american_express_fixed_fee\": null,\n  \"ancillary_fixed_fee_primary\": null,\n  \"ancillary_fixed_fee_secondary\": null,\n  \"application\": \"APgPDQrLD52TYvqazjHJJchM\",\n  \"basis_points\": 200,\n  \"charge_interchange\": false,\n  \"diners_club_basis_points\": null,\n  \"diners_club_charge_interchange\": null,\n  \"diners_club_fixed_fee\": null,\n  \"discover_assessments_basis_points\": null,\n  \"discover_basis_points\": null,\n  \"discover_charge_interchange\": null,\n  \"discover_data_usage_fixed_fee\": null,\n  \"discover_externally_funded_basis_points\": null,\n  \"discover_externally_funded_fixed_fee\": null,\n  \"discover_fixed_fee\": null,\n  \"discover_network_authorization_fixed_fee\": null,\n  \"dispute_fixed_fee\": null,\n  \"dispute_inquiry_fixed_fee\": null,\n  \"externally_funded_basis_points\": null,\n  \"externally_funded_fixed_fee\": null,\n  \"fixed_fee\": 100,\n  \"jcb_basis_points\": null,\n  \"jcb_charge_interchange\": null,\n  \"jcb_fixed_fee\": null,\n  \"mastercard_acquirer_fees_basis_points\": null,\n  \"mastercard_assessments_over1k_basis_points\": null,\n  \"mastercard_assessments_under1k_basis_points\": null,\n  \"mastercard_basis_points\": null,\n  \"mastercard_charge_interchange\": null,\n  \"mastercard_fixed_fee\": null,\n  \"qualified_tiers\": null,\n  \"rounding_mode\": \"TRANSACTION\",\n  \"tags\": {},\n  \"visa_acquirer_processing_fixed_fee\": null,\n  \"visa_assessments_basis_points\": null,\n  \"visa_base_II_credit_voucher_fixed_fee\": null,\n  \"visa_base_II_system_file_transmission_fixed_fee\": null,\n  \"visa_basis_points\": null,\n  \"visa_charge_interchange\": null,\n  \"visa_credit_voucher_fixed_fee\": null,\n  \"visa_fixed_fee\": null,\n  \"visa_kilobyte_access_fixed_fee\": null,\n  \"_links\": {\n    \"self\": {\n      \"href\": \"https://finix.sandbox-payments-api.com/fee_profiles/FPq6PQ9pHsab66fKMmjQ7jb5\"\n    },\n    \"application\": {\n      \"href\": \"https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1987fb7-11d5-490c-81d6-db5610671b4a",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles",
+                    ":fee_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fee_profile_id",
+                      "description": "(Required) The ID of the `fee_profile`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1963,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": \"string\",\n        \"key_1\": 151.89990501074723,\n        \"key_2\": 9112.422275035095\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 3475.794646015282\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8085c073-8e95-4053-8ad0-262bf085e5f9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles",
+                    ":fee_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fee_profile_id",
+                      "description": "(Required) The ID of the `fee_profile`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8924,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": true\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5532639-eac4-42c1-928c-a92f63875e58",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles",
+                    ":fee_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fee_profile_id",
+                      "description": "(Required) The ID of the `fee_profile`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 5322,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": 6827.80566421765,\n        \"key_1\": 3911,\n        \"key_2\": 7454.605818235157\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": 8959\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f60bdfce-b1b5-4e6d-b243-aeee32d5220c",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fee_profiles",
+                    ":fee_profile_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fee_profile_id",
+                      "description": "(Required) The ID of the `fee_profile`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8510,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://finix.sandbox-payments-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c57aa0b5-7f7f-4250-904e-156bc6c24afc",
+    "name": "Finix Authorizations Fee Profiles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "[object Object]\n\nContact Support:\n Name: Finix\n Email: support@finixpayments.com",
+      "type": "text/plain"
+    }
+  }
+}

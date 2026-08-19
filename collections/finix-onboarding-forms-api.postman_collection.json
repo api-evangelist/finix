@@ -1,0 +1,1082 @@
+{
+  "item": [
+    {
+      "id": "3b402ff6-fdd2-4ca1-8a94-e4bd6da4ca4a",
+      "name": "Onboarding Forms",
+      "description": {
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d76006b2-faa7-4a22-9039-8c5d007e3735",
+          "name": "Create an Onboarding Form",
+          "request": {
+            "name": "Create an Onboarding Form",
+            "description": {
+              "content": "Create an `onboarding_form` with the name of the processor you plan to onboard users to and the links they` get redirected to when completing or moving away from the Finix Onboarding Form.\n\nOnly **ROLE_PARTNER** credentials can be used to create an `onboarding_form`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "onboarding_forms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"onboarding_data\": {\n    \"additional_underwriting_data\": {\n      \"annual_ach_volume\": \"<integer>\",\n      \"average_ach_transfer_amount\": \"<integer>\",\n      \"average_card_transfer_amount\": \"<integer>\",\n      \"business_description\": \"<string>\",\n      \"card_volume_distribution\": {\n        \"card_present_percentage\": \"<integer>\",\n        \"ecommerce_percentage\": \"<integer>\",\n        \"mail_order_telephone_order_percentage\": \"<integer>\"\n      },\n      \"credit_check_allowed\": \"<boolean>\",\n      \"credit_check_ip_address\": \"<string>\",\n      \"credit_check_timestamp\": \"<string>\",\n      \"credit_check_user_agent\": \"<string>\",\n      \"merchant_agreement_accepted\": \"<boolean>\",\n      \"merchant_agreement_ip_address\": \"<string>\",\n      \"merchant_agreement_timestamp\": \"<string>\",\n      \"merchant_agreement_user_agent\": \"<string>\",\n      \"refund_policy\": \"<string>\",\n      \"volume_distribution_by_business_type\": {\n        \"business_to_business_volume_percentage\": \"<integer>\",\n        \"business_to_consumer_volume_percentage\": \"<integer>\",\n        \"consumer_to_consumer_volume_percentage\": \"<integer>\",\n        \"other_volume_percentage\": \"<integer>\",\n        \"person_to_person_volume_percentage\": \"<integer>\"\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"<string>\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      {\n        \"annual_card_volume\": \"<integer>\",\n        \"business_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"business_name\": \"<string>\",\n        \"business_phone\": \"<string>\",\n        \"business_tax_id\": \"<string>\",\n        \"business_type\": \"<string>\",\n        \"default_statement_descriptor\": \"<string>\",\n        \"dob\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"doing_business_as\": \"<string>\",\n        \"email\": \"<string>\",\n        \"first_name\": \"<string>\",\n        \"has_accepted_credit_cards_previously\": \"<boolean>\",\n        \"incorporation_date\": {\n          \"day\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"year\": \"<integer>\"\n        },\n        \"last_name\": \"<string>\",\n        \"max_transaction_amount\": \"<integer>\",\n        \"mcc\": \"<string>\",\n        \"ownership_type\": \"<string>\",\n        \"personal_address\": {\n          \"city\": \"<string>\",\n          \"country\": \"<string>\",\n          \"line1\": \"<string>\",\n          \"line2\": \"<string>\",\n          \"postal_code\": \"<string>\",\n          \"region\": \"<string>\"\n        },\n        \"phone\": \"<string>\",\n        \"principal_percentage_ownership\": \"<integer>\",\n        \"tax_id\": \"<string>\",\n        \"title\": \"<string>\",\n        \"url\": \"<string>\"\n      }\n    ],\n    \"entity\": {\n      \"amex_mid\": \"<integer>\",\n      \"annual_card_volume\": \"<integer>\",\n      \"business_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"business_name\": \"<string>\",\n      \"business_phone\": \"<string>\",\n      \"business_tax_id_provided\": \"<boolean>\",\n      \"business_type\": \"<string>\",\n      \"default_statement_descriptor\": \"<string>\",\n      \"discover_mid\": \"<integer>\",\n      \"dob\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"doing_business_as\": \"<string>\",\n      \"email\": \"<string>\",\n      \"first_name\": \"<string>\",\n      \"has_accepted_credit_cards_previously\": \"<boolean>\",\n      \"incorporation_date\": {\n        \"day\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"year\": \"<integer>\"\n      },\n      \"last_name\": \"<string>\",\n      \"max_transaction_amount\": \"<integer>\",\n      \"mcc\": \"<string>\",\n      \"ownership_type\": \"<string>\",\n      \"personal_address\": {\n        \"line1\": \"<string>\",\n        \"line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"region\": \"<string>\",\n        \"postal_code\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"phone\": \"<string>\",\n      \"principal_percentage_ownership\": \"<integer>\",\n      \"short_business_name\": \"<string>\",\n      \"tax_authority\": \"<string>\",\n      \"tax_id_provided\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    \"payment_instruments\": {\n      \"account_number\": \"<string>\",\n      \"acount_type\": \"<string>\",\n      \"attempt_bank_account_validation_check\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"max_transaction_amount\": \"<integer>\"\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"<string>\"\n    },\n    {\n      \"processor\": \"<string>\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"expiration_in_minutes\": \"<string>\",\n    \"expired_session_url\": \"<string>\",\n    \"fee_details_url\": \"<string>\",\n    \"return_url\": \"<string>\",\n    \"terms_of_service_url\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4dd31eca-f6f4-4094-a38c-69c3b6342dad",
+              "name": "A single `onboarding_from` objext.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"obf_cJUfiz97L8de54EwkC3Hiu\",\n  \"onboarding_data\": {\n    \"entity\": {\n      \"title\": \"CEO\",\n      \"first_name\": \"John\",\n      \"last_name\": \"Smith\",\n      \"email\": \"john.smith@finix.com\",\n      \"business_name\": \"Finix Flowers\",\n      \"business_type\": \"CORPORATION\",\n      \"doing_business_as\": \"Finix Flowers\",\n      \"phone\": \"14158885080\",\n      \"business_phone\": \"14158885080\",\n      \"mcc\": \"4900\",\n      \"url\": \"https://www.finix.com\",\n      \"ownership_type\": \"PRIVATE\",\n      \"default_statement_descriptor\": \"DEMOCOMPANY\",\n      \"max_transaction_amount\": 100000,\n      \"annual_card_volume\": \"1000000\",\n      \"principal_percentage_ownership\": \"75\",\n      \"tax_id\": \"*****6789\",\n      \"business_tax_id\": \"*****6789\",\n      \"has_accepted_credit_cards_previously\": false,\n      \"personal_address\": {\n        \"line1\": \"123 Boren Ave\",\n        \"city\": \"Seattle\",\n        \"region\": \"WA\",\n        \"postal_code\": \"98040\",\n        \"country\": \"USA\"\n      },\n      \"business_address\": {\n        \"line1\": \"123 Bellevue Way\",\n        \"city\": \"Bellevue\",\n        \"region\": \"WA\",\n        \"postal_code\": \"98039\",\n        \"country\": \"USA\"\n      },\n      \"dob\": {\n        \"day\": 13,\n        \"month\": 4,\n        \"year\": 1982\n      },\n      \"incorporation_date\": {\n        \"day\": 9,\n        \"month\": 3,\n        \"year\": 2018\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"title\": \"CFO\",\n        \"first_name\": \"Alex\",\n        \"last_name\": \"Smith\",\n        \"email\": \"alex.smith@finix.com\",\n        \"phone\": \"14158885080\",\n        \"personal_address\": {\n          \"line1\": \"4848 84th St\",\n          \"city\": \"Bellevue\",\n          \"region\": \"WA\",\n          \"postal_code\": \"98032\",\n          \"country\": \"USA\"\n        },\n        \"dob\": {\n          \"day\": 13,\n          \"month\": 4,\n          \"year\": 1985\n        },\n        \"principal_percentage_ownership\": 25,\n        \"tax_id\": \"*****6789\"\n      }\n    ],\n    \"payment_instruments\": {\n      \"name\": \"SARAH BANKER\",\n      \"bank_code\": \"123456789\",\n      \"account_number\": \"*****6789\",\n      \"account_type\": \"CHECKING\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"additional_underwriting_data\": {\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"average_ach_transfer_amount\": 2000000,\n      \"average_card_transfer_amount\": 20000,\n      \"annual_ach_volume\": 2000000,\n      \"business_description\": \"CONSUMER\",\n      \"volume_distribution_by_business_type\": {\n        \"other_volume_percentage\": 0,\n        \"person_to_person_volume_percentage\": 0,\n        \"business_to_business_volume_percentage\": 90,\n        \"business_to_consumer_volume_percentage\": 10,\n        \"consumer_to_consumer_volume_percentage\": 0\n      },\n      \"card_volume_distribution\": {\n        \"ecommerce_percentage\": 100,\n        \"card_present_percentage\": 0,\n        \"mail_order_telephone_order_percentage\": 0\n      }\n    },\n    \"max_transaction_amount\": 100000\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"LITLE_V1\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"return_url\": \"https://www.finixflowers.com/\",\n    \"expired_session_url\": \"https://www.finixflowers.com/login\",\n    \"fee_details_url\": \"https://www.finixflowers.com/fee_details\",\n    \"terms_of_service_url\": \"https://www.finixflowers.com/ToS\",\n    \"expiration_in_minutes\": 10080\n  },\n  \"onboarding_link\": {\n    \"expires_at\": \"2023-04-06T19:16:28.387Z\",\n    \"link_url\": \"https://sandbox.payments-dashboard.com/merchant-onboarding?formId=obf_cJUfiz97L8de54EwkC3Hiu&applicationId=APgPDQrLD52TYvqazjHJJchM...\"\n  },\n  \"status\": \"IN_PROGRESS\",\n  \"identity_id\": null,\n  \"application_id\": \"APgPDQrLD52TYvqazjHJJchM\",\n  \"created_at\": \"2023-03-30T19:16:28.377022Z\",\n  \"updated_at\": \"2023-03-30T19:16:28.377022Z\",\n  \"tags\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3074a6c-9e4a-4319-9e02-d180dff6872d",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 751,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 7434,\n          \"key_1\": false,\n          \"key_2\": 7200\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": \"string\",\n          \"key_1\": 9757\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49c94026-9103-4b15-8c02-7ebab9bdb433",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 6795,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a139b13-5722-4b7b-9538-8d8b80818d43",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 9702,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "149e95c9-4c5d-44ad-99e6-270219966bc3",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 5687,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": 8334.48356187465,\n        \"key_1\": 9182.712981625937,\n        \"key_2\": 1108.9678880584065,\n        \"key_3\": true,\n        \"key_4\": \"string\"\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "708cb58c-85cd-446a-a0fe-af5392b6d50d",
+              "name": "Invalid field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 6877,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "037f249d-2a1c-4b4b-b465-d5806d4978d2",
+          "name": "Fetch an Onboarding Form",
+          "request": {
+            "name": "Fetch an Onboarding Form",
+            "description": {
+              "content": "Retrieve the details of an `onboarding_form`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "onboarding_forms",
+                ":onboarding_form_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "onboarding_form_id",
+                  "description": "(Required) The id of the `onboarding_form`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "34d6503e-0529-4706-a5ed-fe1e416f598b",
+              "name": "A single `onboarding_from` objext.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The id of the `onboarding_form`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"obf_cJUfiz97L8de54EwkC3Hiu\",\n  \"onboarding_data\": {\n    \"entity\": {\n      \"title\": \"CEO\",\n      \"first_name\": \"John\",\n      \"last_name\": \"Smith\",\n      \"email\": \"john.smith@finix.com\",\n      \"business_name\": \"Finix Flowers\",\n      \"business_type\": \"CORPORATION\",\n      \"doing_business_as\": \"Finix Flowers\",\n      \"phone\": \"14158885080\",\n      \"business_phone\": \"14158885080\",\n      \"mcc\": \"4900\",\n      \"url\": \"https://www.finix.com\",\n      \"ownership_type\": \"PRIVATE\",\n      \"default_statement_descriptor\": \"DEMOCOMPANY\",\n      \"max_transaction_amount\": 100000,\n      \"annual_card_volume\": \"1000000\",\n      \"principal_percentage_ownership\": \"75\",\n      \"tax_id\": \"*****6789\",\n      \"business_tax_id\": \"*****6789\",\n      \"has_accepted_credit_cards_previously\": false,\n      \"personal_address\": {\n        \"line1\": \"123 Boren Ave\",\n        \"city\": \"Seattle\",\n        \"region\": \"WA\",\n        \"postal_code\": \"98040\",\n        \"country\": \"USA\"\n      },\n      \"business_address\": {\n        \"line1\": \"123 Bellevue Way\",\n        \"city\": \"Bellevue\",\n        \"region\": \"WA\",\n        \"postal_code\": \"98039\",\n        \"country\": \"USA\"\n      },\n      \"dob\": {\n        \"day\": 13,\n        \"month\": 4,\n        \"year\": 1982\n      },\n      \"incorporation_date\": {\n        \"day\": 9,\n        \"month\": 3,\n        \"year\": 2018\n      }\n    },\n    \"associated_entities\": [\n      {\n        \"title\": \"CFO\",\n        \"first_name\": \"Alex\",\n        \"last_name\": \"Smith\",\n        \"email\": \"alex.smith@finix.com\",\n        \"phone\": \"14158885080\",\n        \"personal_address\": {\n          \"line1\": \"4848 84th St\",\n          \"city\": \"Bellevue\",\n          \"region\": \"WA\",\n          \"postal_code\": \"98032\",\n          \"country\": \"USA\"\n        },\n        \"dob\": {\n          \"day\": 13,\n          \"month\": 4,\n          \"year\": 1985\n        },\n        \"principal_percentage_ownership\": 25,\n        \"tax_id\": \"*****6789\"\n      }\n    ],\n    \"payment_instruments\": {\n      \"name\": \"SARAH BANKER\",\n      \"bank_code\": \"123456789\",\n      \"account_number\": \"*****6789\",\n      \"account_type\": \"CHECKING\",\n      \"type\": \"BANK_ACCOUNT\"\n    },\n    \"additional_underwriting_data\": {\n      \"refund_policy\": \"NO_REFUNDS\",\n      \"average_ach_transfer_amount\": 2000000,\n      \"average_card_transfer_amount\": 20000,\n      \"annual_ach_volume\": 2000000,\n      \"business_description\": \"CONSUMER\",\n      \"volume_distribution_by_business_type\": {\n        \"other_volume_percentage\": 0,\n        \"person_to_person_volume_percentage\": 0,\n        \"business_to_business_volume_percentage\": 90,\n        \"business_to_consumer_volume_percentage\": 10,\n        \"consumer_to_consumer_volume_percentage\": 0\n      },\n      \"card_volume_distribution\": {\n        \"ecommerce_percentage\": 100,\n        \"card_present_percentage\": 0,\n        \"mail_order_telephone_order_percentage\": 0\n      }\n    },\n    \"max_transaction_amount\": 100000\n  },\n  \"merchant_processors\": [\n    {\n      \"processor\": \"LITLE_V1\"\n    }\n  ],\n  \"onboarding_link_details\": {\n    \"return_url\": \"https://www.finixflowers.com/\",\n    \"expired_session_url\": \"https://www.finixflowers.com/login\",\n    \"fee_details_url\": \"https://www.finixflowers.com/fee_details\",\n    \"terms_of_service_url\": \"https://www.finixflowers.com/ToS\",\n    \"expiration_in_minutes\": 10080\n  },\n  \"onboarding_link\": {\n    \"expires_at\": \"2023-04-06T19:16:28.387Z\",\n    \"link_url\": \"https://sandbox.payments-dashboard.com/merchant-onboarding?formId=obf_cJUfiz97L8de54EwkC3Hiu&applicationId=APgPDQrLD52TYvqazjHJJchM...\"\n  },\n  \"status\": \"IN_PROGRESS\",\n  \"identity_id\": null,\n  \"application_id\": \"APgPDQrLD52TYvqazjHJJchM\",\n  \"created_at\": \"2023-03-30T19:16:28.377022Z\",\n  \"updated_at\": \"2023-03-30T19:16:28.377022Z\",\n  \"tags\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98b55251-d67e-47e5-a6af-fb95226a59f0",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The id of the `onboarding_form`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 581,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 9009.02566630207,\n          \"key_1\": \"string\",\n          \"key_2\": 3898.2108109525493,\n          \"key_3\": 2821\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 4877,\n          \"key_1\": true,\n          \"key_2\": 776.2920716469812,\n          \"key_3\": false\n        },\n        \"key_0\": 1655.0626221797215,\n        \"key_1\": true\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "171301cd-a8d8-40ef-8f14-0b6bac50cddc",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The id of the `onboarding_form`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1262,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad992607-4c8f-492d-8826-d289c3f80d62",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The id of the `onboarding_form`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 7800,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f20c85fa-3b48-47c4-8c24-7dccb8119271",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The id of the `onboarding_form`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1235,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": 5415.157568472351,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d2f554c-5d63-447d-8717-91db35d51d29",
+              "name": "Invalid field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The id of the `onboarding_form`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8198,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "460d272e-bd6f-4c57-a18a-7a150bce82c0",
+          "name": "Create an Onboarding Form Link",
+          "request": {
+            "name": "Create an Onboarding Form Link",
+            "description": {
+              "content": "Use the `onboarding_forms` API to create a link that can return users to where they left off completing their Finix Onboarding Form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "onboarding_forms",
+                ":onboarding_form_id",
+                "links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "onboarding_form_id",
+                  "description": "(Required) The ID of the `onboarding_form` resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expiration_in_minutes\": \"<integer>\",\n  \"expired_session_url\": \"<string>\",\n  \"fee_details_url\": \"<string>\",\n  \"return_url\": \"<string>\",\n  \"terms_of_service_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ba2710d-8252-4077-8563-7f5e64e0cb99",
+              "name": "A link for users to return to their `onboarding_form` at any time.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The ID of the `onboarding_form` resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expires_at\": \"2022-07-11T22:39:55.469Z\",\n  \"link_url\": \"https://sandbox.payments-dashboard.com/merchant-onboarding?formId=obf_bXQj8iSgYwXf432yJcWbKv&applicationId=APgPDQrLD52TYvqazjHJJchM&bearerToken=eyJhbGciOiJIUzUxMiJ9.eyJvbmJvYXJkaW5nX2Zvcm1faWQiOiJvYmZfYlhRajhpU2dZd1hmNDMyeUpjV2JLdiIsImZlZV9kZXRhaWxzX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS9kb2NzIiwiZXhwaXJlZF9zZXNzaW9uX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS8iLCJpc3MiOiJodHRwczovL3d3dy5maW5peC5jb20iLCJyZXR1cm5fdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL2RvY3MiLCJleHAiOjE2NTc1NzkxOTUsImFwcGxpY2F0aW9uX2lkIjoiQVBnUERRckxENTJUWXZxYXpqSEpKY2hNIiwiaWF0IjoxNjU3NTc3Mzk1LCJtZXJjaGFudF9tYXhfdHJhbnNhY3Rpb25fYW1vdW50IjoxMDAwMDAsInRlcm1zX29mX3NlcnZpY2VfdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL3Rlcm1zLWFuZC1wb2xpY2llcyJ9.uQvwqhOxSmpX4zMSVn891ClNB_cWHmXhLfyOzRiKRoyn7VAqVOWrO8dJiY-OvN4venPWnPOxM0r3NiIyfgQv6g\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a03c0b17-8dc4-4958-a606-5884442cd457",
+              "name": "Authentication information is missing or invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The ID of the `onboarding_form` resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 581,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 9009.02566630207,\n          \"key_1\": \"string\",\n          \"key_2\": 3898.2108109525493,\n          \"key_3\": 2821\n        }\n      },\n      {\n        \"code\": \"UNKNOWN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"self\": {\n            \"href\": \"string\"\n          },\n          \"source\": {\n            \"href\": \"string\"\n          },\n          \"key_0\": 4877,\n          \"key_1\": true,\n          \"key_2\": 776.2920716469812,\n          \"key_3\": false\n        },\n        \"key_0\": 1655.0626221797215,\n        \"key_1\": true\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b9aed46-af31-492f-9754-acebda8e1b7b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The ID of the `onboarding_form` resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1262,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"FORBIDDEN\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5db66b0-52b0-47bd-b5d5-fea45758c35f",
+              "name": "Object does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The ID of the `onboarding_form` resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 7800,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b61f5259-cb0f-4006-b159-bfa907106dcb",
+              "name": "Not Acceptable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The ID of the `onboarding_form` resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1235,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        },\n        \"key_0\": 5415.157568472351,\n        \"key_1\": \"string\",\n        \"key_2\": true\n      },\n      {\n        \"code\": \"NOT_FOUND\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5473363-e972-4c84-9252-75ebf8c49838",
+              "name": "Invalid field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding_forms",
+                    ":onboarding_form_id",
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "onboarding_form_id",
+                      "description": "(Required) The ID of the `onboarding_form` resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 8198,\n  \"_embedded\": {\n    \"errors\": [\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      },\n      {\n        \"code\": \"INVALID_FIELD\",\n        \"field\": \"string\",\n        \"logref\": {\n          \"logref\": \"string\"\n        },\n        \"message\": \"string\",\n        \"_links\": {\n          \"source\": {\n            \"href\": \"string\"\n          }\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://finix.sandbox-payments-api.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9beaa79d-9961-4f9f-bcd2-feb38c5c7cd5",
+    "name": "Finix Authorizations Onboarding Forms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "[object Object]\n\nContact Support:\n Name: Finix\n Email: support@finixpayments.com",
+      "type": "text/plain"
+    }
+  }
+}

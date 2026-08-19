@@ -8,9 +8,8 @@ server:
   url: https://docs.finix.com/mcp
   auth: none
   install: claude mcp add finix-redocly-mcp https://docs.finix.com/mcp --transport http
-  description: >-
-    Finix's official remote MCP server (Redocly-powered) gives AI agents live access
-    to Finix documentation and the OpenAPI specification. Announced February 2026.
+  description: Finix's official remote MCP server (Redocly-powered) gives AI agents live access to Finix
+    documentation and the OpenAPI specification. Announced February 2026.
 tools:
 - name: search
   description: Search across all Finix documentation using keywords or phrases.
@@ -19,7 +18,8 @@ tools:
 - name: get-endpoints
   description: Retrieve all endpoints for a specific API.
 - name: get-endpoint-info
-  description: Get comprehensive details about a specific endpoint including parameters, security requirements, and examples.
+  description: Get comprehensive details about a specific endpoint including parameters, security requirements,
+    and examples.
 - name: get-security-schemes
   description: Access authentication and security information for an API.
 - name: get-full-spec-document
@@ -29,3 +29,9 @@ clients:
 - ChatGPT (https://docs.finix.com/additional-resources/developers/mcp-server/mcp-chatgpt-setup)
 - Cursor (https://docs.finix.com/additional-resources/developers/mcp-server/mcp-cursor-setup)
 - Gemini (https://docs.finix.com/additional-resources/developers/mcp-server/mcp-gemini-setup)
+deployment:
+  mode: remote
+  verified: searched
+  tools: 6
+  checked: '2026-08-12'
+  source: catalog MCP census
