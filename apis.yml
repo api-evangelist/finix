@@ -44,7 +44,7 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-19'
 image: https://images.ctfassets.net/kqru4vgwujx6/3dBfyfPS31FWqFPTwf4dRv/417cc8b5e94029726cffb9aa85230111/OG_Image.png?w=1200&q=90
