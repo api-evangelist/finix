@@ -4,8 +4,11 @@ info:
   version: 1.0.0
   summary: Convert a finix.js token into a Payment Instrument and create a Transfer (sale).
 sourceDescriptions:
-- name: finix
-  url: ../openapi/finix-openapi-original.yml
+- name: paymentInstrumentsApi
+  url: ../openapi/finix-payment-instruments-api-openapi.yml
+  type: openapi
+- name: transfersApi
+  url: ../openapi/finix-transfers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: tokenizeAndCharge
@@ -13,12 +16,12 @@ workflows:
   inputs:
     type: object
     properties:
-      identity_id: { type: string }
-      token: { type: string, description: Token from finix.js Finix.PaymentForm onSubmit. }
-      merchant_id: { type: string }
-      amount: { type: integer, default: 1000 }
-      currency: { type: string, default: USD }
-      idempotency_id: { type: string }
+      identity_id: {type: string}
+      token: {type: string, description: Token from finix.js Finix.PaymentForm onSubmit.}
+      merchant_id: {type: string}
+      amount: {type: integer, default: 1000}
+      currency: {type: string, default: USD}
+      idempotency_id: {type: string}
   steps:
   - stepId: createInstrumentFromToken
     operationId: createPaymentInstrument

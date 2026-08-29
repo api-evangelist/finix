@@ -4,8 +4,8 @@ info:
   version: 1.0.0
   summary: Look up a Transfer and issue a reversal (refund).
 sourceDescriptions:
-- name: finix
-  url: ../openapi/finix-openapi-original.yml
+- name: transfersApi
+  url: ../openapi/finix-transfers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: refundTransfer
@@ -13,9 +13,9 @@ workflows:
   inputs:
     type: object
     properties:
-      transfer_id: { type: string }
-      refund_amount: { type: integer, description: Amount in cents; omit for full refund. }
-      idempotency_id: { type: string }
+      transfer_id: {type: string}
+      refund_amount: {type: integer, description: Amount in cents; omit for full refund.}
+      idempotency_id: {type: string}
   steps:
   - stepId: getTransfer
     operationId: getTransfer

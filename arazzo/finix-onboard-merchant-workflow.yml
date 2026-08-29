@@ -4,8 +4,14 @@ info:
   version: 1.0.0
   summary: Create a merchant Identity, attach a bank account, provision the Merchant, and run verification.
 sourceDescriptions:
-- name: finix
-  url: ../openapi/finix-openapi-original.yml
+- name: identitiesApi
+  url: ../openapi/finix-identities-api-openapi.yml
+  type: openapi
+- name: merchantsApi
+  url: ../openapi/finix-merchants-api-openapi.yml
+  type: openapi
+- name: paymentInstrumentsApi
+  url: ../openapi/finix-payment-instruments-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: onboardMerchant
@@ -13,9 +19,9 @@ workflows:
   inputs:
     type: object
     properties:
-      business_name: { type: string }
-      bank_code: { type: string, default: '122105278' }
-      account_number: { type: string, default: '0000000016' }
+      business_name: {type: string}
+      bank_code: {type: string, default: '122105278'}
+      account_number: {type: string, default: '0000000016'}
   steps:
   - stepId: createMerchantIdentity
     operationId: createIdentity

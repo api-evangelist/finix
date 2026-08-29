@@ -4,8 +4,14 @@ info:
   version: 1.0.0
   summary: Create a buyer Identity and card, place an Authorization, then capture it.
 sourceDescriptions:
-- name: finix
-  url: ../openapi/finix-openapi-original.yml
+- name: authorizationsApi
+  url: ../openapi/finix-authorizations-api-openapi.yml
+  type: openapi
+- name: identitiesApi
+  url: ../openapi/finix-identities-api-openapi.yml
+  type: openapi
+- name: paymentInstrumentsApi
+  url: ../openapi/finix-payment-instruments-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: authorizeAndCapture
@@ -13,10 +19,10 @@ workflows:
   inputs:
     type: object
     properties:
-      merchant_id: { type: string }
-      amount: { type: integer, default: 1000 }
-      currency: { type: string, default: USD }
-      card_number: { type: string, default: '4242424242424242' }
+      merchant_id: {type: string}
+      amount: {type: integer, default: 1000}
+      currency: {type: string, default: USD}
+      card_number: {type: string, default: '4242424242424242'}
   steps:
   - stepId: createBuyerIdentity
     operationId: createIdentity
