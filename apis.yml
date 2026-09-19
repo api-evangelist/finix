@@ -59,6 +59,15 @@ tags:
 - Payment Facilitation
 - Merchant Onboarding
 - Payouts
+- Marketplace
+tags_raw:
+- Company
+- Fintech
+- Payments
+- Payment Processing
+- Payment Facilitation
+- Merchant Onboarding
+- Payouts
 - Marketplaces
 apis:
 - aid: finix:finix-authorizations-api
@@ -67,6 +76,8 @@ apis:
   humanURL: https://docs.finix.com/
   baseURL: https://finix.live-payments-api.com
   tags:
+  - Authorization
+  tags_raw:
   - Authorizations
   properties:
   - type: OpenAPI
