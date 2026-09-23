@@ -1,6 +1,6 @@
-openapi: 3.0.2
+openapi: 3.2.0
 info:
-  title: Finix Authorizations Settlements API
+  title: Finix Settlements API
   description:
     $ref: api-descriptions/main.md
   contact:
@@ -27,7 +27,24 @@ paths:
       schema:
         type: string
     post:
-      description: "Close the currently accruing `settlement`. \n\nFinix, by default, creates accruing `settlements` then closes them based on your payout configurations. Use this endpoint to manually close the currently accruing settlement.\n\nThe closed `Settlement` will not accrue any further transactions and gets immediately submitted for approval.\n- This endpoint is only available to Finix Core customers. If you have any questions, please contact the [Finix Support Team.](mailto:support@finixpayments.com)\n- Any refunded `Transfers` get included in `Settlements` as a deduction.\n- **PENDING** `Transfers` don't get included in `Settlements`. \n- The `total_amount` minus the `total_fee` equals the `net_amount`. The `net_amount` is the amount in cents that gets deposited into the seller's bank account.\n\nRelated Guides: [Accruing Settlements](/guides/payouts/accruing-settlements/#closing-an-accruing-settlement)"
+      description: 'Close the currently accruing `settlement`.
+
+
+        Finix, by default, creates accruing `settlements` then closes them based on your payout configurations. Use this endpoint to manually close the currently accruing settlement.
+
+
+        The closed `Settlement` will not accrue any further transactions and gets immediately submitted for approval.
+
+        - This endpoint is only available to Finix Core customers. If you have any questions, please contact the Finix Support Team.
+
+        - Any refunded `Transfers` get included in `Settlements` as a deduction.
+
+        - **PENDING** `Transfers` don''t get included in `Settlements`.
+
+        - The `total_amount` minus the `total_fee` equals the `net_amount`. The `net_amount` is the amount in cents that gets deposited into the seller''s bank account.
+
+
+        Related Guides: Accruing Settlements'
       summary: Close Current Active Settlement
       operationId: createIdentitySettlement
       requestBody:
@@ -61,9 +78,7 @@ paths:
     get:
       tags:
       - Settlements
-      description: 'Retrieve a list of `Settlements`.
-
-        '
+      description: Retrieve a list of `Settlements`.
       summary: List All Settlements
       operationId: listSettlements
       parameters:
@@ -147,7 +162,21 @@ paths:
           $ref: '#/components/responses/ErrorUnauthorized'
         '406':
           $ref: '#/components/responses/Error406NotAcceptable'
-      description: "Close an accruing `settlement`.\n\nFinix, by default, creates accruing `settlements` then closes them based on your payout configurations. Use this endpoint to manually close a specific `settlement`.\n\nThe closed `Settlement` will not accrue any further transactions and gets immediately submitted for approval.\n- This endpoint is only available to Finix Core customers. If you have any questions, please contact the [Finix Support Team](mailto:support@finixpayments.com).\n- Any refunded `Transfers` get included in `Settlements` as a deduction. \n- **PENDING** `Transfers` don't get included in `Settlements`.\n- The `total_amount` minus the `total_fee` equals the `net_amount`. The `net_amount` is the amount in cents that gets deposited into the seller's bank account."
+      description: 'Close an accruing `settlement`.
+
+
+        Finix, by default, creates accruing `settlements` then closes them based on your payout configurations. Use this endpoint to manually close a specific `settlement`.
+
+
+        The closed `Settlement` will not accrue any further transactions and gets immediately submitted for approval.
+
+        - This endpoint is only available to Finix Core customers. If you have any questions, please contact the Finix Support Team.
+
+        - Any refunded `Transfers` get included in `Settlements` as a deduction.
+
+        - **PENDING** `Transfers` don''t get included in `Settlements`.
+
+        - The `total_amount` minus the `total_fee` equals the `net_amount`. The `net_amount` is the amount in cents that gets deposited into the seller''s bank account.'
       requestBody:
         $ref: '#/components/requestBodies/CloseSettlement'
       x-java-method-name: put
@@ -216,7 +245,6 @@ paths:
         - Funding `transfers` can''t be deleted.
 
 
-
         > Per the JSON API for deleting a resource, our API doesn''t have a response body when removing a `Transfer` from a `Settlement`.'
       summary: Delete Settlement Transfers
       operationId: removeSettlementTransfers
@@ -273,37 +301,6 @@ paths:
       x-returns-list: true
 components:
   parameters:
-    QueryAmountLtFilter:
-      description: Filter by an amount less than.
-      in: query
-      name: amount.lt
-      schema:
-        type: integer
-      style: form
-    QueryCreatedAtLteFilter:
-      description: Filter where `created_at` is before the given date.
-      in: query
-      name: created_at.lte
-      schema:
-        type: string
-        example: '2022-09-27T11:21:23'
-      style: form
-    QueryLimit:
-      description: The numbers of items to return.
-      example: 10
-      in: query
-      name: limit
-      schema:
-        type: integer
-      style: form
-    QueryCreatedAtGteFilter:
-      description: Filter where `created_at` is after the given date.
-      in: query
-      name: created_at.gte
-      schema:
-        type: string
-        example: '2022-09-27T11:21:23'
-      style: form
     QueryAmountGteFilter:
       description: Filter by an amount greater than or equal.
       in: query
@@ -318,6 +315,22 @@ components:
       schema:
         type: integer
       style: form
+    QueryCreatedAtLteFilter:
+      description: Filter where `created_at` is before the given date.
+      in: query
+      name: created_at.lte
+      schema:
+        type: string
+        example: '2022-09-27T11:21:23'
+      style: form
+    QueryCreatedAtGteFilter:
+      description: Filter where `created_at` is after the given date.
+      in: query
+      name: created_at.gte
+      schema:
+        type: string
+        example: '2022-09-27T11:21:23'
+      style: form
     QueryStatus:
       name: status
       in: query
@@ -329,10 +342,25 @@ components:
         - AWAITING_APPROVAL
         - APPROVED
       description: Filter by the status of the `Settlement`. Available values include:<ul><li>**PENDING**<li>**STAGED**<li>**AWAITING_APPROVAL**<li>**APPROVED**.</ul> Merchants only receive payouts when `Settlements` are **APPROVED**. For more information, see [Payouts](/docs/guides/payouts/payouts/).
+    QueryAmountLtFilter:
+      description: Filter by an amount less than.
+      in: query
+      name: amount.lt
+      schema:
+        type: integer
+      style: form
     QueryAmountLteFilter:
       description: Filter by an amount less than or equal.
       in: query
       name: amount.lte
+      schema:
+        type: integer
+      style: form
+    QueryLimit:
+      description: The numbers of items to return.
+      example: 10
+      in: query
+      name: limit
       schema:
         type: integer
       style: form
@@ -344,11 +372,11 @@ components:
         type: integer
       style: form
   headers:
-    x-request-id:
-      description: A unique ID for this specific API request attempt.
+    date:
       schema:
         type: string
-    date:
+    x-request-id:
+      description: A unique ID for this specific API request attempt.
       schema:
         type: string
     finix-apiuser-role:
@@ -360,258 +388,31 @@ components:
         - ROLE_PARTNER
         - ROLE_MERCHANT
   schemas:
-    Error422InvalidFieldList:
+    IdempotencyId:
+      title: IdempotencyId
+      type:
+      - string
+      - 'null'
+      description: Pass any randomly generated or internal ID to [idempotently](/api/overview/#section/Idempotency-Requests) identify `Transfers`, `Authorizations`, and refund requests.
+    TransfersList:
       type: object
-      description: Invalid field
-      title: ''
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - INVALID_FIELD
-                  field:
-                    type: string
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    ErrorGeneric:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - FORBIDDEN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    Amount:
-      type: integer
-      title: Amount
-      description: The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
-      format: int64
-    FailureMessage:
-      title: FailureMessage
-      x-stoplight:
-        id: cgilf858039yi
-      type: string
-      description: A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.
-      nullable: true
-    Error403ForbiddenList:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - FORBIDDEN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
       description: ''
-      title: ''
-    Messages:
-      title: Messages
-      type: array
-      description: Message field that provides additional details. This field is typically **null**.
-      nullable: true
-      items:
-        type: string
-    Raw:
-      title: Raw
-      description: Raw response from the processor.
-      x-examples: {}
-      type: object
-      nullable: true
-    UpdatedAt:
-      type: string
-      title: UpdatedAt
-      format: date-time
-      description: Timestamp of when the object was last updated.
-    PageCursor:
-      title: PageCursor
-      x-stoplight:
-        id: 8v9on8n2939z2
-      type: object
       properties:
-        limit:
-          type: integer
-          description: The number of entries to return.
-        next_cursor:
-          type: string
-          description: The cursor to use for the next page of results.
-          nullable: true
-      description: Details the page that's returned.
-    FeeType:
-      title: FeeType
-      type: string
-      enum:
-      - APPLICATION_FEE
-      - ACH_BASIS_POINTS
-      - ACH_FIXED
-      - CARD_BASIS_POINTS
-      - CARD_FIXED
-      - CARD_INTERCHANGE
-      - VISA_BASIS_POINTS
-      - VISA_FIXED
-      - VISA_INTERCHANGE
-      - VISA_ASSESSMENT_BASIS_POINTS
-      - VISA_ACQUIRER_PROCESSING_FIXED
-      - VISA_CREDIT_VOUCHER_FIXED
-      - VISA_BASE_II_SYSTEM_FILE_TRANSMISSION_FIXED
-      - VISA_BASE_II_CREDIT_VOUCHER_FIXED
-      - VISA_KILOBYTE_ACCESS_FIXED
-      - DISCOVER_BASIS_POINTS
-      - DISCOVER_FIXED
-      - DISCOVER_INTERCHANGE
-      - DISCOVER_ASSESSMENT_BASIS_POINTS
-      - DISCOVER_DATA_USAGE_FIXED
-      - DISCOVER_NETWORK_AUTHORIZATION_FIXED
-      - DINERS_CLUB_BASIS_POINTS
-      - DINERS_CLUB_FIXED
-      - DINERS_CLUB_INTERCHANGE
-      - MASTERCARD_BASIS_POINTS
-      - MASTERCARD_FIXED
-      - MASTERCARD_INTERCHANGE
-      - MASTERCARD_ASSESSMENT_UNDER_1K_BASIS_POINTS
-      - MASTERCARD_ASSESSMENT_OVER_1K_BASIS_POINTS
-      - MASTERCARD_ACQUIRER_FEE_BASIS_POINTS
-      - JCB_BASIS_POINTS
-      - JCB_FIXED
-      - JCB_INTERCHANGE
-      - AMERICAN_EXPRESS_BASIS_POINTS
-      - AMERICAN_EXPRESS_FIXED
-      - AMERICAN_EXPRESS_INTERCHANGE
-      - AMERICAN_EXPRESS_ASSESSMENT_BASIS_POINTS
-      - DISPUTE_INQUIRY_FIXED_FEE
-      - DISPUTE_FIXED_FEE
-      - QUALIFIED_TIER_BASIS_POINTS_FEE
-      - QUALIFIED_TIER_FIXED_FEE
-      - CUSTOM
-      - ACH_DEBIT_RETURN_FIXED_FEE
-      - ACH_CREDIT_RETURN_FIXED_FEE
-      - ANCILLARY_FIXED_FEE_PRIMARY
-      - ANCILLARY_FIXED_FEE_SECONDARY
-      - SETTLEMENT_V2_TRANSFER
-      description: Details the type of fee if the `Transfer` includes a `fee`.
-    CardPresentDetails:
-      title: CardPresentDetails
-      x-stoplight:
-        id: jbenxkas8ukf2
-      type: object
-      description: Details needed to process card present transactions.
-      nullable: true
-      properties:
-        approval_code:
-          type: string
-          description: Unique ID used to identify the approval of the `Transfer`.
-          nullable: true
-        brand:
-          type: string
-          description: The brand of the card saved in the `Payment Instrument`.
-          nullable: true
-        emv_data:
+        page:
+          $ref: '#/components/schemas/PageCursor'
+        _embedded:
           type: object
-          description: Encrypted card data used to process the transaction.
-          nullable: true
+          description: List of `Transfer` objects.
           properties:
-            application_identifier:
-              type: string
-              description: ID of the EMV application processing the transaction.
-            application_label:
-              type: string
-              description: EMV card label.
-            application_preferred_name:
-              type: string
-              description: Alternate EMV application name (if provided).
-              nullable: true
-            application_transaction_counter:
-              type: string
-              description: Transaction number for the EMV application.
-            cryptogram:
-              type: string
-              description: Encrypted card infromation used to process the transaction.
-            issuer_code_table_index:
-              type: string
-              description: The alphabet code table (according to ISO 8859) used by the EMV application (if provided).
-              nullable: true
-            pin_verified:
-              type: boolean
-              description: Details if the cardholder's PIN number was verified.
-            tags:
-              $ref: '#/components/schemas/Tags'
-        entry_mode:
-          type: string
-          description: Details how the card was entered to process the transaction.
-          nullable: true
-        masked_account_number:
-          type: string
-          description: Last four digits of the bank account number.
-          nullable: true
-        name:
-          type: string
-          description: The name of the bank account or card owner.
-          nullable: true
-        payment_type:
-          type: string
-          description: The type of `Payment Instrument` used in the transaction (or the original payment).
+            transfers:
+              type: array
+              minItems: 0
+              uniqueItems: true
+              description: '`Transfer` objects.'
+              items:
+                $ref: '#/components/schemas/Transfer'
+        _links:
+          $ref: '#/components/schemas/ListLinks'
     AdditionalPurchaseData:
       title: AdditionalPurchaseData
       x-stoplight:
@@ -718,6 +519,334 @@ components:
       required:
       - customer_reference_number
       - sales_tax
+    Error422InvalidFieldList:
+      type: object
+      description: Invalid field
+      title: ''
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - INVALID_FIELD
+                  field:
+                    type: string
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    Error401Unauthorized:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - UNKNOWN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    additionalProperties: true
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    Error406NotAcceptable:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - NOT_FOUND
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+      title: ''
+    Raw:
+      title: Raw
+      description: Raw response from the processor.
+      x-examples: {}
+      type:
+      - object
+      - 'null'
+    FeeType:
+      title: FeeType
+      type: string
+      enum:
+      - APPLICATION_FEE
+      - ACH_BASIS_POINTS
+      - ACH_FIXED
+      - CARD_BASIS_POINTS
+      - CARD_FIXED
+      - CARD_INTERCHANGE
+      - VISA_BASIS_POINTS
+      - VISA_FIXED
+      - VISA_INTERCHANGE
+      - VISA_ASSESSMENT_BASIS_POINTS
+      - VISA_ACQUIRER_PROCESSING_FIXED
+      - VISA_CREDIT_VOUCHER_FIXED
+      - VISA_BASE_II_SYSTEM_FILE_TRANSMISSION_FIXED
+      - VISA_BASE_II_CREDIT_VOUCHER_FIXED
+      - VISA_KILOBYTE_ACCESS_FIXED
+      - DISCOVER_BASIS_POINTS
+      - DISCOVER_FIXED
+      - DISCOVER_INTERCHANGE
+      - DISCOVER_ASSESSMENT_BASIS_POINTS
+      - DISCOVER_DATA_USAGE_FIXED
+      - DISCOVER_NETWORK_AUTHORIZATION_FIXED
+      - DINERS_CLUB_BASIS_POINTS
+      - DINERS_CLUB_FIXED
+      - DINERS_CLUB_INTERCHANGE
+      - MASTERCARD_BASIS_POINTS
+      - MASTERCARD_FIXED
+      - MASTERCARD_INTERCHANGE
+      - MASTERCARD_ASSESSMENT_UNDER_1K_BASIS_POINTS
+      - MASTERCARD_ASSESSMENT_OVER_1K_BASIS_POINTS
+      - MASTERCARD_ACQUIRER_FEE_BASIS_POINTS
+      - JCB_BASIS_POINTS
+      - JCB_FIXED
+      - JCB_INTERCHANGE
+      - AMERICAN_EXPRESS_BASIS_POINTS
+      - AMERICAN_EXPRESS_FIXED
+      - AMERICAN_EXPRESS_INTERCHANGE
+      - AMERICAN_EXPRESS_ASSESSMENT_BASIS_POINTS
+      - DISPUTE_INQUIRY_FIXED_FEE
+      - DISPUTE_FIXED_FEE
+      - QUALIFIED_TIER_BASIS_POINTS_FEE
+      - QUALIFIED_TIER_FIXED_FEE
+      - CUSTOM
+      - ACH_DEBIT_RETURN_FIXED_FEE
+      - ACH_CREDIT_RETURN_FIXED_FEE
+      - ANCILLARY_FIXED_FEE_PRIMARY
+      - ANCILLARY_FIXED_FEE_SECONDARY
+      - SETTLEMENT_V2_TRANSFER
+      description: Details the type of fee if the `Transfer` includes a `fee`.
+    CardPresentDetails:
+      title: CardPresentDetails
+      x-stoplight:
+        id: jbenxkas8ukf2
+      type:
+      - object
+      - 'null'
+      description: Details needed to process card present transactions.
+      properties:
+        approval_code:
+          type:
+          - string
+          - 'null'
+          description: Unique ID used to identify the approval of the `Transfer`.
+        brand:
+          type:
+          - string
+          - 'null'
+          description: The brand of the card saved in the `Payment Instrument`.
+        emv_data:
+          type:
+          - object
+          - 'null'
+          description: Encrypted card data used to process the transaction.
+          properties:
+            application_identifier:
+              type: string
+              description: ID of the EMV application processing the transaction.
+            application_label:
+              type: string
+              description: EMV card label.
+            application_preferred_name:
+              type:
+              - string
+              - 'null'
+              description: Alternate EMV application name (if provided).
+            application_transaction_counter:
+              type: string
+              description: Transaction number for the EMV application.
+            cryptogram:
+              type: string
+              description: Encrypted card infromation used to process the transaction.
+            issuer_code_table_index:
+              type:
+              - string
+              - 'null'
+              description: The alphabet code table (according to ISO 8859) used by the EMV application (if provided).
+            pin_verified:
+              type: boolean
+              description: Details if the cardholder's PIN number was verified.
+            tags:
+              $ref: '#/components/schemas/Tags'
+        entry_mode:
+          type:
+          - string
+          - 'null'
+          description: Details how the card was entered to process the transaction.
+        masked_account_number:
+          type:
+          - string
+          - 'null'
+          description: Last four digits of the bank account number.
+        name:
+          type:
+          - string
+          - 'null'
+          description: The name of the bank account or card owner.
+        payment_type:
+          type: string
+          description: The type of `Payment Instrument` used in the transaction (or the original payment).
+    Amount:
+      type: integer
+      title: Amount
+      description: The total amount that will be debited in cents (e.g. 100 cents to debit $1.00).
+      format: int64
+    CreatedAt:
+      type: string
+      title: CreatedAt
+      format: date-time
+      description: Timestamp of when the object was created.
+    PageCursor:
+      title: PageCursor
+      x-stoplight:
+        id: 8v9on8n2939z2
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: The number of entries to return.
+        next_cursor:
+          type:
+          - string
+          - 'null'
+          description: The cursor to use for the next page of results.
+      description: Details the page that's returned.
+    LogRef:
+      title: LogRef
+      type: object
+      properties:
+        logref:
+          type: string
+    Error404NotFoundList:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - NOT_FOUND
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    CreateSettlementRequest:
+      title: SettlementCreate
+      type: object
+      properties:
+        currency:
+          $ref: '#/components/schemas/Currency'
+        merchant_id:
+          type: string
+          description: If the `Application` has more than one associated `processor`, this field is required.
+        processor:
+          type: string
+          description: If the `Application` has more than one associated `processor`, it's required when creating `settlements` to include the `processor` (e.g. **DUMMY_V1**).
+        tags:
+          $ref: '#/components/schemas/Tags'
+    UpdatedAt:
+      type: string
+      title: UpdatedAt
+      format: date-time
+      description: Timestamp of when the object was last updated.
+    AdditionalBuyerCharges:
+      title: AdditionalBuyerCharges
+      x-stoplight:
+        id: 8t8auxc19wmuw
+      type:
+      - object
+      - 'null'
+      description: Object detailing any [Buyer Charges](/guides/payments/making-a-payment/buyer-charges/) that got included in the `Authorization`.
+      properties:
+        convenience_amount:
+          type:
+          - number
+          - 'null'
+          description: Include the convenience fee the merchant is charging the buyer for the transaction when creating a `Transfer` or an `Authorization`.
+        rent_surcharge_amount:
+          type:
+          - number
+          - 'null'
+          description: Include the rent surcharge the merchant is charging the buyer for the transaction when creating a `Transfer` or an `Authorization`.
     SettlementsList:
       type: object
       description: ''
@@ -737,6 +866,83 @@ components:
                 $ref: '#/components/schemas/Settlement'
         _links:
           $ref: '#/components/schemas/ListLinks'
+    ErrorGeneric:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - FORBIDDEN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    AdditionalHealthcareData:
+      title: AdditionalHealthcareData
+      x-stoplight:
+        id: ibznc087ymmit
+      type:
+      - object
+      - 'null'
+      description: Optional object detailing [specific healthcare amounts](/guides/making-a-payment/hsa-fsa/).
+      properties:
+        clinic_amount:
+          type:
+          - integer
+          - 'null'
+          description: The amount used for clinic and office visits such as a copay amount.
+        dental_amount:
+          type:
+          - integer
+          - 'null'
+          description: The amount used for dental related expenses.
+        prescription_amount:
+          type:
+          - integer
+          - 'null'
+          description: The amount used to purchase perscriptions and medications.
+        vision_amount:
+          type:
+          - integer
+          - 'null'
+          description: The amount used for vision related expenses.
+    ListLinks:
+      title: ListLinks
+      additionalProperties: true
+      type: object
+      description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
+      properties:
+        next:
+          type: object
+          description: Link to the next page of entries.
+          properties:
+            href:
+              type: string
+        self:
+          type: object
+          description: Link to the resource that was used in the request.
+          properties:
+            href:
+              type: string
     Transfer:
       type: object
       x-examples: {}
@@ -755,9 +961,10 @@ components:
         additional_purchase_data:
           $ref: '#/components/schemas/AdditionalPurchaseData'
         address_verification:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Details the results of the Address Verification checks.
-          nullable: true
         amount:
           $ref: '#/components/schemas/Amount'
         amount_requested:
@@ -771,9 +978,10 @@ components:
         currency:
           $ref: '#/components/schemas/Currency'
         destination:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The ID of the destination.
-          nullable: true
         device:
           type: string
           description: The ID of the `Device` resource the `Transfer` was created under.
@@ -801,40 +1009,46 @@ components:
           example: IDxxxxxxxxxxxxxxxxxxxxxxxx
           description: The ID of `Identity` resource used by the `Merchant` the `Transfer` was created under.
         parent_transfer:
-          type: string
+          type:
+          - string
+          - 'null'
           description: '- ID of the original parent `Transfer` where the transaction occurred.
 
             - Only appears for `Transfers:type` **REVERSAL** and **FEE**.'
-          nullable: true
         parent_transfer_trace_id:
-          type: string
+          type:
+          - string
+          - 'null'
           description: '- `trace_id` of the original parent `Transfer` where the transaction occurred.
 
             - Only appears for `Transfers:type` **REVERSAL** and **FEE**.'
-          nullable: true
         messages:
           $ref: '#/components/schemas/Messages'
         raw:
           $ref: '#/components/schemas/Raw'
         ready_to_settle_at:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
           description: Timestamp of when the `Transfer` is ready to be settled at.
-          nullable: true
         security_code_verification:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Details the results of the Security Code Verification checks.
-          nullable: true
         source:
-          type: string
+          type:
+          - string
+          - 'null'
           description: The ID of the `Payment Instrument` that will be debited and performing the `Transfer`.
-          nullable: true
         split_transfers:
-          type: string
+          type:
+          - string
+          - 'null'
           description: '- The ID of the `split_transfer` resources moving funds from the primary `Transfer` to the specified `Merchants.`
 
             - Only used for Split Transactions. For more information, see [Split Transactions](/docs/guides/payments/modify/split-transactions/).'
-          nullable: true
         state:
           type: string
           enum:
@@ -845,9 +1059,10 @@ components:
           - UNKNOWN
           description: The stauts of the `Transfer`.
         statement_descriptor:
-          type: string
+          type:
+          - string
+          - 'null'
           description: <li>The description of the seller that appears on the buyer's bank or card statement.</li><li><kbd>statement_descriptors</kbd> for `Transfers` in <strong>live</strong> enviroments will have a <kbd>FI *</kbd> prefix.
-          nullable: true
         subtype:
           type: string
           enum:
@@ -874,9 +1089,10 @@ components:
         tags:
           $ref: '#/components/schemas/Tags'
         trace_id:
-          type: string
+          type:
+          - string
+          - 'null'
           description: Trace ID of the `Transfer`. The processor sends back the `trace_id` so you can track the `Transfer` end-to-end.
-          nullable: true
         type:
           type: string
           enum:
@@ -972,31 +1188,7 @@ components:
               properties:
                 href:
                   type: string
-    AdditionalHealthcareData:
-      title: AdditionalHealthcareData
-      x-stoplight:
-        id: ibznc087ymmit
-      type: object
-      description: Optional object detailing [specific healthcare amounts](/guides/making-a-payment/hsa-fsa/).
-      nullable: true
-      properties:
-        clinic_amount:
-          type: integer
-          description: The amount used for clinic and office visits such as a copay amount.
-          nullable: true
-        dental_amount:
-          type: integer
-          description: The amount used for dental related expenses.
-          nullable: true
-        prescription_amount:
-          type: integer
-          description: The amount used to purchase perscriptions and medications.
-          nullable: true
-        vision_amount:
-          type: integer
-          description: The amount used for vision related expenses.
-          nullable: true
-    Error404NotFoundList:
+    Error403ForbiddenList:
       type: object
       properties:
         total:
@@ -1013,7 +1205,7 @@ components:
                   code:
                     type: string
                     enum:
-                    - NOT_FOUND
+                    - FORBIDDEN
                   logref:
                     $ref: '#/components/schemas/LogRef'
                   message:
@@ -1026,37 +1218,160 @@ components:
                         properties:
                           href:
                             type: string
-    ListLinks:
-      title: ListLinks
-      additionalProperties: true
+      description: ''
+      title: ''
+    Settlement:
       type: object
-      description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
+      description: ''
       properties:
-        next:
-          type: object
-          description: Link to the next page of entries.
-          properties:
-            href:
-              type: string
-        self:
-          type: object
-          description: Link to the resource that was used in the request.
-          properties:
-            href:
-              type: string
-    LogRef:
-      title: LogRef
-      type: object
-      properties:
-        logref:
+        id:
           type: string
-    FailureCode:
-      title: FailureCode
-      x-stoplight:
-        id: lo8jqmipa7376
-      type: string
-      description: The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/guides/developers/errors/#failure-codes).
-      nullable: true
+          description: The ID of the `Settlement` resource.
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
+        application:
+          type: string
+          description: The ID of the `Application` resource the `Settlement` was created under.
+        currency:
+          $ref: '#/components/schemas/Currency'
+        destination:
+          type:
+          - string
+          - 'null'
+          example: PIxxxxxxxxxxxxxxxxxx
+          description: ID of the `Payment Instrument` where funds will be sent.
+        funds_flow:
+          type:
+          - string
+          - 'null'
+          description: Details how funds will be dispersed in the `Funding Transfer` (usually **null**).
+        identity:
+          type: string
+          description: The ID of the `Identity` used to create the `Settlement` resource.
+        merchant_id:
+          type: string
+          description: The ID of the `Merchant` used to create the `Settlement` resource.
+        net_amount:
+          type: integer
+          description: The amount in cents that will be deposited into the merchant's bank account.
+        payment_type:
+          type:
+          - string
+          - 'null'
+          description: The type of `Payment Instrument` used in the `Funding Transfer` (or the original payment).
+        processor:
+          type: string
+          description: Name of the `Settlement` processor.
+        status:
+          type: string
+          enum:
+          - APPROVED
+          - AWAITING_APPROVAL
+          - PENDING
+          description: The status of the `Settlement`. Available values include:<ul><li>**PENDING**<li>**AWAITING_APPROVAL**<li>**APPROVED**.</ul> Merchants only receive payouts when `Settlements` are **APPROVED** and receive the resulting funding `Transfer` . For more information, see [Payouts](/guides/payouts/).
+        tags:
+          $ref: '#/components/schemas/Tags'
+        total_amount:
+          type: integer
+          description: Total amount of the `Settlement` (in cents).
+        total_fee:
+          type: integer
+          description: Sum of the fees in the `Settlement`.
+        total_fees:
+          type: integer
+          description: "Sum of the fees \n(including Subcription Billing) in the `Settlement`."
+        type:
+          type: string
+          enum:
+          - MERCHANT_REVENUE
+          - PLATFORM_FEE
+          - PARTNER_FEE
+          - NOOP
+          - MERCHANT
+          - APPLICATION
+          - PLATFORM
+          description: Type of `Settlement`.
+        _links:
+          type: object
+          description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
+          properties:
+            application:
+              type: object
+              description: Link to the `Application` the resource was created under.
+              properties:
+                href:
+                  type: string
+            credits:
+              type: object
+              properties:
+                href:
+                  type: string
+            debits:
+              type: object
+              properties:
+                href:
+                  type: string
+            disputes:
+              type: object
+              properties:
+                href:
+                  type: string
+            fees:
+              type: object
+              properties:
+                href:
+                  type: string
+            funding_transfers:
+              type: object
+              properties:
+                href:
+                  type: string
+            identity:
+              type: object
+              properties:
+                href:
+                  type: string
+            reversals:
+              type: object
+              properties:
+                href:
+                  type: string
+            self:
+              type: object
+              description: Link to the resource that was used in the request.
+              properties:
+                href:
+                  type: string
+            transfers:
+              type: object
+              properties:
+                href:
+                  type: string
+    Messages:
+      title: Messages
+      type:
+      - array
+      - 'null'
+      description: Message field that provides additional details. This field is typically **null**.
+      items:
+        type: string
+    Tags:
+      type:
+      - object
+      - 'null'
+      title: tags
+      additionalProperties:
+        type: string
+      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
+
+        - Maximum character length for individual `keys` is 40.
+
+        - Maximum character length for individual **values** is 500.
+
+
+        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
     RemoveSettlementTransfer:
       type: object
       x-examples:
@@ -1069,50 +1384,6 @@ components:
           description: ID of `Transfer` resource.
           items:
             type: string
-    Error406NotAcceptable:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - NOT_FOUND
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-      title: ''
-    CloseSettlement:
-      title: CloseSettlement
-      x-stoplight:
-        id: apumcx91bdtxm
-      type: object
-      properties:
-        action:
-          type: string
-          enum:
-          - STOP_ACCRUAL
-          description: The action you want to perform on the `settlement`. Use **STOP_ACCRUAL** to close the specified `settlement`.
-      required:
-      - action
     Currency:
       type: string
       description: ISO 4217 3 letter currency code.
@@ -1296,243 +1567,287 @@ components:
       - ZAR
       - ZMW
       - ZWL
-    TransfersList:
-      type: object
-      description: ''
-      properties:
-        page:
-          $ref: '#/components/schemas/PageCursor'
-        _embedded:
-          type: object
-          description: List of `Transfer` objects.
-          properties:
-            transfers:
-              type: array
-              minItems: 0
-              uniqueItems: true
-              description: '`Transfer` objects.'
-              items:
-                $ref: '#/components/schemas/Transfer'
-        _links:
-          $ref: '#/components/schemas/ListLinks'
-    Error401Unauthorized:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - UNKNOWN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    additionalProperties: true
-                    properties:
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    Settlement:
-      type: object
-      description: ''
-      properties:
-        id:
-          type: string
-          description: The ID of the `Settlement` resource.
-        created_at:
-          $ref: '#/components/schemas/CreatedAt'
-        updated_at:
-          $ref: '#/components/schemas/UpdatedAt'
-        application:
-          type: string
-          description: The ID of the `Application` resource the `Settlement` was created under.
-        currency:
-          $ref: '#/components/schemas/Currency'
-        destination:
-          type: string
-          example: PIxxxxxxxxxxxxxxxxxx
-          description: ID of the `Payment Instrument` where funds will be sent.
-          nullable: true
-        funds_flow:
-          type: string
-          description: Details how funds will be dispersed in the `Funding Transfer` (usually **null**).
-          nullable: true
-        identity:
-          type: string
-          description: The ID of the `Identity` used to create the `Settlement` resource.
-        merchant_id:
-          type: string
-          description: The ID of the `Merchant` used to create the `Settlement` resource.
-        net_amount:
-          type: integer
-          description: The amount in cents that will be deposited into the merchant's bank account.
-        payment_type:
-          type: string
-          description: The type of `Payment Instrument` used in the `Funding Transfer` (or the original payment).
-          nullable: true
-        processor:
-          type: string
-          description: Name of the `Settlement` processor.
-        status:
-          type: string
-          enum:
-          - APPROVED
-          - AWAITING_APPROVAL
-          - PENDING
-          description: The status of the `Settlement`. Available values include:<ul><li>**PENDING**<li>**AWAITING_APPROVAL**<li>**APPROVED**.</ul> Merchants only receive payouts when `Settlements` are **APPROVED** and receive the resulting funding `Transfer` . For more information, see [Payouts](/guides/payouts/).
-        tags:
-          $ref: '#/components/schemas/Tags'
-        total_amount:
-          type: integer
-          description: Total amount of the `Settlement` (in cents).
-        total_fee:
-          type: integer
-          description: Sum of the fees in the `Settlement`.
-        total_fees:
-          type: integer
-          description: "Sum of the fees \n(including Subcription Billing) in the `Settlement`."
-        type:
-          type: string
-          nullable: false
-          enum:
-          - MERCHANT_REVENUE
-          - PLATFORM_FEE
-          - PARTNER_FEE
-          - NOOP
-          - MERCHANT
-          - APPLICATION
-          - PLATFORM
-          description: Type of `Settlement`.
-        _links:
-          type: object
-          description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
-          properties:
-            application:
-              type: object
-              description: Link to the `Application` the resource was created under.
-              properties:
-                href:
-                  type: string
-            credits:
-              type: object
-              properties:
-                href:
-                  type: string
-            debits:
-              type: object
-              properties:
-                href:
-                  type: string
-            disputes:
-              type: object
-              properties:
-                href:
-                  type: string
-            fees:
-              type: object
-              properties:
-                href:
-                  type: string
-            funding_transfers:
-              type: object
-              properties:
-                href:
-                  type: string
-            identity:
-              type: object
-              properties:
-                href:
-                  type: string
-            reversals:
-              type: object
-              properties:
-                href:
-                  type: string
-            self:
-              type: object
-              description: Link to the resource that was used in the request.
-              properties:
-                href:
-                  type: string
-            transfers:
-              type: object
-              properties:
-                href:
-                  type: string
-    CreatedAt:
-      type: string
-      title: CreatedAt
-      format: date-time
-      description: Timestamp of when the object was created.
-    CreateSettlementRequest:
-      title: SettlementCreate
-      type: object
-      properties:
-        currency:
-          $ref: '#/components/schemas/Currency'
-        merchant_id:
-          type: string
-          description: If the `Application` has more than one associated `processor`, this field is required.
-        processor:
-          type: string
-          description: If the `Application` has more than one associated `processor`, it's required when creating `settlements` to include the `processor` (e.g. **DUMMY_V1**).
-        tags:
-          $ref: '#/components/schemas/Tags'
-    IdempotencyId:
-      title: IdempotencyId
-      type: string
-      description: Pass any randomly generated or internal ID to [idempotently](/api/overview/#section/Idempotency-Requests) identify `Transfers`, `Authorizations`, and refund requests.
-      nullable: true
-    Tags:
-      type: object
-      title: tags
-      additionalProperties:
-        type: string
-      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
-
-        - Maximum character length for individual `keys` is 40.
-
-        - Maximum character length for individual **values** is 500.
-
-
-        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
-      nullable: true
-    AdditionalBuyerCharges:
-      title: AdditionalBuyerCharges
+    FailureMessage:
+      title: FailureMessage
       x-stoplight:
-        id: 8t8auxc19wmuw
+        id: cgilf858039yi
+      type:
+      - string
+      - 'null'
+      description: A human-readable description of why the transaction was declined. This will also include a suggestion on how to complete the payment.
+    CloseSettlement:
+      title: CloseSettlement
+      x-stoplight:
+        id: apumcx91bdtxm
       type: object
-      description: Object detailing any [Buyer Charges](/guides/payments/making-a-payment/buyer-charges/) that got included in the `Authorization`.
-      nullable: true
       properties:
-        convenience_amount:
-          type: number
-          description: Include the convenience fee the merchant is charging the buyer for the transaction when creating a `Transfer` or an `Authorization`.
-          nullable: true
-        rent_surcharge_amount:
-          type: number
-          description: Include the rent surcharge the merchant is charging the buyer for the transaction when creating a `Transfer` or an `Authorization`.
-          nullable: true
+        action:
+          type: string
+          enum:
+          - STOP_ACCRUAL
+          description: The action you want to perform on the `settlement`. Use **STOP_ACCRUAL** to close the specified `settlement`.
+      required:
+      - action
+    FailureCode:
+      title: FailureCode
+      x-stoplight:
+        id: lo8jqmipa7376
+      type:
+      - string
+      - 'null'
+      description: The code of the failure so the decline can be handled programmatically. For more info on how to handle the failure, see [Failure Codes](/guides/developers/errors/#failure-codes).
   responses:
+    SettlementsList:
+      description: List of `Settlement` objects
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SettlementsList'
+          examples:
+            List of Settlements:
+              value:
+                _embedded:
+                  settlements:
+                  - id: ST7R7mHjHq3ywG4vGa9cYe9b
+                    created_at: '2023-07-14T09:10:02.91Z'
+                    updated_at: '2023-07-15T07:15:58.36Z'
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    currency: USD
+                    destination: null
+                    funds_flow: null
+                    identity: IDvHGrfeVmB3i7uL78xjemNk
+                    merchant_id: MU7cXuKj2xx41hhZZi6bZ13A
+                    net_amount: 8329
+                    payment_type: null
+                    processor: DUMMY_V1
+                    status: AWAITING_APPROVAL
+                    tags: {}
+                    total_amount: 9252
+                    total_fee: 923
+                    total_fees: 923
+                    type: MERCHANT_REVENUE
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDvHGrfeVmB3i7uL78xjemNk
+                      funding_transfers:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/funding_transfers
+                      transfers:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers
+                      fees:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=fee
+                      reversals:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=reverse
+                      credits:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=credit
+                      debits:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=debit
+                      disputes:
+                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=dispute
+                  - id: SThN7W7iDZM4mhGXqPDaVojn
+                    created_at: '2022-12-21T22:05:08.10Z'
+                    updated_at: '2022-12-22T07:15:56.22Z'
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    currency: USD
+                    destination: null
+                    funds_flow: null
+                    identity: IDuqZpDw28f2KK6YuDk4jNLg
+                    merchant_id: MUeDVrf2ahuKc9Eg5TeZugvs
+                    net_amount: 648211
+                    payment_type: null
+                    processor: DUMMY_V1
+                    status: AWAITING_APPROVAL
+                    tags: {}
+                    total_amount: 661854
+                    total_fee: 13643
+                    total_fees: 13643
+                    type: MERCHANT_REVENUE
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
+                      funding_transfers:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/funding_transfers
+                      transfers:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers
+                      fees:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=fee
+                      reversals:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=reverse
+                      credits:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=credit
+                      debits:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=debit
+                      disputes:
+                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=dispute
+                  - id: STsdvwKDyZq3gwZi5upuAETj
+                    created_at: '2022-12-21T22:00:06.57Z'
+                    updated_at: '2022-12-22T07:15:55.04Z'
+                    application: APgPDQrLD52TYvqazjHJJchM
+                    currency: USD
+                    destination: null
+                    funds_flow: null
+                    identity: IDvHGrfeVmB3i7uL78xjemNk
+                    merchant_id: MU7cXuKj2xx41hhZZi6bZ13A
+                    net_amount: 648811
+                    payment_type: null
+                    processor: DUMMY_V1
+                    status: AWAITING_APPROVAL
+                    tags: {}
+                    total_amount: 662154
+                    total_fee: 13343
+                    total_fees: 13343
+                    type: MERCHANT_REVENUE
+                    _links:
+                      self:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj
+                      application:
+                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                      identity:
+                        href: https://finix.sandbox-payments-api.com/identities/IDvHGrfeVmB3i7uL78xjemNk
+                      funding_transfers:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/funding_transfers
+                      transfers:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers
+                      fees:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=fee
+                      reversals:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=reverse
+                      credits:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=credit
+                      debits:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=debit
+                      disputes:
+                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=dispute
+                _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/settlements/
+                  next:
+                    href: https://finix.sandbox-payments-api.com/settlements/?after_cursor=STsdvwKDyZq3gwZi5upuAETj
+                page:
+                  limit: 100
+                  next_cursor: STsdvwKDyZq3gwZi5upuAETj
+      headers:
+        finix-apiuser-role:
+          $ref: '#/components/headers/finix-apiuser-role'
+        date:
+          $ref: '#/components/headers/date'
+        x-request-id:
+          $ref: '#/components/headers/x-request-id'
+    ErrorUnprocessableEntity:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorGeneric'
+    Settlement:
+      description: '`Settlement` object.'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Settlement'
+          examples:
+            Settlement:
+              value:
+                id: STvUfBLbCUsun2KFoTuxR2j1
+                created_at: '2022-08-09T17:06:02.99Z'
+                updated_at: '2022-08-09T17:15:25.60Z'
+                application: APgPDQrLD52TYvqazjHJJchM
+                currency: USD
+                destination: null
+                funds_flow: null
+                identity: IDuqZpDw28f2KK6YuDk4jNLg
+                merchant_id: MUeDVrf2ahuKc9Eg5TeZugvs
+                net_amount: 2238357
+                payment_type: null
+                processor: DUMMY_V1
+                status: AWAITING_APPROVAL
+                tags: {}
+                total_amount: 2287662
+                total_fee: 49305
+                total_fees: 49305
+                type: MERCHANT_REVENUE
+                _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1
+                  application:
+                    href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
+                  identity:
+                    href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
+                  funding_transfers:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/funding_transfers
+                  transfers:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers
+                  fees:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=fee
+                  reversals:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=reverse
+                  credits:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=credit
+                  debits:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=debit
+                  disputes:
+                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=dispute
+            Close Settlements:
+              value:
+                id: STdjQCfwwra8QBVZQhrfqdUt
+                created_at: '2023-06-06T22:35:07.98Z'
+                updated_at: '2023-06-06T22:35:16.69Z'
+                application: AP8Hb3WvAFQ2DUdqKJYszMo5
+                currency: USD
+                destination: null
+                funds_flow: null
+                identity: IDj6kvMbVaeSzxQK6g1eoKKo
+                merchant_id: MUuCjso38AtQoNgfDdmcZ8gx
+                net_amount: 131854
+                payment_type: null
+                processor: DUMMY_V1
+                status: AWAITING_APPROVAL
+                tags: {}
+                total_amount: 131854
+                total_fee: 0
+                total_fees: 0
+                type: MERCHANT_REVENUE
+                _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt
+                  application:
+                    href: https://finix.sandbox-payments-api.com/applications/AP8Hb3WvAFQ2DUdqKJYszMo5
+                  identity:
+                    href: https://finix.sandbox-payments-api.com/identities/IDj6kvMbVaeSzxQK6g1eoKKo
+                  funding_transfers:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/funding_transfers
+                  transfers:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers
+                  fees:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=fee
+                  reversals:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=reverse
+                  credits:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=credit
+                  debits:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=debit
+                  disputes:
+                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=dispute
+      headers:
+        finix-apiuser-role:
+          $ref: '#/components/headers/finix-apiuser-role'
+        date:
+          $ref: '#/components/headers/date'
+        x-request-id:
+          $ref: '#/components/headers/x-request-id'
+    ErrorForbidden403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error403ForbiddenList'
     TransfersList:
       description: List of Transfer objects
       content:
@@ -1986,102 +2301,6 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
-    Settlement:
-      description: '`Settlement` object.'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Settlement'
-          examples:
-            Settlement:
-              value:
-                id: STvUfBLbCUsun2KFoTuxR2j1
-                created_at: '2022-08-09T17:06:02.99Z'
-                updated_at: '2022-08-09T17:15:25.60Z'
-                application: APgPDQrLD52TYvqazjHJJchM
-                currency: USD
-                destination: null
-                funds_flow: null
-                identity: IDuqZpDw28f2KK6YuDk4jNLg
-                merchant_id: MUeDVrf2ahuKc9Eg5TeZugvs
-                net_amount: 2238357
-                payment_type: null
-                processor: DUMMY_V1
-                status: AWAITING_APPROVAL
-                tags: {}
-                total_amount: 2287662
-                total_fee: 49305
-                total_fees: 49305
-                type: MERCHANT_REVENUE
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1
-                  application:
-                    href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
-                  identity:
-                    href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
-                  funding_transfers:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/funding_transfers
-                  transfers:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers
-                  fees:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=fee
-                  reversals:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=reverse
-                  credits:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=credit
-                  debits:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=debit
-                  disputes:
-                    href: https://finix.sandbox-payments-api.com/settlements/STvUfBLbCUsun2KFoTuxR2j1/transfers?type=dispute
-            Close Settlements:
-              value:
-                id: STdjQCfwwra8QBVZQhrfqdUt
-                created_at: '2023-06-06T22:35:07.98Z'
-                updated_at: '2023-06-06T22:35:16.69Z'
-                application: AP8Hb3WvAFQ2DUdqKJYszMo5
-                currency: USD
-                destination: null
-                funds_flow: null
-                identity: IDj6kvMbVaeSzxQK6g1eoKKo
-                merchant_id: MUuCjso38AtQoNgfDdmcZ8gx
-                net_amount: 131854
-                payment_type: null
-                processor: DUMMY_V1
-                status: AWAITING_APPROVAL
-                tags: {}
-                total_amount: 131854
-                total_fee: 0
-                total_fees: 0
-                type: MERCHANT_REVENUE
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt
-                  application:
-                    href: https://finix.sandbox-payments-api.com/applications/AP8Hb3WvAFQ2DUdqKJYszMo5
-                  identity:
-                    href: https://finix.sandbox-payments-api.com/identities/IDj6kvMbVaeSzxQK6g1eoKKo
-                  funding_transfers:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/funding_transfers
-                  transfers:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers
-                  fees:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=fee
-                  reversals:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=reverse
-                  credits:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=credit
-                  debits:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=debit
-                  disputes:
-                    href: https://finix.sandbox-payments-api.com/settlements/STdjQCfwwra8QBVZQhrfqdUt/transfers?type=dispute
-      headers:
-        finix-apiuser-role:
-          $ref: '#/components/headers/finix-apiuser-role'
-        date:
-          $ref: '#/components/headers/date'
-        x-request-id:
-          $ref: '#/components/headers/x-request-id'
     Error406NotAcceptable:
       description: Not Acceptable
       content:
@@ -2095,181 +2314,26 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error422InvalidFieldList'
-    ErrorForbidden403:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error403ForbiddenList'
-    SettlementsList:
-      description: List of `Settlement` objects
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/SettlementsList'
-          examples:
-            List of Settlements:
-              value:
-                _embedded:
-                  settlements:
-                  - id: ST7R7mHjHq3ywG4vGa9cYe9b
-                    created_at: '2023-07-14T09:10:02.91Z'
-                    updated_at: '2023-07-15T07:15:58.36Z'
-                    application: APgPDQrLD52TYvqazjHJJchM
-                    currency: USD
-                    destination: null
-                    funds_flow: null
-                    identity: IDvHGrfeVmB3i7uL78xjemNk
-                    merchant_id: MU7cXuKj2xx41hhZZi6bZ13A
-                    net_amount: 8329
-                    payment_type: null
-                    processor: DUMMY_V1
-                    status: AWAITING_APPROVAL
-                    tags: {}
-                    total_amount: 9252
-                    total_fee: 923
-                    total_fees: 923
-                    type: MERCHANT_REVENUE
-                    _links:
-                      self:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b
-                      application:
-                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
-                      identity:
-                        href: https://finix.sandbox-payments-api.com/identities/IDvHGrfeVmB3i7uL78xjemNk
-                      funding_transfers:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/funding_transfers
-                      transfers:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers
-                      fees:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=fee
-                      reversals:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=reverse
-                      credits:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=credit
-                      debits:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=debit
-                      disputes:
-                        href: https://finix.sandbox-payments-api.com/settlements/ST7R7mHjHq3ywG4vGa9cYe9b/transfers?type=dispute
-                  - id: SThN7W7iDZM4mhGXqPDaVojn
-                    created_at: '2022-12-21T22:05:08.10Z'
-                    updated_at: '2022-12-22T07:15:56.22Z'
-                    application: APgPDQrLD52TYvqazjHJJchM
-                    currency: USD
-                    destination: null
-                    funds_flow: null
-                    identity: IDuqZpDw28f2KK6YuDk4jNLg
-                    merchant_id: MUeDVrf2ahuKc9Eg5TeZugvs
-                    net_amount: 648211
-                    payment_type: null
-                    processor: DUMMY_V1
-                    status: AWAITING_APPROVAL
-                    tags: {}
-                    total_amount: 661854
-                    total_fee: 13643
-                    total_fees: 13643
-                    type: MERCHANT_REVENUE
-                    _links:
-                      self:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn
-                      application:
-                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
-                      identity:
-                        href: https://finix.sandbox-payments-api.com/identities/IDuqZpDw28f2KK6YuDk4jNLg
-                      funding_transfers:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/funding_transfers
-                      transfers:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers
-                      fees:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=fee
-                      reversals:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=reverse
-                      credits:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=credit
-                      debits:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=debit
-                      disputes:
-                        href: https://finix.sandbox-payments-api.com/settlements/SThN7W7iDZM4mhGXqPDaVojn/transfers?type=dispute
-                  - id: STsdvwKDyZq3gwZi5upuAETj
-                    created_at: '2022-12-21T22:00:06.57Z'
-                    updated_at: '2022-12-22T07:15:55.04Z'
-                    application: APgPDQrLD52TYvqazjHJJchM
-                    currency: USD
-                    destination: null
-                    funds_flow: null
-                    identity: IDvHGrfeVmB3i7uL78xjemNk
-                    merchant_id: MU7cXuKj2xx41hhZZi6bZ13A
-                    net_amount: 648811
-                    payment_type: null
-                    processor: DUMMY_V1
-                    status: AWAITING_APPROVAL
-                    tags: {}
-                    total_amount: 662154
-                    total_fee: 13343
-                    total_fees: 13343
-                    type: MERCHANT_REVENUE
-                    _links:
-                      self:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj
-                      application:
-                        href: https://finix.sandbox-payments-api.com/applications/APgPDQrLD52TYvqazjHJJchM
-                      identity:
-                        href: https://finix.sandbox-payments-api.com/identities/IDvHGrfeVmB3i7uL78xjemNk
-                      funding_transfers:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/funding_transfers
-                      transfers:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers
-                      fees:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=fee
-                      reversals:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=reverse
-                      credits:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=credit
-                      debits:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=debit
-                      disputes:
-                        href: https://finix.sandbox-payments-api.com/settlements/STsdvwKDyZq3gwZi5upuAETj/transfers?type=dispute
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/settlements/
-                  next:
-                    href: https://finix.sandbox-payments-api.com/settlements/?after_cursor=STsdvwKDyZq3gwZi5upuAETj
-                page:
-                  limit: 100
-                  next_cursor: STsdvwKDyZq3gwZi5upuAETj
-      headers:
-        finix-apiuser-role:
-          $ref: '#/components/headers/finix-apiuser-role'
-        date:
-          $ref: '#/components/headers/date'
-        x-request-id:
-          $ref: '#/components/headers/x-request-id'
-    ErrorUnprocessableEntity:
-      description: Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorGeneric'
-    ErrorNotFound:
-      description: Object does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error404NotFoundList'
-    NoContent:
-      description: No content
-    ErrorMerchantIdentityDisabled:
-      description: Merchant identity disabled error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorGeneric'
     ErrorUnauthorized:
       description: Authentication information is missing or invalid
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error401Unauthorized'
+    ErrorMerchantIdentityDisabled:
+      description: Merchant identity disabled error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorGeneric'
+    NoContent:
+      description: No content
+    ErrorNotFound:
+      description: Object does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error404NotFoundList'
   requestBodies:
     RemoveSettlementTransfer:
       content:
@@ -2281,15 +2345,6 @@ components:
               value:
                 transfers:
                 - TRr61njQxaa7AJf6E1C3QwCc
-    CloseSettlement:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CloseSettlement'
-          examples:
-            Close Settlement:
-              value:
-                action: STOP_ACCRUAL
     CreateIdentitySettlementRequest:
       content:
         application/json:
@@ -2302,6 +2357,15 @@ components:
                 processor: DUMMY_V1
                 tags:
                   Internal Daily Settlement ID: 21DFASJSAKAS
+    CloseSettlement:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CloseSettlement'
+          examples:
+            Close Settlement:
+              value:
+                action: STOP_ACCRUAL
   securitySchemes:
     BasicAuth:
       type: http

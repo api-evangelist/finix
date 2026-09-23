@@ -1,25 +1,7 @@
 {
   "provider": "finix",
   "sources": [
-    "finix-authorizations-api-openapi.yml",
-    "finix-balance-transfers-api-openapi.yml",
-    "finix-compliance-forms-api-openapi.yml",
-    "finix-devices-api-openapi.yml",
-    "finix-disputes-api-openapi.yml",
-    "finix-fee-profiles-api-openapi.yml",
-    "finix-files-api-openapi.yml",
-    "finix-identities-api-openapi.yml",
-    "finix-instrument-updates-api-openapi.yml",
-    "finix-merchant-profiles-api-openapi.yml",
-    "finix-merchants-api-openapi.yml",
-    "finix-onboarding-forms-api-openapi.yml",
-    "finix-payment-instruments-api-openapi.yml",
-    "finix-payout-profiles-api-openapi.yml",
-    "finix-settlements-api-openapi.yml",
-    "finix-split-transfers-api-openapi.yml",
-    "finix-transfers-api-openapi.yml",
-    "finix-verifications-api-openapi.yml",
-    "finix-webhooks-api-openapi.yml"
+    "_original/finix-openapi-original.yml"
   ],
   "outputs": [
     "finix-authorizations-api-openapi.yml",
@@ -45,6 +27,30 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "finix-openapi-original.yml: upgraded openapi 3.0.2 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "finix-authorizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-balance-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-compliance-forms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-disputes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-fee-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-identities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-instrument-updates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-merchant-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-merchants-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-onboarding-forms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-payment-instruments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-payout-profiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-settlements-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-split-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-transfers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-verifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "finix-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
