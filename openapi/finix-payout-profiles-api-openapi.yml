@@ -147,52 +147,6 @@ paths:
       - Payout Profiles
       x-python-method-name: get_by_merchant_id
 components:
-  headers:
-    date:
-      schema:
-        type: string
-    x-request-id:
-      description: A unique ID for this specific API request attempt.
-      schema:
-        type: string
-    finix-apiuser-role:
-      schema:
-        type: string
-        enum:
-        - ROLE_ADMIN
-        - ROLE_PLATFORM
-        - ROLE_PARTNER
-        - ROLE_MERCHANT
-  requestBodies:
-    UpdatePayoutProfileRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UpdatePayoutProfileRequest'
-          examples:
-            Payout Profile - Gross:
-              value:
-                type: GROSS
-                gross:
-                  payouts:
-                    frequency: DAILY
-                    submission_delay_days: '1'
-                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                    rail: SAME_DAY_ACH
-                  fees:
-                    frequency: MONTHLY
-                    day_of_month: '1'
-                    submission_delay_days: '3'
-                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                    rail: SAME_DAY_ACH
-            Payout Profile - Net:
-              value:
-                type: NET
-                net:
-                  frequency: CONTINUOUS
-                  submission_delay_days: '1'
-                  payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                  rail: SAME_DAY_ACH
   responses:
     PayoutProfilesList:
       description: ''
@@ -253,6 +207,25 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
+    ErrorUnauthorized:
+      description: Authentication information is missing or invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error401Unauthorized'
+    ErrorNotFound:
+      description: Object does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error404NotFoundList'
+    Error406NotAcceptable:
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error406NotAcceptable'
+          examples: {}
     PayoutProfile:
       description: ''
       content:
@@ -308,194 +281,51 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
-    ErrorForbidden403:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error403ForbiddenList'
-    Error406NotAcceptable:
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error406NotAcceptable'
-          examples: {}
     Error422InvalidField:
       description: Invalid field
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error422InvalidFieldList'
-    ErrorUnauthorized:
-      description: Authentication information is missing or invalid
+    ErrorForbidden403:
+      description: Forbidden
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error401Unauthorized'
-    ErrorNotFound:
-      description: Object does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error404NotFoundList'
+            $ref: '#/components/schemas/Error403ForbiddenList'
   schemas:
-    Error422InvalidFieldList:
+    Error403ForbiddenList:
       type: object
-      description: Invalid field
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - FORBIDDEN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+      description: ''
       title: ''
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - INVALID_FIELD
-                  field:
-                    type: string
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    Error401Unauthorized:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - UNKNOWN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    additionalProperties: true
-                    properties:
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    Error406NotAcceptable:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - NOT_FOUND
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-      title: ''
-    CreatedAt:
-      type: string
-      title: CreatedAt
-      format: date-time
-      description: Timestamp of when the object was created.
-    PageCursor:
-      title: PageCursor
-      x-stoplight:
-        id: 8v9on8n2939z2
-      type: object
-      properties:
-        limit:
-          type: integer
-          description: The number of entries to return.
-        next_cursor:
-          type:
-          - string
-          - 'null'
-          description: The cursor to use for the next page of results.
-      description: Details the page that's returned.
-    LogRef:
-      title: LogRef
-      type: object
-      properties:
-        logref:
-          type: string
-    Error404NotFoundList:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - NOT_FOUND
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
     PayoutProfilesList:
       type: object
       x-examples:
@@ -558,121 +388,94 @@ components:
           $ref: '#/components/schemas/ListLinks'
         page:
           $ref: '#/components/schemas/PageCursor'
+    Tags:
+      type:
+      - object
+      - 'null'
+      title: tags
+      additionalProperties:
+        type: string
+      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
+
+        - Maximum character length for individual `keys` is 40.
+
+        - Maximum character length for individual **values** is 500.
+
+
+        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
+    Error404NotFoundList:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - NOT_FOUND
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    Error422InvalidFieldList:
+      type: object
+      description: Invalid field
+      title: ''
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - INVALID_FIELD
+                  field:
+                    type: string
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    CreatedAt:
+      type: string
+      title: CreatedAt
+      format: date-time
+      description: Timestamp of when the object was created.
     UpdatedAt:
       type: string
       title: UpdatedAt
       format: date-time
       description: Timestamp of when the object was last updated.
-    UpdatePayoutProfileRequest:
-      type: object
-      properties:
-        gross:
-          type:
-          - object
-          - 'null'
-          description: Configure how `Payout Profiles` with type **GROSS** are setup.
-          properties:
-            fees:
-              type: object
-              description: Configures the details of how fees get debited.
-              properties:
-                day_of_month:
-                  type: integer
-                  description: Day of the month fees get debited. Required when `frequency` is set to **MONTHLY**.
-                frequency:
-                  type: string
-                  description: Configures how frequentyly **fees** get debited. To configure a **CUSTOM** `frequency` [contact Finix Support](/guides/payouts/).
-                  enum:
-                  - DAILY
-                  - MONTHLY
-                  - CONTINUOUS
-                  - CUSTOM
-                payment_instrument_id:
-                  type: string
-                  description: The `id` of the `Payment Instrument`that **fees** get debited from.
-                rail:
-                  type: string
-                  description: Configures how quickly and which payment `rail` will be used to debit **fees**.
-                  enum:
-                  - NEXT_DAY_ACH
-                  - SAME_DAY_ACH
-                submission_delay_days:
-                  type: integer
-                  description: Include a number of `submission_delay_days` to delay when `funding_transfers` for `fees` will get submitted to debit (in days) the `payment_instrument_id`.
-            payouts:
-              type: object
-              description: Configures the details of how payouts get paid and credited.
-              properties:
-                frequency:
-                  type: string
-                  description: Configures how frequentyly **payouts** get credited. To configure a **CUSTOM** `frequency` [contact Finix Support](/guides/payouts/).
-                  enum:
-                  - DAILY
-                  - MONTHLY
-                  - CONTINUOUS
-                  - CUSTOM
-                payment_instrument_id:
-                  type: string
-                  description: The `id` of the `Payment Instrument`that payouts will get credited to.
-                rail:
-                  type: string
-                  description: Configures how quickly and which payment `rail` will be used to credit **payouts**.
-                submission_delay_days:
-                  type: integer
-                  description: Include a number of `submission_delay_days` to delay when `funding_transfers` for `payouts` will get submitted to credit (in days) the `payment_instrument_id`.
-        tags:
-          $ref: '#/components/schemas/Tags'
-        type:
-          type: string
-          description: Configures how fees are calculated and billed from payouts. For more infromation, see [Payout Types](/guides/payouts/#payout-types).
-          enum:
-          - CUSTOM
-          - GROSS
-          - NET
-        net:
-          type:
-          - object
-          - 'null'
-          description: Configure how `Payout Profiles` with type **NET** are setup.
-          properties:
-            frequency:
-              type: string
-              description: Configures how frequentyly fees *and* payouts get credited.
-              enum:
-              - DAILY
-              - MONTHLY
-              - CONTINUOUS
-              - CUSTOM
-            payment_instrument_id:
-              type: string
-              description: The `id` of the `Payment Instrument` that payouts *and* fees get credited to and debited from.
-            rail:
-              type: string
-              enum:
-              - NEXT_DAY_ACH
-              - SAME_DAY_ACH
-              description: Configures how quickly and which payment `rail` will be used to debit fees *and* credit payouts.
-            submission_delay_days:
-              type: integer
-              description: Include a number of `submission_delay_days` to delay when `funding_transfers` for both payouts *and* fees get submitted (in days) to debit/credit the `payment_instrument_id`.
-    ListLinks:
-      title: ListLinks
-      additionalProperties: true
-      type: object
-      description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
-      properties:
-        next:
-          type: object
-          description: Link to the next page of entries.
-          properties:
-            href:
-              type: string
-        self:
-          type: object
-          description: Link to the resource that was used in the request.
-          properties:
-            href:
-              type: string
     PayoutProfile:
       type: object
       properties:
@@ -788,7 +591,7 @@ components:
           - object
           - 'null'
           description: Details how `Payout Profiles` with type **CUSTOM** are configured. `Payout Profiles` with type **CUSTOM** can be setup with more specific configurations. To configure a **CUSTOM** `Payout Profile` [contact Finix Support](/guides/payouts/#payout-types).
-    Error403ForbiddenList:
+    Error406NotAcceptable:
       type: object
       properties:
         total:
@@ -805,7 +608,7 @@ components:
                   code:
                     type: string
                     enum:
-                    - FORBIDDEN
+                    - NOT_FOUND
                   logref:
                     $ref: '#/components/schemas/LogRef'
                   message:
@@ -818,23 +621,174 @@ components:
                         properties:
                           href:
                             type: string
-      description: ''
       title: ''
-    Tags:
-      type:
-      - object
-      - 'null'
-      title: tags
-      additionalProperties:
-        type: string
-      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
-
-        - Maximum character length for individual `keys` is 40.
-
-        - Maximum character length for individual **values** is 500.
-
-
-        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
+    LogRef:
+      title: LogRef
+      type: object
+      properties:
+        logref:
+          type: string
+    PageCursor:
+      title: PageCursor
+      x-stoplight:
+        id: 8v9on8n2939z2
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: The number of entries to return.
+        next_cursor:
+          type:
+          - string
+          - 'null'
+          description: The cursor to use for the next page of results.
+      description: Details the page that's returned.
+    UpdatePayoutProfileRequest:
+      type: object
+      properties:
+        gross:
+          type:
+          - object
+          - 'null'
+          description: Configure how `Payout Profiles` with type **GROSS** are setup.
+          properties:
+            fees:
+              type: object
+              description: Configures the details of how fees get debited.
+              properties:
+                day_of_month:
+                  type: integer
+                  description: Day of the month fees get debited. Required when `frequency` is set to **MONTHLY**.
+                frequency:
+                  type: string
+                  description: Configures how frequentyly **fees** get debited. To configure a **CUSTOM** `frequency` [contact Finix Support](/guides/payouts/).
+                  enum:
+                  - DAILY
+                  - MONTHLY
+                  - CONTINUOUS
+                  - CUSTOM
+                payment_instrument_id:
+                  type: string
+                  description: The `id` of the `Payment Instrument`that **fees** get debited from.
+                rail:
+                  type: string
+                  description: Configures how quickly and which payment `rail` will be used to debit **fees**.
+                  enum:
+                  - NEXT_DAY_ACH
+                  - SAME_DAY_ACH
+                submission_delay_days:
+                  type: integer
+                  description: Include a number of `submission_delay_days` to delay when `funding_transfers` for `fees` will get submitted to debit (in days) the `payment_instrument_id`.
+            payouts:
+              type: object
+              description: Configures the details of how payouts get paid and credited.
+              properties:
+                frequency:
+                  type: string
+                  description: Configures how frequentyly **payouts** get credited. To configure a **CUSTOM** `frequency` [contact Finix Support](/guides/payouts/).
+                  enum:
+                  - DAILY
+                  - MONTHLY
+                  - CONTINUOUS
+                  - CUSTOM
+                payment_instrument_id:
+                  type: string
+                  description: The `id` of the `Payment Instrument`that payouts will get credited to.
+                rail:
+                  type: string
+                  description: Configures how quickly and which payment `rail` will be used to credit **payouts**.
+                submission_delay_days:
+                  type: integer
+                  description: Include a number of `submission_delay_days` to delay when `funding_transfers` for `payouts` will get submitted to credit (in days) the `payment_instrument_id`.
+        tags:
+          $ref: '#/components/schemas/Tags'
+        type:
+          type: string
+          description: Configures how fees are calculated and billed from payouts. For more infromation, see [Payout Types](/guides/payouts/#payout-types).
+          enum:
+          - CUSTOM
+          - GROSS
+          - NET
+        net:
+          type:
+          - object
+          - 'null'
+          description: Configure how `Payout Profiles` with type **NET** are setup.
+          properties:
+            frequency:
+              type: string
+              description: Configures how frequentyly fees *and* payouts get credited.
+              enum:
+              - DAILY
+              - MONTHLY
+              - CONTINUOUS
+              - CUSTOM
+            payment_instrument_id:
+              type: string
+              description: The `id` of the `Payment Instrument` that payouts *and* fees get credited to and debited from.
+            rail:
+              type: string
+              enum:
+              - NEXT_DAY_ACH
+              - SAME_DAY_ACH
+              description: Configures how quickly and which payment `rail` will be used to debit fees *and* credit payouts.
+            submission_delay_days:
+              type: integer
+              description: Include a number of `submission_delay_days` to delay when `funding_transfers` for both payouts *and* fees get submitted (in days) to debit/credit the `payment_instrument_id`.
+    Error401Unauthorized:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - UNKNOWN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    additionalProperties: true
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    ListLinks:
+      title: ListLinks
+      additionalProperties: true
+      type: object
+      description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
+      properties:
+        next:
+          type: object
+          description: Link to the next page of entries.
+          properties:
+            href:
+              type: string
+        self:
+          type: object
+          description: Link to the resource that was used in the request.
+          properties:
+            href:
+              type: string
   parameters:
     QueryAfterCursor:
       name: after_cursor
@@ -851,6 +805,52 @@ components:
       schema:
         type: integer
       style: form
+  requestBodies:
+    UpdatePayoutProfileRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdatePayoutProfileRequest'
+          examples:
+            Payout Profile - Gross:
+              value:
+                type: GROSS
+                gross:
+                  payouts:
+                    frequency: DAILY
+                    submission_delay_days: '1'
+                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                    rail: SAME_DAY_ACH
+                  fees:
+                    frequency: MONTHLY
+                    day_of_month: '1'
+                    submission_delay_days: '3'
+                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                    rail: SAME_DAY_ACH
+            Payout Profile - Net:
+              value:
+                type: NET
+                net:
+                  frequency: CONTINUOUS
+                  submission_delay_days: '1'
+                  payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                  rail: SAME_DAY_ACH
+  headers:
+    finix-apiuser-role:
+      schema:
+        type: string
+        enum:
+        - ROLE_ADMIN
+        - ROLE_PLATFORM
+        - ROLE_PARTNER
+        - ROLE_MERCHANT
+    x-request-id:
+      description: A unique ID for this specific API request attempt.
+      schema:
+        type: string
+    date:
+      schema:
+        type: string
   securitySchemes:
     BasicAuth:
       type: http
