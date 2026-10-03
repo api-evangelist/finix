@@ -123,7 +123,54 @@ paths:
       x-python-method-name: create_link
 components:
   schemas:
-    Error403ForbiddenList:
+    OnboardingForm:
+      type: object
+      x-examples: {}
+      title: OnboardingForm
+      properties:
+        id:
+          type: string
+          description: The ID of the `onboarding_form` resource.
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
+        merchant_processors:
+          type: array
+          description: An array of objects with the processors and gateways users will be onboarded to.
+          items:
+            type: object
+            properties:
+              processor:
+                type: string
+                description: The name of the processor you plan to onboard users to.
+        onboarding_data:
+          $ref: '#/components/schemas/OnboardingFormOnboardingData'
+        onboarding_link:
+          type: object
+          description: The information of the initial onboarding link. This is only provided when creating an `onboarding_form`.
+          properties:
+            expires_at:
+              type: string
+              description: A UTC timestamp detailing when the onboarding form expires and will no longer be available via `link_url`. To generate a new link to the same form, see [Get an Onboarding Form URL](/guides/onboarding/onboarding-form/#get-an-onboarding-form-url).
+            link_url:
+              type: string
+              description: The URL of the user's Finix Onboarding Form. Users can use the `link_url` to return to the form until the link expires.
+        status:
+          type: string
+          description: Status of the `onboarding_from`.
+          enum:
+          - IN_PROGRESS
+          - COMPLETED
+        tags:
+          $ref: '#/components/schemas/Tags'
+    LogRef:
+      title: LogRef
+      type: object
+      properties:
+        logref:
+          type: string
+    Error406NotAcceptable:
       type: object
       properties:
         total:
@@ -140,7 +187,7 @@ components:
                   code:
                     type: string
                     enum:
-                    - FORBIDDEN
+                    - NOT_FOUND
                   logref:
                     $ref: '#/components/schemas/LogRef'
                   message:
@@ -153,8 +200,65 @@ components:
                         properties:
                           href:
                             type: string
-      description: ''
       title: ''
+    CreateOnboardingFormLinkRequest:
+      type: object
+      x-examples: {}
+      title: CreateOnboardingFormLinkRequest
+      properties:
+        expiration_in_minutes:
+          type: integer
+          description: How long (in minutes) the link should be valid for. Defaults to 60 minutes.
+        expired_session_url:
+          type: string
+          description: The URL users get sent to if the bearer token expires.
+        fee_details_url:
+          type: string
+          description: The URL of the page where you display the fees related to processing payments (for more info, see [Displaying Processing Fees](/guides/onboarding/onboarding-form/#displaying-processing-fees)).
+        return_url:
+          type: string
+          description: The URL users get sent to after completing the onboarding flow.
+        terms_of_service_url:
+          type: string
+          description: Your Terms of Service URL. The URL is provided to users for consent along with Finix's Terms of Service.
+    Error422InvalidFieldList:
+      type: object
+      description: Invalid field
+      title: ''
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - INVALID_FIELD
+                  field:
+                    type: string
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    CreatedAt:
+      type: string
+      title: CreatedAt
+      format: date-time
+      description: Timestamp of when the object was created.
     OnboardingFormOnboardingData:
       title: OnboardingFormOnboardingData
       x-stoplight:
@@ -713,35 +817,74 @@ components:
         max_transaction_amount:
           type: integer
           description: Maximum amount that can be transacted for a single transaction in cents (max 12 characters). Must be equal to or less than your `max_transaction_amount`.
-    OnboardingFormLink:
+    Error401Unauthorized:
       type: object
-      x-examples:
-        example-1:
-          expires_at: '2022-07-11T22:39:55.469Z'
-          link_url: https://sandbox.payments-dashboard.com/merchant-onboarding?formId=obf_bXQj8iSgYwXf432yJcWbKv&applicationId=APgPDQrLD52TYvqazjHJJchM&bearerToken=eyJhbGciOiJIUzUxMiJ9.eyJvbmJvYXJkaW5nX2Zvcm1faWQiOiJvYmZfYlhRajhpU2dZd1hmNDMyeUpjV2JLdiIsImZlZV9kZXRhaWxzX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS9kb2NzIiwiZXhwaXJlZF9zZXNzaW9uX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS8iLCJpc3MiOiJodHRwczovL3d3dy5maW5peC5jb20iLCJyZXR1cm5fdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL2RvY3MiLCJleHAiOjE2NTc1NzkxOTUsImFwcGxpY2F0aW9uX2lkIjoiQVBnUERRckxENTJUWXZxYXpqSEpKY2hNIiwiaWF0IjoxNjU3NTc3Mzk1LCJtZXJjaGFudF9tYXhfdHJhbnNhY3Rpb25fYW1vdW50IjoxMDAwMDAsInRlcm1zX29mX3NlcnZpY2VfdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL3Rlcm1zLWFuZC1wb2xpY2llcyJ9.uQvwqhOxSmpX4zMSVn891ClNB_cWHmXhLfyOzRiKRoyn7VAqVOWrO8dJiY-OvN4venPWnPOxM0r3NiIyfgQv6g
       properties:
-        expires_at:
-          type: string
-          description: A UTC timestamp detailing when the onboarding form expires and will no longer be available via `link_url`. To generate a new link to the same form, see [Get an Onboarding Form URL](/guides/onboarding/onboarding-form/#get-an-onboarding-form-url).
-        link_url:
-          type: string
-          description: The URL of the user's Finix Onboarding Form. Users can use the `link_url` to return to the form at any time.
-      title: OnboardingFormLink
-    Tags:
-      type:
-      - object
-      - 'null'
-      title: tags
-      additionalProperties:
-        type: string
-      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
-
-        - Maximum character length for individual `keys` is 40.
-
-        - Maximum character length for individual **values** is 500.
-
-
-        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - UNKNOWN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    additionalProperties: true
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    Error403ForbiddenList:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - FORBIDDEN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+      description: ''
+      title: ''
     Error404NotFoundList:
       type: object
       properties:
@@ -772,147 +915,11 @@ components:
                         properties:
                           href:
                             type: string
-    OnboardingForm:
-      type: object
-      x-examples: {}
-      title: OnboardingForm
-      properties:
-        id:
-          type: string
-          description: The ID of the `onboarding_form` resource.
-        created_at:
-          $ref: '#/components/schemas/CreatedAt'
-        updated_at:
-          $ref: '#/components/schemas/UpdatedAt'
-        merchant_processors:
-          type: array
-          description: An array of objects with the processors and gateways users will be onboarded to.
-          items:
-            type: object
-            properties:
-              processor:
-                type: string
-                description: The name of the processor you plan to onboard users to.
-        onboarding_data:
-          $ref: '#/components/schemas/OnboardingFormOnboardingData'
-        onboarding_link:
-          type: object
-          description: The information of the initial onboarding link. This is only provided when creating an `onboarding_form`.
-          properties:
-            expires_at:
-              type: string
-              description: A UTC timestamp detailing when the onboarding form expires and will no longer be available via `link_url`. To generate a new link to the same form, see [Get an Onboarding Form URL](/guides/onboarding/onboarding-form/#get-an-onboarding-form-url).
-            link_url:
-              type: string
-              description: The URL of the user's Finix Onboarding Form. Users can use the `link_url` to return to the form until the link expires.
-        status:
-          type: string
-          description: Status of the `onboarding_from`.
-          enum:
-          - IN_PROGRESS
-          - COMPLETED
-        tags:
-          $ref: '#/components/schemas/Tags'
-    CreateOnboardingFormLinkRequest:
-      type: object
-      x-examples: {}
-      title: CreateOnboardingFormLinkRequest
-      properties:
-        expiration_in_minutes:
-          type: integer
-          description: How long (in minutes) the link should be valid for. Defaults to 60 minutes.
-        expired_session_url:
-          type: string
-          description: The URL users get sent to if the bearer token expires.
-        fee_details_url:
-          type: string
-          description: The URL of the page where you display the fees related to processing payments (for more info, see [Displaying Processing Fees](/guides/onboarding/onboarding-form/#displaying-processing-fees)).
-        return_url:
-          type: string
-          description: The URL users get sent to after completing the onboarding flow.
-        terms_of_service_url:
-          type: string
-          description: Your Terms of Service URL. The URL is provided to users for consent along with Finix's Terms of Service.
-    Error422InvalidFieldList:
-      type: object
-      description: Invalid field
-      title: ''
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - INVALID_FIELD
-                  field:
-                    type: string
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    CreatedAt:
-      type: string
-      title: CreatedAt
-      format: date-time
-      description: Timestamp of when the object was created.
     UpdatedAt:
       type: string
       title: UpdatedAt
       format: date-time
       description: Timestamp of when the object was last updated.
-    Error406NotAcceptable:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - NOT_FOUND
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-      title: ''
-    LogRef:
-      title: LogRef
-      type: object
-      properties:
-        logref:
-          type: string
     CreateOnboardingFormRequest:
       type: object
       x-examples: {}
@@ -950,42 +957,35 @@ components:
               description: Your Terms of Service URL. The URL is provided to users for consent along with [Finix's Terms of Service](https://finix-hosted-content.s3.amazonaws.com/flex/v2/finix-terms-of-service.html).
         tags:
           $ref: '#/components/schemas/Tags'
-    Error401Unauthorized:
+    OnboardingFormLink:
       type: object
+      x-examples:
+        example-1:
+          expires_at: '2022-07-11T22:39:55.469Z'
+          link_url: https://sandbox.payments-dashboard.com/merchant-onboarding?formId=obf_bXQj8iSgYwXf432yJcWbKv&applicationId=APgPDQrLD52TYvqazjHJJchM&bearerToken=eyJhbGciOiJIUzUxMiJ9.eyJvbmJvYXJkaW5nX2Zvcm1faWQiOiJvYmZfYlhRajhpU2dZd1hmNDMyeUpjV2JLdiIsImZlZV9kZXRhaWxzX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS9kb2NzIiwiZXhwaXJlZF9zZXNzaW9uX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS8iLCJpc3MiOiJodHRwczovL3d3dy5maW5peC5jb20iLCJyZXR1cm5fdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL2RvY3MiLCJleHAiOjE2NTc1NzkxOTUsImFwcGxpY2F0aW9uX2lkIjoiQVBnUERRckxENTJUWXZxYXpqSEpKY2hNIiwiaWF0IjoxNjU3NTc3Mzk1LCJtZXJjaGFudF9tYXhfdHJhbnNhY3Rpb25fYW1vdW50IjoxMDAwMDAsInRlcm1zX29mX3NlcnZpY2VfdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL3Rlcm1zLWFuZC1wb2xpY2llcyJ9.uQvwqhOxSmpX4zMSVn891ClNB_cWHmXhLfyOzRiKRoyn7VAqVOWrO8dJiY-OvN4venPWnPOxM0r3NiIyfgQv6g
       properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - UNKNOWN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    additionalProperties: true
-                    properties:
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
+        expires_at:
+          type: string
+          description: A UTC timestamp detailing when the onboarding form expires and will no longer be available via `link_url`. To generate a new link to the same form, see [Get an Onboarding Form URL](/guides/onboarding/onboarding-form/#get-an-onboarding-form-url).
+        link_url:
+          type: string
+          description: The URL of the user's Finix Onboarding Form. Users can use the `link_url` to return to the form at any time.
+      title: OnboardingFormLink
+    Tags:
+      type:
+      - object
+      - 'null'
+      title: tags
+      additionalProperties:
+        type: string
+      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
+
+        - Maximum character length for individual `keys` is 40.
+
+        - Maximum character length for individual **values** is 500.
+
+
+        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
   responses:
     ErrorUnauthorized:
       description: Authentication information is missing or invalid
@@ -993,25 +993,24 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error401Unauthorized'
-    ErrorNotFound:
-      description: Object does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error404NotFoundList'
-    Error406NotAcceptable:
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error406NotAcceptable'
-          examples: {}
     Error422InvalidField:
       description: Invalid field
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error422InvalidFieldList'
+    ErrorNotFound:
+      description: Object does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error404NotFoundList'
+    ErrorForbidden403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error403ForbiddenList'
     OnboardingFormLink:
       description: A link for users to return to their `onboarding_form` at any time.
       content:
@@ -1023,12 +1022,13 @@ components:
               value:
                 expires_at: '2022-07-11T22:39:55.469Z'
                 link_url: https://sandbox.payments-dashboard.com/merchant-onboarding?formId=obf_bXQj8iSgYwXf432yJcWbKv&applicationId=APgPDQrLD52TYvqazjHJJchM&bearerToken=eyJhbGciOiJIUzUxMiJ9.eyJvbmJvYXJkaW5nX2Zvcm1faWQiOiJvYmZfYlhRajhpU2dZd1hmNDMyeUpjV2JLdiIsImZlZV9kZXRhaWxzX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS9kb2NzIiwiZXhwaXJlZF9zZXNzaW9uX3VybCI6Imh0dHBzOi8vd3d3LmZpbml4LmNvbS8iLCJpc3MiOiJodHRwczovL3d3dy5maW5peC5jb20iLCJyZXR1cm5fdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL2RvY3MiLCJleHAiOjE2NTc1NzkxOTUsImFwcGxpY2F0aW9uX2lkIjoiQVBnUERRckxENTJUWXZxYXpqSEpKY2hNIiwiaWF0IjoxNjU3NTc3Mzk1LCJtZXJjaGFudF9tYXhfdHJhbnNhY3Rpb25fYW1vdW50IjoxMDAwMDAsInRlcm1zX29mX3NlcnZpY2VfdXJsIjoiaHR0cHM6Ly93d3cuZmluaXguY29tL3Rlcm1zLWFuZC1wb2xpY2llcyJ9.uQvwqhOxSmpX4zMSVn891ClNB_cWHmXhLfyOzRiKRoyn7VAqVOWrO8dJiY-OvN4venPWnPOxM0r3NiIyfgQv6g
-    ErrorForbidden403:
-      description: Forbidden
+    Error406NotAcceptable:
+      description: Not Acceptable
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error403ForbiddenList'
+            $ref: '#/components/schemas/Error406NotAcceptable'
+          examples: {}
     OnboardingForm:
       description: A single `onboarding_from` objext.
       content:

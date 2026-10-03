@@ -147,7 +147,116 @@ paths:
       - Payout Profiles
       x-python-method-name: get_by_merchant_id
 components:
+  requestBodies:
+    UpdatePayoutProfileRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdatePayoutProfileRequest'
+          examples:
+            Payout Profile - Gross:
+              value:
+                type: GROSS
+                gross:
+                  payouts:
+                    frequency: DAILY
+                    submission_delay_days: '1'
+                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                    rail: SAME_DAY_ACH
+                  fees:
+                    frequency: MONTHLY
+                    day_of_month: '1'
+                    submission_delay_days: '3'
+                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                    rail: SAME_DAY_ACH
+            Payout Profile - Net:
+              value:
+                type: NET
+                net:
+                  frequency: CONTINUOUS
+                  submission_delay_days: '1'
+                  payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                  rail: SAME_DAY_ACH
   responses:
+    ErrorUnauthorized:
+      description: Authentication information is missing or invalid
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error401Unauthorized'
+    Error422InvalidField:
+      description: Invalid field
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error422InvalidFieldList'
+    PayoutProfile:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PayoutProfile'
+          examples:
+            Payout Profile - Gross:
+              value:
+                id: POmhJeq1AsfwetG8LwhA4S9U
+                created_at: '2022-10-25T16:54:08.20Z'
+                updated_at: '2022-10-25T16:54:08.20Z'
+                linked_id: MU6TXYpA37uM9H4GwitQr8E3
+                linked_type: MERCHANT
+                gross:
+                  payouts:
+                    frequency: DAILY
+                    submission_delay_days: 1
+                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                    rail: SAME_DAY_ACH
+                  fees:
+                    frequency: MONTHLY
+                    day_of_month: 1
+                    submission_delay_days: 3
+                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                    rail: SAME_DAY_ACH
+                tags: {}
+                type: GROSS
+                _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/payout_profiles/POmhJeq1AsfwetG8LwhA4S9U
+            Payout Profile - Net:
+              value:
+                id: POhiPobG6PoUteNVKpUauWVP
+                created_at: '2022-10-25T07:20:34.37Z'
+                updated_at: '2022-10-25T07:20:34.37Z'
+                linked_id: MU6TXYpA37uM9H4GwitQr8E3
+                linked_type: MERCHANT
+                net:
+                  frequency: CONTINUOUS
+                  submission_delay_days: 1
+                  payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
+                  rail: STANDARD
+                tags: {}
+                type: NET
+                _links:
+                  self:
+                    href: https://finix.sandbox-payments-api.com/payout_profiles/POhiPobG6PoUteNVKpUauWVP
+      headers:
+        finix-apiuser-role:
+          $ref: '#/components/headers/finix-apiuser-role'
+        date:
+          $ref: '#/components/headers/date'
+        x-request-id:
+          $ref: '#/components/headers/x-request-id'
+    ErrorNotFound:
+      description: Object does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error404NotFoundList'
+    ErrorForbidden403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error403ForbiddenList'
     PayoutProfilesList:
       description: ''
       content:
@@ -207,18 +316,6 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
-    ErrorUnauthorized:
-      description: Authentication information is missing or invalid
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error401Unauthorized'
-    ErrorNotFound:
-      description: Object does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error404NotFoundList'
     Error406NotAcceptable:
       description: Not Acceptable
       content:
@@ -226,75 +323,32 @@ components:
           schema:
             $ref: '#/components/schemas/Error406NotAcceptable'
           examples: {}
-    PayoutProfile:
-      description: ''
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/PayoutProfile'
-          examples:
-            Payout Profile - Gross:
-              value:
-                id: POmhJeq1AsfwetG8LwhA4S9U
-                created_at: '2022-10-25T16:54:08.20Z'
-                updated_at: '2022-10-25T16:54:08.20Z'
-                linked_id: MU6TXYpA37uM9H4GwitQr8E3
-                linked_type: MERCHANT
-                gross:
-                  payouts:
-                    frequency: DAILY
-                    submission_delay_days: 1
-                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                    rail: SAME_DAY_ACH
-                  fees:
-                    frequency: MONTHLY
-                    day_of_month: 1
-                    submission_delay_days: 3
-                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                    rail: SAME_DAY_ACH
-                tags: {}
-                type: GROSS
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/payout_profiles/POmhJeq1AsfwetG8LwhA4S9U
-            Payout Profile - Net:
-              value:
-                id: POhiPobG6PoUteNVKpUauWVP
-                created_at: '2022-10-25T07:20:34.37Z'
-                updated_at: '2022-10-25T07:20:34.37Z'
-                linked_id: MU6TXYpA37uM9H4GwitQr8E3
-                linked_type: MERCHANT
-                net:
-                  frequency: CONTINUOUS
-                  submission_delay_days: 1
-                  payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                  rail: STANDARD
-                tags: {}
-                type: NET
-                _links:
-                  self:
-                    href: https://finix.sandbox-payments-api.com/payout_profiles/POhiPobG6PoUteNVKpUauWVP
-      headers:
-        finix-apiuser-role:
-          $ref: '#/components/headers/finix-apiuser-role'
-        date:
-          $ref: '#/components/headers/date'
-        x-request-id:
-          $ref: '#/components/headers/x-request-id'
-    Error422InvalidField:
-      description: Invalid field
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error422InvalidFieldList'
-    ErrorForbidden403:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error403ForbiddenList'
   schemas:
-    Error403ForbiddenList:
+    ListLinks:
+      title: ListLinks
+      additionalProperties: true
+      type: object
+      description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
+      properties:
+        next:
+          type: object
+          description: Link to the next page of entries.
+          properties:
+            href:
+              type: string
+        self:
+          type: object
+          description: Link to the resource that was used in the request.
+          properties:
+            href:
+              type: string
+    LogRef:
+      title: LogRef
+      type: object
+      properties:
+        logref:
+          type: string
+    Error406NotAcceptable:
       type: object
       properties:
         total:
@@ -311,7 +365,7 @@ components:
                   code:
                     type: string
                     enum:
-                    - FORBIDDEN
+                    - NOT_FOUND
                   logref:
                     $ref: '#/components/schemas/LogRef'
                   message:
@@ -324,8 +378,81 @@ components:
                         properties:
                           href:
                             type: string
-      description: ''
       title: ''
+    Error422InvalidFieldList:
+      type: object
+      description: Invalid field
+      title: ''
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - INVALID_FIELD
+                  field:
+                    type: string
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    CreatedAt:
+      type: string
+      title: CreatedAt
+      format: date-time
+      description: Timestamp of when the object was created.
+    Error401Unauthorized:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - UNKNOWN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    additionalProperties: true
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
     PayoutProfilesList:
       type: object
       x-examples:
@@ -388,94 +515,6 @@ components:
           $ref: '#/components/schemas/ListLinks'
         page:
           $ref: '#/components/schemas/PageCursor'
-    Tags:
-      type:
-      - object
-      - 'null'
-      title: tags
-      additionalProperties:
-        type: string
-      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
-
-        - Maximum character length for individual `keys` is 40.
-
-        - Maximum character length for individual **values** is 500.
-
-
-        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
-    Error404NotFoundList:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - NOT_FOUND
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    Error422InvalidFieldList:
-      type: object
-      description: Invalid field
-      title: ''
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - INVALID_FIELD
-                  field:
-                    type: string
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    CreatedAt:
-      type: string
-      title: CreatedAt
-      format: date-time
-      description: Timestamp of when the object was created.
-    UpdatedAt:
-      type: string
-      title: UpdatedAt
-      format: date-time
-      description: Timestamp of when the object was last updated.
     PayoutProfile:
       type: object
       properties:
@@ -591,7 +630,39 @@ components:
           - object
           - 'null'
           description: Details how `Payout Profiles` with type **CUSTOM** are configured. `Payout Profiles` with type **CUSTOM** can be setup with more specific configurations. To configure a **CUSTOM** `Payout Profile` [contact Finix Support](/guides/payouts/#payout-types).
-    Error406NotAcceptable:
+    Error403ForbiddenList:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - FORBIDDEN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+      description: ''
+      title: ''
+    Error404NotFoundList:
       type: object
       properties:
         total:
@@ -621,13 +692,6 @@ components:
                         properties:
                           href:
                             type: string
-      title: ''
-    LogRef:
-      title: LogRef
-      type: object
-      properties:
-        logref:
-          type: string
     PageCursor:
       title: PageCursor
       x-stoplight:
@@ -735,107 +799,34 @@ components:
             submission_delay_days:
               type: integer
               description: Include a number of `submission_delay_days` to delay when `funding_transfers` for both payouts *and* fees get submitted (in days) to debit/credit the `payment_instrument_id`.
-    Error401Unauthorized:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - UNKNOWN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    additionalProperties: true
-                    properties:
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    ListLinks:
-      title: ListLinks
-      additionalProperties: true
-      type: object
-      description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
-      properties:
-        next:
-          type: object
-          description: Link to the next page of entries.
-          properties:
-            href:
-              type: string
-        self:
-          type: object
-          description: Link to the resource that was used in the request.
-          properties:
-            href:
-              type: string
-  parameters:
-    QueryAfterCursor:
-      name: after_cursor
-      in: query
-      required: false
+    UpdatedAt:
+      type: string
+      title: UpdatedAt
+      format: date-time
+      description: Timestamp of when the object was last updated.
+    Tags:
+      type:
+      - object
+      - 'null'
+      title: tags
+      additionalProperties:
+        type: string
+      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
+
+        - Maximum character length for individual `keys` is 40.
+
+        - Maximum character length for individual **values** is 500.
+
+
+        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
+  headers:
+    x-request-id:
+      description: A unique ID for this specific API request attempt.
       schema:
         type: string
-      description: Return every resource created after the cursor value.
-    QueryLimit:
-      description: The numbers of items to return.
-      example: 10
-      in: query
-      name: limit
+    date:
       schema:
-        type: integer
-      style: form
-  requestBodies:
-    UpdatePayoutProfileRequest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UpdatePayoutProfileRequest'
-          examples:
-            Payout Profile - Gross:
-              value:
-                type: GROSS
-                gross:
-                  payouts:
-                    frequency: DAILY
-                    submission_delay_days: '1'
-                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                    rail: SAME_DAY_ACH
-                  fees:
-                    frequency: MONTHLY
-                    day_of_month: '1'
-                    submission_delay_days: '3'
-                    payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                    rail: SAME_DAY_ACH
-            Payout Profile - Net:
-              value:
-                type: NET
-                net:
-                  frequency: CONTINUOUS
-                  submission_delay_days: '1'
-                  payment_instrument_id: PI2EmosKE8tvfSiF7Pd4SYE
-                  rail: SAME_DAY_ACH
-  headers:
+        type: string
     finix-apiuser-role:
       schema:
         type: string
@@ -844,13 +835,22 @@ components:
         - ROLE_PLATFORM
         - ROLE_PARTNER
         - ROLE_MERCHANT
-    x-request-id:
-      description: A unique ID for this specific API request attempt.
+  parameters:
+    QueryLimit:
+      description: The numbers of items to return.
+      example: 10
+      in: query
+      name: limit
+      schema:
+        type: integer
+      style: form
+    QueryAfterCursor:
+      name: after_cursor
+      in: query
+      required: false
       schema:
         type: string
-    date:
-      schema:
-        type: string
+      description: Return every resource created after the cursor value.
   securitySchemes:
     BasicAuth:
       type: http
