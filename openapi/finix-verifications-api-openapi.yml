@@ -220,6 +220,41 @@ paths:
       x-python-method-name: get
 components:
   schemas:
+    Error404NotFoundList:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - NOT_FOUND
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    CreatedAt:
+      type: string
+      title: CreatedAt
+      format: date-time
+      description: Timestamp of when the object was created.
     Address:
       title: Address
       type:
@@ -272,12 +307,6 @@ components:
           properties:
             href:
               type: string
-    LogRef:
-      title: LogRef
-      type: object
-      properties:
-        logref:
-          type: string
     Error406NotAcceptable:
       type: object
       properties:
@@ -309,155 +338,21 @@ components:
                           href:
                             type: string
       title: ''
-    Verification:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The ID of the `Verification` attempt (begins with `VIXXX`).
-        created_at:
-          $ref: '#/components/schemas/CreatedAt'
-        updated_at:
-          $ref: '#/components/schemas/UpdatedAt'
-        application:
-          type: string
-          description: ID of the `Application` the `Merchant` was created under.
-        identity:
-          type:
-          - string
-          - 'null'
-          description: ID of the `Identity` that created the `Merchant`.
-        merchant:
-          type:
-          - string
-          - 'null'
-          description: ID of the `Merchant` resource.
-        merchant_identity:
-          type:
-          - string
-          - 'null'
-          description: ID of the `Identity` associated with the `Merchant`.
-        messages:
-          type: array
-          description: Provides additional details about the verification (e.g why it failed). This field is usually **null**.
-          items:
-            type: object
-        payment_instrument:
-          type:
-          - string
-          - 'null'
-          description: The `Payment Instrument` that's used to settle the `Merchant's` processed funds.
-        payment_instrument_verification_details:
-          type: object
-          description: Details the verification results of `Payment Instruments`.
-          properties:
-            push_to_card_domestic:
-              type: string
-              description: Details if the `Payment Instrument` supports push and pull from card, domestically. For more details, see [Push to Card](/guides/push-pull/).
-              enum:
-              - FAST_FUNDS
-              - NON_FAST_FUNDS
-              - NOT_SUPPORTED
-              - UNKNOWN
-            push_to_card_cross_border:
-              type: string
-              description: Details if the `Payment Instrument` supports push and pull from card, cross-border. For more details, see [Push to Card](/guides/push-pull/).
-              enum:
-              - FAST_FUNDS
-              - NON_FAST_FUNDS
-              - NOT_SUPPORTED
-              - UNKNOWN
-            card_type:
-              type: string
-              description: The type of card. Same value as `Payment Instrument#type`.
-              enum:
-              - CREDIT
-              - DEBIT
-              - HSA_FSA
-              - NON_RELOADABLE_PREPAID
-              - RELOADABLE_PREPAID
-              - UNKNOWN
-            billing_currency:
-              $ref: '#/components/schemas/Currency'
-            issuer_country:
-              $ref: '#/components/schemas/Country'
-        processor:
-          type: string
-          description: Name of the verification processor.
-        raw:
-          $ref: '#/components/schemas/Raw'
-        state:
-          type: string
-          description: The status of the `Verification` request.
-          enum:
-          - PENDING
-          - SUCCEEDED
-          - FAILED
-        tags:
-          $ref: '#/components/schemas/Tags'
-        trace_id:
-          type: string
-          description: Trace ID of the `Verification`. The processor sends back the `trace_id` so you can track the verification end-to-end.
-        _links:
-          type: object
-          description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
-          properties:
-            self:
-              type: object
-              description: Link to the resource that was used in the request.
-              properties:
-                href:
-                  type: string
-            merchant:
-              type: object
-              description: Link to the `Merchant` that was used in the request.
-              properties:
-                href:
-                  type: string
-            application:
-              type: object
-              description: Link to the `Application` that was used in the request.
-              properties:
-                href:
-                  type: string
-    Error422InvalidFieldList:
-      type: object
-      description: Invalid field
-      title: ''
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - INVALID_FIELD
-                  field:
-                    type: string
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    CreatedAt:
-      type: string
-      title: CreatedAt
-      format: date-time
-      description: Timestamp of when the object was created.
+    Tags:
+      type:
+      - object
+      - 'null'
+      title: tags
+      additionalProperties:
+        type: string
+      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
+
+        - Maximum character length for individual `keys` is 40.
+
+        - Maximum character length for individual **values** is 500.
+
+
+        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
     Currency:
       type: string
       description: ISO 4217 3 letter currency code.
@@ -641,6 +536,39 @@ components:
       - ZAR
       - ZMW
       - ZWL
+    Error422InvalidFieldList:
+      type: object
+      description: Invalid field
+      title: ''
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - INVALID_FIELD
+                  field:
+                    type: string
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
     VerificationsList:
       type: object
       x-examples:
@@ -712,46 +640,152 @@ components:
           $ref: '#/components/schemas/ListLinks'
         page:
           $ref: '#/components/schemas/PageCursor'
-    CreateVerificationRequest:
+    ErrorGeneric:
       type: object
       properties:
-        merchant:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - FORBIDDEN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    properties:
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    UpdatedAt:
+      type: string
+      title: UpdatedAt
+      format: date-time
+      description: Timestamp of when the object was last updated.
+    Verification:
+      type: object
+      properties:
+        id:
           type: string
-          description: '- The ID of the `Merchant`.
-
-            - Must be included when `verify_payment_card` is set to **true**.'
+          description: The ID of the `Verification` attempt (begins with `VIXXX`).
+        created_at:
+          $ref: '#/components/schemas/CreatedAt'
+        updated_at:
+          $ref: '#/components/schemas/UpdatedAt'
+        application:
+          type: string
+          description: ID of the `Application` the `Merchant` was created under.
+        identity:
+          type:
+          - string
+          - 'null'
+          description: ID of the `Identity` that created the `Merchant`.
+        merchant:
+          type:
+          - string
+          - 'null'
+          description: ID of the `Merchant` resource.
+        merchant_identity:
+          type:
+          - string
+          - 'null'
+          description: ID of the `Identity` associated with the `Merchant`.
+        messages:
+          type: array
+          description: Provides additional details about the verification (e.g why it failed). This field is usually **null**.
+          items:
+            type: object
+        payment_instrument:
+          type:
+          - string
+          - 'null'
+          description: The `Payment Instrument` that's used to settle the `Merchant's` processed funds.
+        payment_instrument_verification_details:
+          type: object
+          description: Details the verification results of `Payment Instruments`.
+          properties:
+            push_to_card_domestic:
+              type: string
+              description: Details if the `Payment Instrument` supports push and pull from card, domestically. For more details, see [Push to Card](/guides/push-pull/).
+              enum:
+              - FAST_FUNDS
+              - NON_FAST_FUNDS
+              - NOT_SUPPORTED
+              - UNKNOWN
+            push_to_card_cross_border:
+              type: string
+              description: Details if the `Payment Instrument` supports push and pull from card, cross-border. For more details, see [Push to Card](/guides/push-pull/).
+              enum:
+              - FAST_FUNDS
+              - NON_FAST_FUNDS
+              - NOT_SUPPORTED
+              - UNKNOWN
+            card_type:
+              type: string
+              description: The type of card. Same value as `Payment Instrument#type`.
+              enum:
+              - CREDIT
+              - DEBIT
+              - HSA_FSA
+              - NON_RELOADABLE_PREPAID
+              - RELOADABLE_PREPAID
+              - UNKNOWN
+            billing_currency:
+              $ref: '#/components/schemas/Currency'
+            issuer_country:
+              $ref: '#/components/schemas/Country'
         processor:
           type: string
-          enum:
-          - DUMMY_V1
-          - MASTERCARD_V1
-          - VISA_V1
-          default: DUMMY_V1
-          description: 'Set the acquiring processor. Avalible values include: <ul><li><strong>DUMMY_V1</strong></li><li><strong>MASTERCARD_V1</strong></li><li><strong>VISA_V1</strong></li></ul>Use <strong>DUMMY_V1</strong> or  <strong>null</strong> to use your sandbox. For more details on which processor to use, reach out to your Finix point of contact or email <a href="/guides/getting-started/support-at-finix/">Finix Support</a>.'
-        security_code:
+          description: Name of the verification processor.
+        raw:
+          $ref: '#/components/schemas/Raw'
+        state:
           type: string
-          description: The ID of the `Merchant`.
-        verify_payment_card:
-          type: boolean
-          description: '- Set to **true** to verify card details with the card issuer.
-
-            - Must be set to **true** to update the CVV or security code of a card.
-
-            - When set to **true**, `merchant` must also be included with your request.'
+          description: The status of the `Verification` request.
+          enum:
+          - PENDING
+          - SUCCEEDED
+          - FAILED
         tags:
           $ref: '#/components/schemas/Tags'
-        address:
-          $ref: '#/components/schemas/Address'
-        identity:
+        trace_id:
           type: string
-          description: ID of the `Identity` resource associated with the `Merchant`.
-    Raw:
-      title: Raw
-      description: Raw response from the processor.
-      x-examples: {}
-      type:
-      - object
-      - 'null'
+          description: Trace ID of the `Verification`. The processor sends back the `trace_id` so you can track the verification end-to-end.
+        _links:
+          type: object
+          description: For your convenience, every response includes several URLs which link to resources relevant to the request. You can use these `_links` to make your follow-up requests and quickly access relevant IDs.
+          properties:
+            self:
+              type: object
+              description: Link to the resource that was used in the request.
+              properties:
+                href:
+                  type: string
+            merchant:
+              type: object
+              description: Link to the `Merchant` that was used in the request.
+              properties:
+                href:
+                  type: string
+            application:
+              type: object
+              description: Link to the `Application` that was used in the request.
+              properties:
+                href:
+                  type: string
     Error401Unauthorized:
       type: object
       properties:
@@ -788,6 +822,67 @@ components:
                         properties:
                           href:
                             type: string
+    PageCursor:
+      title: PageCursor
+      x-stoplight:
+        id: 8v9on8n2939z2
+      type: object
+      properties:
+        limit:
+          type: integer
+          description: The number of entries to return.
+        next_cursor:
+          type:
+          - string
+          - 'null'
+          description: The cursor to use for the next page of results.
+      description: Details the page that's returned.
+    LogRef:
+      title: LogRef
+      type: object
+      properties:
+        logref:
+          type: string
+    Raw:
+      title: Raw
+      description: Raw response from the processor.
+      x-examples: {}
+      type:
+      - object
+      - 'null'
+    CreateVerificationRequest:
+      type: object
+      properties:
+        merchant:
+          type: string
+          description: '- The ID of the `Merchant`.
+
+            - Must be included when `verify_payment_card` is set to **true**.'
+        processor:
+          type: string
+          enum:
+          - DUMMY_V1
+          - MASTERCARD_V1
+          - VISA_V1
+          default: DUMMY_V1
+          description: 'Set the acquiring processor. Avalible values include: <ul><li><strong>DUMMY_V1</strong></li><li><strong>MASTERCARD_V1</strong></li><li><strong>VISA_V1</strong></li></ul>Use <strong>DUMMY_V1</strong> or  <strong>null</strong> to use your sandbox. For more details on which processor to use, reach out to your Finix point of contact or email <a href="/guides/getting-started/support-at-finix/">Finix Support</a>.'
+        security_code:
+          type: string
+          description: The ID of the `Merchant`.
+        verify_payment_card:
+          type: boolean
+          description: '- Set to **true** to verify card details with the card issuer.
+
+            - Must be set to **true** to update the CVV or security code of a card.
+
+            - When set to **true**, `merchant` must also be included with your request.'
+        tags:
+          $ref: '#/components/schemas/Tags'
+        address:
+          $ref: '#/components/schemas/Address'
+        identity:
+          type: string
+          description: ID of the `Identity` resource associated with the `Merchant`.
     Country:
       title: Country
       type:
@@ -1044,36 +1139,6 @@ components:
       - ZMB
       - ZWE
       description: The sender’s country.
-    Error404NotFoundList:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - NOT_FOUND
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
     Error403ForbiddenList:
       type: object
       properties:
@@ -1106,78 +1171,20 @@ components:
                             type: string
       description: ''
       title: ''
-    PageCursor:
-      title: PageCursor
-      x-stoplight:
-        id: 8v9on8n2939z2
-      type: object
-      properties:
-        limit:
-          type: integer
-          description: The number of entries to return.
-        next_cursor:
-          type:
-          - string
-          - 'null'
-          description: The cursor to use for the next page of results.
-      description: Details the page that's returned.
-    UpdatedAt:
-      type: string
-      title: UpdatedAt
-      format: date-time
-      description: Timestamp of when the object was last updated.
-    ErrorGeneric:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - FORBIDDEN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    properties:
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    Tags:
-      type:
-      - object
-      - 'null'
-      title: tags
-      additionalProperties:
-        type: string
-      description: 'Include up to 50 `key`: **value** pairs to annotate requests with custom metadata.
-
-        - Maximum character length for individual `keys` is 40.
-
-        - Maximum character length for individual **values** is 500.
-
-
-        (e.g., `order number`: **25**, `item_type`: **produce**, `department`: **sales**, etc.)'
   responses:
-    ErrorUnauthorized:
-      description: Authentication information is missing or invalid
+    Error406NotAcceptable:
+      description: Not Acceptable
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error401Unauthorized'
+            $ref: '#/components/schemas/Error406NotAcceptable'
+          examples: {}
+    ErrorUnprocessableEntity:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorGeneric'
     Error422InvalidField:
       description: Invalid field
       content:
@@ -1190,12 +1197,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error404NotFoundList'
-    ErrorForbidden403:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error403ForbiddenList'
     VerificationsList:
       description: List of Verification objects
       content:
@@ -1318,13 +1319,18 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
-    Error406NotAcceptable:
-      description: Not Acceptable
+    ErrorUnauthorized:
+      description: Authentication information is missing or invalid
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error406NotAcceptable'
-          examples: {}
+            $ref: '#/components/schemas/Error401Unauthorized'
+    ErrorForbidden403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error403ForbiddenList'
     Verification:
       description: Single Verification object
       content:
@@ -1429,12 +1435,45 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
-    ErrorUnprocessableEntity:
-      description: Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorGeneric'
+  headers:
+    date:
+      schema:
+        type: string
+    x-request-id:
+      description: A unique ID for this specific API request attempt.
+      schema:
+        type: string
+    finix-apiuser-role:
+      schema:
+        type: string
+        enum:
+        - ROLE_ADMIN
+        - ROLE_PLATFORM
+        - ROLE_PARTNER
+        - ROLE_MERCHANT
+  parameters:
+    QueryBeforeCursor:
+      name: before_cursor
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Return every resource created before the cursor value.
+    QueryLimit:
+      description: The numbers of items to return.
+      example: 10
+      in: query
+      name: limit
+      schema:
+        type: integer
+      style: form
+    QueryAfterCursor:
+      name: after_cursor
+      in: query
+      required: false
+      schema:
+        type: string
+      description: Return every resource created after the cursor value.
   requestBodies:
     CreateVerificationRequest:
       content:
@@ -1463,45 +1502,6 @@ components:
                 merchant: MUgWbPVvtKbzjKNNGKqdQYV7
                 tags:
                   card_name: Business_Card
-  parameters:
-    QueryBeforeCursor:
-      name: before_cursor
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Return every resource created before the cursor value.
-    QueryLimit:
-      description: The numbers of items to return.
-      example: 10
-      in: query
-      name: limit
-      schema:
-        type: integer
-      style: form
-    QueryAfterCursor:
-      name: after_cursor
-      in: query
-      required: false
-      schema:
-        type: string
-      description: Return every resource created after the cursor value.
-  headers:
-    x-request-id:
-      description: A unique ID for this specific API request attempt.
-      schema:
-        type: string
-    date:
-      schema:
-        type: string
-    finix-apiuser-role:
-      schema:
-        type: string
-        enum:
-        - ROLE_ADMIN
-        - ROLE_PLATFORM
-        - ROLE_PARTNER
-        - ROLE_MERCHANT
   securitySchemes:
     BasicAuth:
       type: http
