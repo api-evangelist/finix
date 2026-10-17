@@ -123,7 +123,17 @@ paths:
       x-python-method-name: get
 components:
   schemas:
-    Error404NotFoundList:
+    UpdatedAt:
+      type: string
+      title: UpdatedAt
+      format: date-time
+      description: Timestamp of when the object was last updated.
+    CreatedAt:
+      type: string
+      title: CreatedAt
+      format: date-time
+      description: Timestamp of when the object was created.
+    ErrorGeneric:
       type: object
       properties:
         total:
@@ -140,7 +150,7 @@ components:
                   code:
                     type: string
                     enum:
-                    - NOT_FOUND
+                    - FORBIDDEN
                   logref:
                     $ref: '#/components/schemas/LogRef'
                   message:
@@ -153,11 +163,65 @@ components:
                         properties:
                           href:
                             type: string
-    CreatedAt:
-      type: string
-      title: CreatedAt
-      format: date-time
-      description: Timestamp of when the object was created.
+    LogRef:
+      title: LogRef
+      type: object
+      properties:
+        logref:
+          type: string
+    Error401Unauthorized:
+      type: object
+      properties:
+        total:
+          type: integer
+        _embedded:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                additionalProperties: true
+                properties:
+                  code:
+                    type: string
+                    enum:
+                    - UNKNOWN
+                  logref:
+                    $ref: '#/components/schemas/LogRef'
+                  message:
+                    type: string
+                  _links:
+                    type: object
+                    additionalProperties: true
+                    properties:
+                      self:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+                      source:
+                        type: object
+                        properties:
+                          href:
+                            type: string
+    CreateInstrumentUpdateRequest:
+      type: object
+      x-examples: {}
+      title: ''
+      properties:
+        file:
+          type: string
+          description: The binary contents of the file.
+          format: binary
+        request:
+          type: string
+          description: 'A JSON string of your request. The JSON object needs to contain the following two fields:
+
+            - `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.
+
+            - `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.'
+          example: '{"merchant":"MUucec6fHeaWo3VHYoSkUySM",  "idempotency_id":"123xyz" }'
     InstrumentUpdate:
       title: InstrumentUpdates
       x-stoplight:
@@ -233,7 +297,7 @@ components:
                           href:
                             type: string
       title: ''
-    ErrorGeneric:
+    Error404NotFoundList:
       type: object
       properties:
         total:
@@ -250,7 +314,7 @@ components:
                   code:
                     type: string
                     enum:
-                    - FORBIDDEN
+                    - NOT_FOUND
                   logref:
                     $ref: '#/components/schemas/LogRef'
                   message:
@@ -263,70 +327,6 @@ components:
                         properties:
                           href:
                             type: string
-    UpdatedAt:
-      type: string
-      title: UpdatedAt
-      format: date-time
-      description: Timestamp of when the object was last updated.
-    Error401Unauthorized:
-      type: object
-      properties:
-        total:
-          type: integer
-        _embedded:
-          type: object
-          properties:
-            errors:
-              type: array
-              items:
-                type: object
-                additionalProperties: true
-                properties:
-                  code:
-                    type: string
-                    enum:
-                    - UNKNOWN
-                  logref:
-                    $ref: '#/components/schemas/LogRef'
-                  message:
-                    type: string
-                  _links:
-                    type: object
-                    additionalProperties: true
-                    properties:
-                      self:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-                      source:
-                        type: object
-                        properties:
-                          href:
-                            type: string
-    LogRef:
-      title: LogRef
-      type: object
-      properties:
-        logref:
-          type: string
-    CreateInstrumentUpdateRequest:
-      type: object
-      x-examples: {}
-      title: ''
-      properties:
-        file:
-          type: string
-          description: The binary contents of the file.
-          format: binary
-        request:
-          type: string
-          description: 'A JSON string of your request. The JSON object needs to contain the following two fields:
-
-            - `merchant`: ID of the `Merchant` object that you want to associate with the Account Updater batch for your own accounting purposes. You can only associate one `Merchant` to each.
-
-            - `idemopotency_id`: A randomly generated value that will be associated with this `instrument_update` resource.'
-          example: '{"merchant":"MUucec6fHeaWo3VHYoSkUySM",  "idempotency_id":"123xyz" }'
     Error403ForbiddenList:
       type: object
       properties:
@@ -359,38 +359,38 @@ components:
                             type: string
       description: ''
       title: ''
+  headers:
+    x-request-id:
+      description: A unique ID for this specific API request attempt.
+      schema:
+        type: string
+    finix-apiuser-role:
+      schema:
+        type: string
+        enum:
+        - ROLE_ADMIN
+        - ROLE_PLATFORM
+        - ROLE_PARTNER
+        - ROLE_MERCHANT
+    date:
+      schema:
+        type: string
+  parameters:
+    QueryFormat:
+      name: format
+      in: query
+      required: false
+      schema:
+        type: string
+        example: /download?format=json
+      description: Specify the format you'd like to download the response in (JSON is the only other format available for download).
   responses:
-    Error406NotAcceptable:
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error406NotAcceptable'
-          examples: {}
-    ErrorUnprocessableEntity:
-      description: Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorGeneric'
-    ErrorNotFound:
-      description: Object does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error404NotFoundList'
     ErrorUnauthorized:
       description: Authentication information is missing or invalid
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error401Unauthorized'
-    ErrorForbidden403:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error403ForbiddenList'
     InstrumentUpdate:
       description: Single instrument_update object
       content:
@@ -416,31 +416,31 @@ components:
           $ref: '#/components/headers/date'
         x-request-id:
           $ref: '#/components/headers/x-request-id'
-  headers:
-    date:
-      schema:
-        type: string
-    x-request-id:
-      description: A unique ID for this specific API request attempt.
-      schema:
-        type: string
-    finix-apiuser-role:
-      schema:
-        type: string
-        enum:
-        - ROLE_ADMIN
-        - ROLE_PLATFORM
-        - ROLE_PARTNER
-        - ROLE_MERCHANT
-  parameters:
-    QueryFormat:
-      name: format
-      in: query
-      required: false
-      schema:
-        type: string
-        example: /download?format=json
-      description: Specify the format you'd like to download the response in (JSON is the only other format available for download).
+    ErrorNotFound:
+      description: Object does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error404NotFoundList'
+    ErrorForbidden403:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error403ForbiddenList'
+    Error406NotAcceptable:
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error406NotAcceptable'
+          examples: {}
+    ErrorUnprocessableEntity:
+      description: Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorGeneric'
   requestBodies:
     CreateInstrumentUpdateRequest:
       content:
